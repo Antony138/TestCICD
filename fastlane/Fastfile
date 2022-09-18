@@ -9,7 +9,9 @@ platform :ios do
 
   desc "Building"
   lane :build do
-    xcode_install
+    xcode_install(
+      username: "antonyjapan138@gmail.com"
+    )
 
     xcode_select("/Applications/Xcode.app")
     
