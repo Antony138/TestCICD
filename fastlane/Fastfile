@@ -15,9 +15,6 @@ platform :ios do
 
     match_adhoc
 
-    xcconfigDir = "../"
-    puts "xcconfigDir: #{xcconfigDir}"
-    
     archive
     
     upload_deploygate
@@ -71,7 +68,7 @@ private_lane :archive do
 		scheme: "TestCICD", # The project's scheme. Make sure it's marked as `Shared`
 		clean: true,
 		xcargs: settings_to_override,
-		# xcconfig: "../Config.xcconfig",
+		xcconfig: "././Config.xcconfig",
 		silent: true
 	)
 end
