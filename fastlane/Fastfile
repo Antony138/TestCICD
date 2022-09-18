@@ -92,7 +92,8 @@ private_lane :check_env_var do
       'APP_STORE_CONNECT_API_KEY_KEY',        # Use "cat AuthKey_ABCDEFGH.p8 | base64" to generate the content (The original .p8 file, store in Antony's laptop)
       'MATCH_GIT_URL',                        # URL of the certificates repository
       'MATCH_GIT_BASIC_AUTHORIZATION',        # Use to access the certificates repository: evp4-ios-certificates
-      'MATCH_PASSWORD'
+      'MATCH_PASSWORD',
+      'MATCH_KEYCHAIN_PASSWORD' # runer电脑的密码
     ]
   )
 end
