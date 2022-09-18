@@ -47,6 +47,7 @@ private_lane :match_adhoc do
 	get_apple_api_key
 
 	match(
+    git_url: ENV["MATCH_GIT_URL"], # 因为是环境变量，不写也可以
 		type: 'adhoc',
 		app_identifier: "jp.tokyo.TestCICD",
 		api_key: lane_context[SharedValues::APP_STORE_CONNECT_API_KEY],
