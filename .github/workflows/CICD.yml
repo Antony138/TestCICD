@@ -6,7 +6,8 @@ on:
 
 jobs:
   build:
-    runs-on: [self-hosted, macOS, ARM64, M1, Air]
+    # runs-on: [self-hosted, macOS, ARM64, M1, Air]
+    runs-on: [self-hosted, macOS, ARM64, M1?Air]
     env:
       LC_ALL: en_US.UTF-8
       LANG: en_US.UTF-8
