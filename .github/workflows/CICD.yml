@@ -20,8 +20,8 @@ jobs:
       #   with:
       #     ruby-version: '2.7.2'
 
-      # - name: Install bundler
-      #   run: gem install bundler
+      - name: Install bundler
+        run: gem install bundler
 
       # - name: Run bundler
       #   run: bundle install
