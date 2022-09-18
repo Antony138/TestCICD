@@ -99,7 +99,6 @@ private_lane :check_env_var do
       'MATCH_GIT_URL',                        # URL of the certificates repository
       'MATCH_GIT_BASIC_AUTHORIZATION',        # Use to access the certificates repository: evp4-ios-certificates
       'MATCH_PASSWORD',
-      'FASTLANE_PASSWORD' # 苹果开发者账号密码
       # 'MATCH_KEYCHAIN_PASSWORD' # runer电脑的密码
     ]
   )
