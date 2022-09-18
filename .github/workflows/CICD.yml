@@ -15,20 +15,21 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set up Ruby 2.7.2
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '2.7.2'
+      # - name: Set up Ruby 2.7.2
+      #   uses: ruby/setup-ruby@v1
+      #   with:
+      #     ruby-version: '2.7.2'
 
-      - name: Install bundler
-        run: gem install bundler
+      # - name: Install bundler
+      #   run: gem install bundler
 
-      - name: Run bundler
-        run: bundle install
+      # - name: Run bundler
+      #   run: bundle install
         # run: bundle install --path vendor/bundle
 
       - name: Buiding!
-        run: bundle exec fastlane build
+        run: fastlane build
+        # run: bundle exec fastlane build
         env:
           APP_STORE_CONNECT_API_KEY_KEY_ID: '${{ secrets.APP_STORE_CONNECT_API_KEY_KEY_ID }}'
           APP_STORE_CONNECT_API_KEY_ISSUER_ID: '${{ secrets.APP_STORE_CONNECT_API_KEY_ISSUER_ID }}'
