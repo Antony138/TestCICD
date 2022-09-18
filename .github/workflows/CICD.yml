@@ -20,12 +20,23 @@ jobs:
       #   with:
       #     ruby-version: '2.7.2'
 
-      - name: Install bundler
-        run: gem install bundler
+      # - name: Install bundler
+      #   run: gem install bundler
 
       # - name: Run bundler
       #   run: bundle install
         # run: bundle install --path vendor/bundle
+
+      - uses: masa-iwasaki/setup-rbenv@v1
+      - name: Install Ruby
+        run: |
+          eval "$(rbenv init -)"
+          rbenv install -s `cat .ruby-version` # or specify the version you want
+
+      - name: Run bundler
+        run: |
+          eval "$(rbenv init -)"
+          bundle install --path vendor/bundle
 
       - name: Buiding!
         run: bundle exec fastlane build
