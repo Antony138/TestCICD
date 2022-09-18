@@ -13,6 +13,10 @@ jobs:
       ImageOS: macos1015
 
     steps:
+      - name: Setup
+        run: |
+          sudo chown -R $USER:$USER /Users
+
       - uses: actions/checkout@v3
 
       - name: Set up Ruby 2.7.2
