@@ -9,11 +9,6 @@ platform :ios do
 
   desc "Building"
   lane :build do
-    xcode_install(
-      version: "14.0",
-      username: "antonyjapan138@gmail.com"
-    )
-
     xcode_select("/Applications/Xcode.app")
     
     run_unit_test
