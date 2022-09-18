@@ -25,7 +25,7 @@ jobs:
 
       - name: Run bundler
         run: bundle install
-        run: bundle install --path vendor/bundle
+        # run: bundle install --path vendor/bundle
 
       - name: Buiding!
         run: bundle exec fastlane build
