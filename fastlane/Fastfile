@@ -15,9 +15,9 @@ platform :ios do
 
     match_adhoc
 
-    archive
+    # archive
     
-    upload_deploygate
+    # upload_deploygate
 
   end
 
