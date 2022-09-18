@@ -74,8 +74,8 @@ private_lane :archive do
 end
 
 private_lane :upload_deploygate do
-  deploygate_api_token = branch_name == ''
-  deploygate_user = branch_name == ''
+  deploygate_api_token = 'f0e6b9c8-083d-4d2d-9771-640f2a580018'
+  deploygate_user = 'antony1380'
 
   deploygate(
       api_token: deploygate_api_token,
