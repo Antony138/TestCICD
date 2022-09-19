@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A0105E628D8261800A72CBB /* heresdk.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A0105E528D8261800A72CBB /* heresdk.xcframework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		0A0105E728D8261800A72CBB /* heresdk.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0A0105E528D8261800A72CBB /* heresdk.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0A0105EA28D84B3900A72CBB /* herePackage in Frameworks */ = {isa = PBXBuildFile; productRef = 0A0105E928D84B3900A72CBB /* herePackage */; };
+		0A0105F328D8562F00A72CBB /* heresdk.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A0105F228D8562F00A72CBB /* heresdk.xcframework */; };
+		0A0105F428D8562F00A72CBB /* heresdk.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0A0105F228D8562F00A72CBB /* heresdk.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0A342B8528D6D7AB00F5C95B /* TestCICDApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A342B8428D6D7AB00F5C95B /* TestCICDApp.swift */; };
 		0A342B8728D6D7AB00F5C95B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A342B8628D6D7AB00F5C95B /* ContentView.swift */; };
 		0A342B8928D6D7AC00F5C95B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A342B8828D6D7AC00F5C95B /* Assets.xcassets */; };
@@ -44,7 +43,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0A0105E728D8261800A72CBB /* heresdk.xcframework in Embed Frameworks */,
+				0A0105F428D8562F00A72CBB /* heresdk.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -52,7 +51,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0A0105E528D8261800A72CBB /* heresdk.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = heresdk.xcframework; sourceTree = "<group>"; };
+		0A0105F228D8562F00A72CBB /* heresdk.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = heresdk.xcframework; path = here/heresdk.xcframework; sourceTree = "<group>"; };
 		0A342B8128D6D7AB00F5C95B /* TestCICD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestCICD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A342B8428D6D7AB00F5C95B /* TestCICDApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCICDApp.swift; sourceTree = "<group>"; };
 		0A342B8628D6D7AB00F5C95B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,8 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A0105E628D8261800A72CBB /* heresdk.xcframework in Frameworks */,
-				0A0105EA28D84B3900A72CBB /* herePackage in Frameworks */,
+				0A0105F328D8562F00A72CBB /* heresdk.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,10 +91,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0A0105E428D8261700A72CBB /* Frameworks */ = {
+		0A0105F128D8562E00A72CBB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0A0105E528D8261800A72CBB /* heresdk.xcframework */,
+				0A0105F228D8562F00A72CBB /* heresdk.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -108,7 +106,7 @@
 				0A342B9428D6D7AC00F5C95B /* TestCICDTests */,
 				0A342B9E28D6D7AC00F5C95B /* TestCICDUITests */,
 				0A342B8228D6D7AB00F5C95B /* Products */,
-				0A0105E428D8261700A72CBB /* Frameworks */,
+				0A0105F128D8562E00A72CBB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -177,7 +175,6 @@
 			);
 			name = TestCICD;
 			packageProductDependencies = (
-				0A0105E928D84B3900A72CBB /* herePackage */,
 			);
 			productName = TestCICD;
 			productReference = 0A342B8128D6D7AB00F5C95B /* TestCICD.app */;
@@ -634,14 +631,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		0A0105E928D84B3900A72CBB /* herePackage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0A0105E828D84B3900A72CBB /* XCRemoteSwiftPackageReference "herePackage" */;
-			productName = herePackage;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0A342B7928D6D7AB00F5C95B /* Project object */;
 }
