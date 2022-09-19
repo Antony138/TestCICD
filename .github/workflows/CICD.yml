@@ -24,13 +24,13 @@ jobs:
           whoami
           ruby --version
 
-      - name: Set up Ruby 2.7.2
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '2.7.2'
+      # - name: Set up Ruby 2.7.2
+      #   uses: ruby/setup-ruby@v1
+      #   with:
+      #     ruby-version: '2.7.2'
 
-      # - name: Install bundler
-      #   run: gem install bundler
+      - name: Install bundler
+        run: gem install bundler
 
       # - name: Run bundler
       #   run: bundle install
