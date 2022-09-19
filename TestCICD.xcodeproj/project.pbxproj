@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0A0105E628D8261800A72CBB /* heresdk.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A0105E528D8261800A72CBB /* heresdk.xcframework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		0A0105E728D8261800A72CBB /* heresdk.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0A0105E528D8261800A72CBB /* heresdk.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0A0105EA28D84B3900A72CBB /* herePackage in Frameworks */ = {isa = PBXBuildFile; productRef = 0A0105E928D84B3900A72CBB /* herePackage */; };
 		0A342B8528D6D7AB00F5C95B /* TestCICDApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A342B8428D6D7AB00F5C95B /* TestCICDApp.swift */; };
 		0A342B8728D6D7AB00F5C95B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A342B8628D6D7AB00F5C95B /* ContentView.swift */; };
 		0A342B8928D6D7AC00F5C95B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A342B8828D6D7AC00F5C95B /* Assets.xcassets */; };
@@ -71,6 +72,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A0105E628D8261800A72CBB /* heresdk.xcframework in Frameworks */,
+				0A0105EA28D84B3900A72CBB /* herePackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +176,9 @@
 			dependencies = (
 			);
 			name = TestCICD;
+			packageProductDependencies = (
+				0A0105E928D84B3900A72CBB /* herePackage */,
+			);
 			productName = TestCICD;
 			productReference = 0A342B8128D6D7AB00F5C95B /* TestCICD.app */;
 			productType = "com.apple.product-type.application";
@@ -246,6 +251,9 @@
 				Base,
 			);
 			mainGroup = 0A342B7828D6D7AB00F5C95B;
+			packageReferences = (
+				0A0105E828D84B3900A72CBB /* XCRemoteSwiftPackageReference "herePackage" */,
+			);
 			productRefGroup = 0A342B8228D6D7AB00F5C95B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -615,6 +623,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0A0105E828D84B3900A72CBB /* XCRemoteSwiftPackageReference "herePackage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Antony138/herePackage";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0A0105E928D84B3900A72CBB /* herePackage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A0105E828D84B3900A72CBB /* XCRemoteSwiftPackageReference "herePackage" */;
+			productName = herePackage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0A342B7928D6D7AB00F5C95B /* Project object */;
 }
