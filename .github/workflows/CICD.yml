@@ -36,9 +36,8 @@ jobs:
         run: bundle install
         # run: bundle install --path vendor/bundle
 
-      - name: Buiding!
-      #   run: fastlane build
-        run: bundle exec fastlane build
+      # - name: Buiding!
+        # run: bundle exec fastlane build
         env:
           APP_STORE_CONNECT_API_KEY_KEY_ID: '${{ secrets.APP_STORE_CONNECT_API_KEY_KEY_ID }}'
           APP_STORE_CONNECT_API_KEY_ISSUER_ID: '${{ secrets.APP_STORE_CONNECT_API_KEY_ISSUER_ID }}'
