@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A0105E628D8261800A72CBB /* heresdk.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A0105E528D8261800A72CBB /* heresdk.xcframework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		0A0105E728D8261800A72CBB /* heresdk.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0A0105E528D8261800A72CBB /* heresdk.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0A342B8528D6D7AB00F5C95B /* TestCICDApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A342B8428D6D7AB00F5C95B /* TestCICDApp.swift */; };
 		0A342B8728D6D7AB00F5C95B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A342B8628D6D7AB00F5C95B /* ContentView.swift */; };
 		0A342B8928D6D7AC00F5C95B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A342B8828D6D7AC00F5C95B /* Assets.xcassets */; };
@@ -14,8 +16,6 @@
 		0A342B9628D6D7AC00F5C95B /* TestCICDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A342B9528D6D7AC00F5C95B /* TestCICDTests.swift */; };
 		0A342BA028D6D7AC00F5C95B /* TestCICDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A342B9F28D6D7AC00F5C95B /* TestCICDUITests.swift */; };
 		0A342BA228D6D7AC00F5C95B /* TestCICDUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A342BA128D6D7AC00F5C95B /* TestCICDUITestsLaunchTests.swift */; };
-		0A342BB128D80BCD00F5C95B /* heresdk.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A342BAF28D80BBC00F5C95B /* heresdk.xcframework */; };
-		0A342BB228D80BCD00F5C95B /* heresdk.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0A342BAF28D80BBC00F5C95B /* heresdk.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0A342BB528D80BE000F5C95B /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A342BB428D80BE000F5C95B /* Navigator.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,7 +43,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0A342BB228D80BCD00F5C95B /* heresdk.xcframework in Embed Frameworks */,
+				0A0105E728D8261800A72CBB /* heresdk.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -51,6 +51,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0A0105E528D8261800A72CBB /* heresdk.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = heresdk.xcframework; sourceTree = "<group>"; };
 		0A342B8128D6D7AB00F5C95B /* TestCICD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestCICD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A342B8428D6D7AB00F5C95B /* TestCICDApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCICDApp.swift; sourceTree = "<group>"; };
 		0A342B8628D6D7AB00F5C95B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,7 +62,6 @@
 		0A342B9B28D6D7AC00F5C95B /* TestCICDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestCICDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A342B9F28D6D7AC00F5C95B /* TestCICDUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCICDUITests.swift; sourceTree = "<group>"; };
 		0A342BA128D6D7AC00F5C95B /* TestCICDUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCICDUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		0A342BAF28D80BBC00F5C95B /* heresdk.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = heresdk.xcframework; sourceTree = SOURCE_ROOT; };
 		0A342BB428D80BE000F5C95B /* Navigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,7 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A342BB128D80BCD00F5C95B /* heresdk.xcframework in Frameworks */,
+				0A0105E628D8261800A72CBB /* heresdk.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +91,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A0105E428D8261700A72CBB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0A0105E528D8261800A72CBB /* heresdk.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		0A342B7828D6D7AB00F5C95B = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +106,7 @@
 				0A342B9428D6D7AC00F5C95B /* TestCICDTests */,
 				0A342B9E28D6D7AC00F5C95B /* TestCICDUITests */,
 				0A342B8228D6D7AB00F5C95B /* Products */,
+				0A0105E428D8261700A72CBB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,7 +128,6 @@
 				0A342BB428D80BE000F5C95B /* Navigator.swift */,
 				0A342B8828D6D7AC00F5C95B /* Assets.xcassets */,
 				0A342B8A28D6D7AC00F5C95B /* Preview Content */,
-				0A342BAE28D80B9000F5C95B /* Frameworks */,
 			);
 			path = TestCICD;
 			sourceTree = "<group>";
@@ -147,14 +155,6 @@
 				0A342BA128D6D7AC00F5C95B /* TestCICDUITestsLaunchTests.swift */,
 			);
 			path = TestCICDUITests;
-			sourceTree = "<group>";
-		};
-		0A342BAE28D80B9000F5C95B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				0A342BAF28D80BBC00F5C95B /* heresdk.xcframework */,
-			);
-			path = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
