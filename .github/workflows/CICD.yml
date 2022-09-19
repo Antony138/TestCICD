@@ -19,10 +19,10 @@ jobs:
           ruby --version
 
       - uses: actions/checkout@v3
-        # with:
-        #   lfs: 'true'
-        #   submodules: 'true'
-        #   token: ${{ secrets.SUBMODULES_PAT_TOKEN }}
+        with:
+          lfs: 'true'
+          submodules: 'true'
+          token: ${{ secrets.SUBMODULES_PAT_TOKEN }}
 
 
 
