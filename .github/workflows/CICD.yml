@@ -19,10 +19,15 @@ jobs:
           submodules: 'true'
           token: ${{ secrets.SUBMODULES_PAT_TOKEN }}
 
-      # - name: Set up Ruby 2.7.2
-      #   uses: ruby/setup-ruby@v1
-      #   with:
-      #     ruby-version: '2.7.2'
+      - name: whoami
+        run: |
+          whoami
+          ruby --version
+
+      - name: Set up Ruby 2.7.2
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7.2'
 
       # - name: Install bundler
       #   run: gem install bundler
@@ -31,8 +36,8 @@ jobs:
       #   run: bundle install
         # run: bundle install --path vendor/bundle
 
-      - name: Buiding!
-        run: fastlane build
+      # - name: Buiding!
+      #   run: fastlane build
         # run: bundle exec fastlane build
         env:
           APP_STORE_CONNECT_API_KEY_KEY_ID: '${{ secrets.APP_STORE_CONNECT_API_KEY_KEY_ID }}'
