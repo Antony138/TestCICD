@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import herePackage
 
 struct ContentView: View {
     var body: some View {
@@ -14,7 +13,7 @@ struct ContentView: View {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
-            Text(herePackage().text)    
+            Text("Hello, World")    
         }
         .padding()
     }
