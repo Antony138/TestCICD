@@ -249,7 +249,6 @@
 			);
 			mainGroup = 0A342B7828D6D7AB00F5C95B;
 			packageReferences = (
-				0A0105E828D84B3900A72CBB /* XCRemoteSwiftPackageReference "herePackage" */,
 			);
 			productRefGroup = 0A342B8228D6D7AB00F5C95B /* Products */;
 			projectDirPath = "";
@@ -620,17 +619,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		0A0105E828D84B3900A72CBB /* XCRemoteSwiftPackageReference "herePackage" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Antony138/herePackage";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 0A342B7928D6D7AB00F5C95B /* Project object */;
 }
