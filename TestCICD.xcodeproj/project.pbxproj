@@ -14,6 +14,9 @@
 		0A342B9628D6D7AC00F5C95B /* TestCICDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A342B9528D6D7AC00F5C95B /* TestCICDTests.swift */; };
 		0A342BA028D6D7AC00F5C95B /* TestCICDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A342B9F28D6D7AC00F5C95B /* TestCICDUITests.swift */; };
 		0A342BA228D6D7AC00F5C95B /* TestCICDUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A342BA128D6D7AC00F5C95B /* TestCICDUITestsLaunchTests.swift */; };
+		0A342BB128D80BCD00F5C95B /* heresdk.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A342BAF28D80BBC00F5C95B /* heresdk.xcframework */; };
+		0A342BB228D80BCD00F5C95B /* heresdk.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0A342BAF28D80BBC00F5C95B /* heresdk.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0A342BB528D80BE000F5C95B /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A342BB428D80BE000F5C95B /* Navigator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +36,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		0A342BB328D80BCD00F5C95B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0A342BB228D80BCD00F5C95B /* heresdk.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0A342B8128D6D7AB00F5C95B /* TestCICD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestCICD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A342B8428D6D7AB00F5C95B /* TestCICDApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCICDApp.swift; sourceTree = "<group>"; };
@@ -44,6 +61,8 @@
 		0A342B9B28D6D7AC00F5C95B /* TestCICDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestCICDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A342B9F28D6D7AC00F5C95B /* TestCICDUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCICDUITests.swift; sourceTree = "<group>"; };
 		0A342BA128D6D7AC00F5C95B /* TestCICDUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCICDUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0A342BAF28D80BBC00F5C95B /* heresdk.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = heresdk.xcframework; sourceTree = SOURCE_ROOT; };
+		0A342BB428D80BE000F5C95B /* Navigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A342BB128D80BCD00F5C95B /* heresdk.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,8 +116,10 @@
 			children = (
 				0A342B8428D6D7AB00F5C95B /* TestCICDApp.swift */,
 				0A342B8628D6D7AB00F5C95B /* ContentView.swift */,
+				0A342BB428D80BE000F5C95B /* Navigator.swift */,
 				0A342B8828D6D7AC00F5C95B /* Assets.xcassets */,
 				0A342B8A28D6D7AC00F5C95B /* Preview Content */,
+				0A342BAE28D80B9000F5C95B /* Frameworks */,
 			);
 			path = TestCICD;
 			sourceTree = "<group>";
@@ -127,6 +149,14 @@
 			path = TestCICDUITests;
 			sourceTree = "<group>";
 		};
+		0A342BAE28D80B9000F5C95B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0A342BAF28D80BBC00F5C95B /* heresdk.xcframework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,6 +167,7 @@
 				0A342B7D28D6D7AB00F5C95B /* Sources */,
 				0A342B7E28D6D7AB00F5C95B /* Frameworks */,
 				0A342B7F28D6D7AB00F5C95B /* Resources */,
+				0A342BB328D80BCD00F5C95B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -259,6 +290,7 @@
 			files = (
 				0A342B8728D6D7AB00F5C95B /* ContentView.swift in Sources */,
 				0A342B8528D6D7AB00F5C95B /* TestCICDApp.swift in Sources */,
+				0A342BB528D80BE000F5C95B /* Navigator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
