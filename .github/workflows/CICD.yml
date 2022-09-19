@@ -4,6 +4,9 @@ on:
   pull_request:
     branches: [ "main" ]
 
+permissions:
+  contents: read|write
+
 jobs:
   build:
     runs-on: [self-hosted, macOS, ARM64, M1, Air]
@@ -12,8 +15,6 @@ jobs:
       LANG: en_US.UTF-8
       ImageOS: macos1015
 
-    permissions: read-all|write-all
-    
     steps:
       - uses: actions/checkout@v3
         with:
