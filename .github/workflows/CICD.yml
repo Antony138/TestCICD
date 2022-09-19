@@ -13,16 +13,18 @@ jobs:
       ImageOS: macos1015
 
     steps:
+      - name: whoami
+        run: |
+          whoami
+          ruby --version
+
       - uses: actions/checkout@v3
         with:
           lfs: 'true'
           submodules: 'true'
           token: ${{ secrets.SUBMODULES_PAT_TOKEN }}
 
-      - name: whoami
-        run: |
-          whoami
-          ruby --version
+
 
       # - name: Set up Ruby 2.7.2
       #   uses: ruby/setup-ruby@v1
