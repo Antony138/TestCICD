@@ -164,7 +164,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0A342BA528D6D7AC00F5C95B /* Build configuration list for PBXNativeTarget "TestCICD" */;
 			buildPhases = (
-				0A342BB628D8152400F5C95B /* CopyFiles */,
 				0A342B7D28D6D7AB00F5C95B /* Sources */,
 				0A342B7E28D6D7AB00F5C95B /* Frameworks */,
 				0A342B7F28D6D7AB00F5C95B /* Resources */,
@@ -283,27 +282,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		0A342BB628D8152400F5C95B /* CopyFiles */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = CopyFiles;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "cp \"../../Config.xcconfig\" \"${PROJECT_DIR}/Config.xcconfig\"\ncp -R \"../../heresdk.xcframework\" \"${PROJECT_DIR}/heresdk.xcframework\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0A342B7D28D6D7AB00F5C95B /* Sources */ = {
