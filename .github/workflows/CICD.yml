@@ -25,10 +25,10 @@ jobs:
           # lfs: 'true'
 
 
-      # - name: Set up Ruby 2.7.2
-      #   uses: ruby/setup-ruby@v1
-      #   with:
-      #     ruby-version: '2.7.2'
+      - name: Set up Ruby 2.7.2
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7.2'
 
       - name: Install bundler
         run: gem install bundler
