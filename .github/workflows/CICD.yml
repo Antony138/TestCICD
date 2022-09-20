@@ -19,11 +19,10 @@ jobs:
           ruby --version
 
       - uses: actions/checkout@v3
-        with:
-          submodules: 'true'
-          token: ${{ secrets.SUBMODULES_PAT_TOKEN }}
-          lfs: 'true'
-
+        # with:
+          # submodules: 'true'
+          # token: ${{ secrets.SUBMODULES_PAT_TOKEN }}
+          # lfs: 'true'
 
 
       # - name: Set up Ruby 2.7.2
