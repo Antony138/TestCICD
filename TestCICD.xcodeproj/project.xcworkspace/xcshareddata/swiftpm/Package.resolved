@@ -1,12 +1,12 @@
 {
   "pins" : [
     {
-      "identity" : "heresdk",
+      "identity" : "heremaps-ios",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Antony138/heresdk",
+      "location" : "https://github.com/Drivemode/heremaps-ios",
       "state" : {
-        "revision" : "939790c376b85c9b31ea35ffce548f86099d4de4",
-        "version" : "1.0.1"
+        "revision" : "1e4b4196d8395d0c2497c9513cbe28b0f45d9fe0",
+        "version" : "4.12.2"
       }
     }
   ],
