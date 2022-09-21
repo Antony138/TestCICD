@@ -92,3 +92,6 @@ iOSInjectionProject/
 
 # hereSDK
 heresdk.xcframework/
+
+# Credential Configuration
+TestCICD/Config.xcconfig
