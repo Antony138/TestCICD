@@ -6,7 +6,8 @@ on:
 
 jobs:
   build:
-    runs-on: [self-hosted, macOS, ARM64, M1, Air]
+    # runs-on: [self-hosted, macOS, ARM64, M1, Air]
+    runs-on: [self-hosted, macOS, X64, test, office]
     env:
       LC_ALL: en_US.UTF-8
       LANG: en_US.UTF-8
@@ -25,10 +26,10 @@ jobs:
           # lfs: 'true'
 
 
-      # - name: Set up Ruby 2.7.2
-      #   uses: ruby/setup-ruby@v1
-      #   with:
-      #     ruby-version: '2.7.2'
+      - name: Set up Ruby 2.7.2
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7.2'
 
       - name: Install bundler
         run: gem install bundler
@@ -37,8 +38,8 @@ jobs:
         run: bundle install
         # run: bundle install --path vendor/bundle
 
-      # - name: Buiding!
-        # run: bundle exec fastlane build
+      - name: Buiding!
+        run: bundle exec fastlane build
         env:
           APP_STORE_CONNECT_API_KEY_KEY_ID: '${{ secrets.APP_STORE_CONNECT_API_KEY_KEY_ID }}'
           APP_STORE_CONNECT_API_KEY_ISSUER_ID: '${{ secrets.APP_STORE_CONNECT_API_KEY_ISSUER_ID }}'
