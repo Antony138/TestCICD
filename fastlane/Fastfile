@@ -18,7 +18,7 @@ platform :ios do
 
     archive
     
-    upload_deploygate
+    # upload_deploygate
 
   end
 
