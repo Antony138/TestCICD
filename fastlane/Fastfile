@@ -65,7 +65,7 @@ private_lane :archive do
 	}
 
 	gym(
-		codesigning_identity: "Apple Distribution",
+		codesigning_identity: "iOS Distribution",
 		scheme: "TestCICD", # The project's scheme. Make sure it's marked as `Shared`
 		clean: true,
 		xcargs: settings_to_override,
