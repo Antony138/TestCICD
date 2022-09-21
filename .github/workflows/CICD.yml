@@ -20,16 +20,11 @@ jobs:
           ruby --version
 
       - uses: actions/checkout@v3
-        # with:
-          # submodules: 'true'
-          # token: ${{ secrets.SUBMODULES_PAT_TOKEN }}
-          # lfs: 'true'
-
 
       - name: Set up Ruby 2.7.2
         uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '2.7.2'
+        # with:
+        #   ruby-version: '2.7.2'
 
       - name: whoami
         run: |
