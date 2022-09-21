@@ -31,10 +31,15 @@ jobs:
         with:
           ruby-version: '2.7.2'
 
+      - name: whoami
+        run: |
+          whoami
+          ruby --version
+
       - name: Install bundler
         run: gem install bundler
 
-      - name: Run bundler
+      - name: Run bundle install
         run: bundle install
         # run: bundle install --path vendor/bundle
 
