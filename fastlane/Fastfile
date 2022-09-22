@@ -3,18 +3,10 @@ default_platform(:ios)
 platform :ios do
   
   before_all do
-    download(url: "https://drive.google.com/drive/folders/1Y3Y5TOZihCTkdnMAyT_FPOKEZdSTp_yR?usp=sharing")
     setup_ci
     check_env_var
 
-    create_keychain(
-      name: 'syrmo_keychain',
-      default_keychain: true,
-      unlock: true,
-      timeout: 3600,
-      lock_when_sleeps: true,
-      password: '123456'
-    )
+    delete_keychain(name: 'syrmo_keychain')
   end
 
   desc "Building"
@@ -33,8 +25,6 @@ platform :ios do
 
   after_all do
     clean_build_artifacts
-    
-    delete_keychain(name: 'syrmo_keychain')
   end
 
 end
@@ -63,9 +53,7 @@ private_lane :match_adhoc do
 		type: 'adhoc',
 		app_identifier: "jp.tokyo.TestCICD",
 		api_key: lane_context[SharedValues::APP_STORE_CONNECT_API_KEY],
-		git_basic_authorization: ENV["MATCH_GIT_BASIC_AUTHORIZATION"],
-    keychain_name: 'syrmo_keychain',
-    keychain_password: '123456'
+		git_basic_authorization: ENV["MATCH_GIT_BASIC_AUTHORIZATION"]
 	)
 end
 
