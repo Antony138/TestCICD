@@ -51,7 +51,9 @@ private_lane :match_adhoc do
 		type: 'adhoc',
 		app_identifier: "jp.tokyo.TestCICD",
 		api_key: lane_context[SharedValues::APP_STORE_CONNECT_API_KEY],
-		git_basic_authorization: ENV["MATCH_GIT_BASIC_AUTHORIZATION"]
+		git_basic_authorization: ENV["MATCH_GIT_BASIC_AUTHORIZATION"],
+    keychain_name: 'fastlane_tmp_keychain-db',
+    keychain_password: ''
 	)
 end
 
