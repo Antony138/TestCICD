@@ -66,7 +66,7 @@ private_lane :archive do
 
 	gym(
 		# codesigning_identity: "iOS Distribution",
-    keychain_password: "571023dec"
+    keychain_password: "571023dec",
 		scheme: "TestCICD", # The project's scheme. Make sure it's marked as `Shared`
 		clean: true,
 		# xcargs: settings_to_override,
