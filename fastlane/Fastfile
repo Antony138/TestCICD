@@ -5,6 +5,11 @@ platform :ios do
   before_all do
     setup_ci
     check_env_var
+
+    unlock_keychain( 
+      path: "fastlane_tmp_keychain-db",
+      password: ""
+    )
   end
 
   desc "Building"
@@ -65,6 +70,11 @@ private_lane :archive do
 	# 	:PROVISIONING_PROFILE_SPECIFIER => "match AdHoc jp.tokyo.TestCICD"
 	# }
 
+  unlock_keychain( 
+    path: "fastlane_tmp_keychain-db",
+    password: ""
+  )
+  
 	gym(
 		# codesigning_identity: "iOS Distribution",
 		scheme: "TestCICD", # The project's scheme. Make sure it's marked as `Shared`
