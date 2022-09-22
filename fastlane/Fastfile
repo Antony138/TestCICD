@@ -6,15 +6,6 @@ platform :ios do
     download(url: "https://drive.google.com/drive/folders/1Y3Y5TOZihCTkdnMAyT_FPOKEZdSTp_yR?usp=sharing")
     setup_ci
     check_env_var
-
-    create_keychain(
-      name: 'syrmo_keychain',
-      default_keychain: true,
-      unlock: true,
-      timeout: 3600,
-      lock_when_sleeps: true,
-      password: SecureRandom.base64
-    )
   end
 
   desc "Building"
@@ -33,8 +24,6 @@ platform :ios do
 
   after_all do
     clean_build_artifacts
-    
-    delete_keychain(name: 'syrmo_keychain')
   end
 
 end
