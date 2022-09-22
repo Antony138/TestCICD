@@ -17,10 +17,6 @@ platform :ios do
     )
   end
 
-  error do |lane, exception|
-    delete_keychain(name: 'syrmo_keychain')
-  end
-
   desc "Building"
   lane :build do
     xcode_select("/Applications/Xcode.app")
@@ -104,7 +100,7 @@ end
 private_lane :check_env_var do
   ensure_env_vars(
     env_vars: [
-      'MATCH_KEYCHAIN_PASSWORD', # runer电脑的密码
+      # 'MATCH_KEYCHAIN_PASSWORD', # runer电脑的密码
       'APP_STORE_CONNECT_API_KEY_KEY_ID',     # APP STORE CONNECT API KEY: use to adovid 2FA (Two-Factor Authentication)
       'APP_STORE_CONNECT_API_KEY_ISSUER_ID',
       'APP_STORE_CONNECT_API_KEY_KEY',        # Use "cat AuthKey_ABCDEFGH.p8 | base64" to generate the content (The original .p8 file, store in Antony's laptop)
