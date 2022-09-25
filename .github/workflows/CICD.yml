@@ -28,11 +28,11 @@ jobs:
       #   with:
       #     ruby-version: '3.1.2'
           
-      # - name: Set up Ruby 3.1.2
-      #   uses: ruby/setup-ruby@v1
-      #   with:
-      #     ruby-version: '3.1.2'
-      #     bundler-cache: true # 好像影响不大
+      - name: Set up Ruby 3.1.2
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1.2'
+          bundler-cache: true # 好像影响不大
 
       - name: whoami
         run: |
