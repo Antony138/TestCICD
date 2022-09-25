@@ -3,8 +3,9 @@ default_platform(:ios)
 platform :ios do
   
   before_all do
-    setup_ci
+    # setup_ci
     check_env_var
+    ensure_temp_keychain 'fastlane_cicd_temp_keychain'
   end
 
   desc "Building"
@@ -23,6 +24,7 @@ platform :ios do
 
   after_all do
     clean_build_artifacts
+    delete_keychain(name: 'fastlane_cicd_temp_keychain')
   end
 
 end
@@ -51,7 +53,9 @@ private_lane :match_adhoc do
 		type: 'adhoc',
 		app_identifier: "jp.tokyo.TestCICD",
 		api_key: lane_context[SharedValues::APP_STORE_CONNECT_API_KEY],
-		git_basic_authorization: ENV["MATCH_GIT_BASIC_AUTHORIZATION"]
+		git_basic_authorization: ENV["MATCH_GIT_BASIC_AUTHORIZATION"],
+    keychain_name: 'fastlane_cicd_temp_keychain',
+    keychain_password: 'temppassword'
 	)
 end
 
@@ -62,7 +66,7 @@ private_lane :archive do
 	# 	:PRODUCT_BUNDLE_IDENTIFIER => "jp.tokyo.TestCICD",
 	# 	:PROVISIONING_PROFILE_SPECIFIER => "match AdHoc jp.tokyo.TestCICD"
 	# }
-
+  
 	gym(
 		# codesigning_identity: "iOS Distribution",
 		scheme: "TestCICD", # The project's scheme. Make sure it's marked as `Shared`
@@ -96,5 +100,18 @@ private_lane :check_env_var do
       'MATCH_GIT_BASIC_AUTHORIZATION',        # Use to access the certificates repository: evp4-ios-certificates
       'MATCH_PASSWORD'
     ]
+  )
+end
+
+def ensure_temp_keychain(name)
+  delete_keychain(
+    name: name
+  ) if File.exist? File.expand_path("~/Library/Keychains/#{name}-db")
+
+  create_keychain(
+    name: name,
+    password: 'temppassword',
+    unlock: true,
+    timeout: 1800
   )
 end
