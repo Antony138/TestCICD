@@ -39,11 +39,11 @@ jobs:
           whoami
           ruby --version
 
-      # - name: Install bundler
-      #   run: gem install bundler
+      - name: Install bundler
+        run: gem install bundler
 
-      # - name: Run bundle install
-      #   run: bundle install
+      - name: Run bundle install
+        run: bundle install
         # run: bundle install --path vendor/bundle
 
       - name: Buiding!
