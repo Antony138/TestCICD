@@ -39,16 +39,16 @@ jobs:
           whoami
           ruby --version
 
-      - name: Install bundler
-        run: gem install bundler
+      # - name: Install bundler
+      #   run: gem install bundler
 
-      - name: Run bundle install
-        run: bundle install
+      # - name: Run bundle install
+      #   run: bundle install
         # run: bundle install --path vendor/bundle
 
       - name: Buiding!
-        run: bundle exec fastlane build
-        # run: fastlane build
+        # run: bundle exec fastlane build
+        run: fastlane build
         env:
           APP_STORE_CONNECT_API_KEY_KEY_ID: '${{ secrets.APP_STORE_CONNECT_API_KEY_KEY_ID }}'
           APP_STORE_CONNECT_API_KEY_ISSUER_ID: '${{ secrets.APP_STORE_CONNECT_API_KEY_ISSUER_ID }}'
