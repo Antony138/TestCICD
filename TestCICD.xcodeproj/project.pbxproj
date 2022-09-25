@@ -7,13 +7,56 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A342B8528D6D7AB00F5C95B /* TestCICDApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A342B8428D6D7AB00F5C95B /* TestCICDApp.swift */; };
-		0A342B8728D6D7AB00F5C95B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A342B8628D6D7AB00F5C95B /* ContentView.swift */; };
 		0A342B8928D6D7AC00F5C95B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A342B8828D6D7AC00F5C95B /* Assets.xcassets */; };
 		0A342B8C28D6D7AC00F5C95B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A342B8B28D6D7AC00F5C95B /* Preview Assets.xcassets */; };
 		0A342B9628D6D7AC00F5C95B /* TestCICDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A342B9528D6D7AC00F5C95B /* TestCICDTests.swift */; };
 		0A342BA028D6D7AC00F5C95B /* TestCICDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A342B9F28D6D7AC00F5C95B /* TestCICDUITests.swift */; };
 		0A342BA228D6D7AC00F5C95B /* TestCICDUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A342BA128D6D7AC00F5C95B /* TestCICDUITestsLaunchTests.swift */; };
+		0A5E9F7F28DB8175008B27F5 /* heresdk in Frameworks */ = {isa = PBXBuildFile; productRef = 0A5E9F7E28DB8175008B27F5 /* heresdk */; };
+		C06721B828E0907E004D0305 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06721B728E0907E004D0305 /* AppDelegate.swift */; };
+		C06721BA28E090A3004D0305 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06721B928E090A3004D0305 /* SceneDelegate.swift */; };
+		C06721DD28E090B9004D0305 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06721BD28E090B9004D0305 /* Configuration.swift */; };
+		C06721DE28E090B9004D0305 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06721BF28E090B9004D0305 /* UserDefaultsService.swift */; };
+		C06721DF28E090B9004D0305 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06721C128E090B9004D0305 /* LocationManager.swift */; };
+		C06721E028E090B9004D0305 /* ConnectResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06721C428E090B9004D0305 /* ConnectResult.swift */; };
+		C06721E128E090B9004D0305 /* L2CAPChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06721C528E090B9004D0305 /* L2CAPChannel.swift */; };
+		C06721E228E090B9004D0305 /* BLEService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06721C628E090B9004D0305 /* BLEService.swift */; };
+		C06721E328E090B9004D0305 /* BluetoothKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06721C728E090B9004D0305 /* BluetoothKit.swift */; };
+		C06721E428E090B9004D0305 /* Peripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06721C828E090B9004D0305 /* Peripheral.swift */; };
+		C06721E528E090B9004D0305 /* BLEData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06721C928E090B9004D0305 /* BLEData.swift */; };
+		C06721E628E090B9004D0305 /* CentralManagerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06721CA28E090B9004D0305 /* CentralManagerType.swift */; };
+		C06721E728E090B9004D0305 /* BluetoothError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06721CB28E090B9004D0305 /* BluetoothError.swift */; };
+		C06721E828E090B9004D0305 /* BluetoothKitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06721CC28E090B9004D0305 /* BluetoothKitExtension.swift */; };
+		C06721E928E090B9004D0305 /* PeripheralAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06721CD28E090B9004D0305 /* PeripheralAttribute.swift */; };
+		C06721EA28E090B9004D0305 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C06721CE28E090B9004D0305 /* README.md */; };
+		C06721EB28E090B9004D0305 /* CentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06721CF28E090B9004D0305 /* CentralManager.swift */; };
+		C06721EC28E090B9004D0305 /* PeripheralManagerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06721D028E090B9004D0305 /* PeripheralManagerType.swift */; };
+		C06721ED28E090B9004D0305 /* ScanResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06721D128E090B9004D0305 /* ScanResult.swift */; };
+		C06721EE28E090B9004D0305 /* PeripheralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06721D228E090B9004D0305 /* PeripheralManager.swift */; };
+		C06721EF28E090B9004D0305 /* BLECharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06721D328E090B9004D0305 /* BLECharacteristic.swift */; };
+		C06721F028E090B9004D0305 /* PeripheralType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06721D428E090B9004D0305 /* PeripheralType.swift */; };
+		C06721F128E090B9004D0305 /* L2CAPChannelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06721D528E090B9004D0305 /* L2CAPChannelType.swift */; };
+		C06721F228E090B9004D0305 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06721D728E090B9004D0305 /* Navigator.swift */; };
+		C06721F328E090B9004D0305 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06721DA28E090B9004D0305 /* ViewController.swift */; };
+		C06721F428E090B9004D0305 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06721DB28E090B9004D0305 /* ViewState.swift */; };
+		C06721F528E090B9004D0305 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06721DC28E090B9004D0305 /* Router.swift */; };
+		C067220928E090D1004D0305 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06721F828E090D1004D0305 /* AppState.swift */; };
+		C067220A28E090D1004D0305 /* AppFoundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06721F928E090D1004D0305 /* AppFoundation.swift */; };
+		C067220B28E090D1004D0305 /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06721FA28E090D1004D0305 /* AppStore.swift */; };
+		C067220C28E090D1004D0305 /* NavigatingAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06721FC28E090D1004D0305 /* NavigatingAction.swift */; };
+		C067220D28E090D1004D0305 /* NavigatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06721FD28E090D1004D0305 /* NavigatingView.swift */; };
+		C067220E28E090D1004D0305 /* RoutePlanningAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06721FF28E090D1004D0305 /* RoutePlanningAction.swift */; };
+		C067220F28E090D1004D0305 /* SearchBarViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C067220128E090D1004D0305 /* SearchBarViewState.swift */; };
+		C067221028E090D1004D0305 /* DetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C067220228E090D1004D0305 /* DetailInfoView.swift */; };
+		C067221128E090D1004D0305 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C067220328E090D1004D0305 /* SearchResultView.swift */; };
+		C067221228E090D1004D0305 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C067220428E090D1004D0305 /* SearchBar.swift */; };
+		C067221328E090D1004D0305 /* HEREMapViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C067220528E090D1004D0305 /* HEREMapViewState.swift */; };
+		C067221428E090D1004D0305 /* HEREMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C067220628E090D1004D0305 /* HEREMapView.swift */; };
+		C067221528E090D1004D0305 /* RoutePlanningViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C067220728E090D1004D0305 /* RoutePlanningViewState.swift */; };
+		C067221628E090D1004D0305 /* RoutePlanningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C067220828E090D1004D0305 /* RoutePlanningView.swift */; };
+		C067221B28E090DE004D0305 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C067221928E090DE004D0305 /* UIColor+Extension.swift */; };
+		C067221C28E090DE004D0305 /* Enum+CaseReflectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C067221A28E090DE004D0305 /* Enum+CaseReflectable.swift */; };
+		C067221F28E091AC004D0305 /* GRPC in Frameworks */ = {isa = PBXBuildFile; productRef = C067221E28E091AC004D0305 /* GRPC */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,10 +76,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		0A342BB328D80BCD00F5C95B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0A342B8128D6D7AB00F5C95B /* TestCICD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestCICD.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A342B8428D6D7AB00F5C95B /* TestCICDApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCICDApp.swift; sourceTree = "<group>"; };
-		0A342B8628D6D7AB00F5C95B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0A342B8828D6D7AC00F5C95B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A342B8B28D6D7AC00F5C95B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0A342B9128D6D7AC00F5C95B /* TestCICDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestCICDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +98,49 @@
 		0A342B9B28D6D7AC00F5C95B /* TestCICDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestCICDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A342B9F28D6D7AC00F5C95B /* TestCICDUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCICDUITests.swift; sourceTree = "<group>"; };
 		0A342BA128D6D7AC00F5C95B /* TestCICDUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCICDUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C06721B728E0907E004D0305 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C06721B928E090A3004D0305 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C06721BD28E090B9004D0305 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		C06721BF28E090B9004D0305 /* UserDefaultsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
+		C06721C128E090B9004D0305 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		C06721C428E090B9004D0305 /* ConnectResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectResult.swift; sourceTree = "<group>"; };
+		C06721C528E090B9004D0305 /* L2CAPChannel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = L2CAPChannel.swift; sourceTree = "<group>"; };
+		C06721C628E090B9004D0305 /* BLEService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEService.swift; sourceTree = "<group>"; };
+		C06721C728E090B9004D0305 /* BluetoothKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothKit.swift; sourceTree = "<group>"; };
+		C06721C828E090B9004D0305 /* Peripheral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Peripheral.swift; sourceTree = "<group>"; };
+		C06721C928E090B9004D0305 /* BLEData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEData.swift; sourceTree = "<group>"; };
+		C06721CA28E090B9004D0305 /* CentralManagerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentralManagerType.swift; sourceTree = "<group>"; };
+		C06721CB28E090B9004D0305 /* BluetoothError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothError.swift; sourceTree = "<group>"; };
+		C06721CC28E090B9004D0305 /* BluetoothKitExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothKitExtension.swift; sourceTree = "<group>"; };
+		C06721CD28E090B9004D0305 /* PeripheralAttribute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeripheralAttribute.swift; sourceTree = "<group>"; };
+		C06721CE28E090B9004D0305 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C06721CF28E090B9004D0305 /* CentralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentralManager.swift; sourceTree = "<group>"; };
+		C06721D028E090B9004D0305 /* PeripheralManagerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeripheralManagerType.swift; sourceTree = "<group>"; };
+		C06721D128E090B9004D0305 /* ScanResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanResult.swift; sourceTree = "<group>"; };
+		C06721D228E090B9004D0305 /* PeripheralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeripheralManager.swift; sourceTree = "<group>"; };
+		C06721D328E090B9004D0305 /* BLECharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLECharacteristic.swift; sourceTree = "<group>"; };
+		C06721D428E090B9004D0305 /* PeripheralType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeripheralType.swift; sourceTree = "<group>"; };
+		C06721D528E090B9004D0305 /* L2CAPChannelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = L2CAPChannelType.swift; sourceTree = "<group>"; };
+		C06721D728E090B9004D0305 /* Navigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
+		C06721DA28E090B9004D0305 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C06721DB28E090B9004D0305 /* ViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
+		C06721DC28E090B9004D0305 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		C06721F828E090D1004D0305 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		C06721F928E090D1004D0305 /* AppFoundation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFoundation.swift; sourceTree = "<group>"; };
+		C06721FA28E090D1004D0305 /* AppStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
+		C06721FC28E090D1004D0305 /* NavigatingAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigatingAction.swift; sourceTree = "<group>"; };
+		C06721FD28E090D1004D0305 /* NavigatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigatingView.swift; sourceTree = "<group>"; };
+		C06721FF28E090D1004D0305 /* RoutePlanningAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutePlanningAction.swift; sourceTree = "<group>"; };
+		C067220128E090D1004D0305 /* SearchBarViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarViewState.swift; sourceTree = "<group>"; };
+		C067220228E090D1004D0305 /* DetailInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailInfoView.swift; sourceTree = "<group>"; };
+		C067220328E090D1004D0305 /* SearchResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
+		C067220428E090D1004D0305 /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		C067220528E090D1004D0305 /* HEREMapViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEREMapViewState.swift; sourceTree = "<group>"; };
+		C067220628E090D1004D0305 /* HEREMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEREMapView.swift; sourceTree = "<group>"; };
+		C067220728E090D1004D0305 /* RoutePlanningViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutePlanningViewState.swift; sourceTree = "<group>"; };
+		C067220828E090D1004D0305 /* RoutePlanningView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutePlanningView.swift; sourceTree = "<group>"; };
+		C067221928E090DE004D0305 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		C067221A28E090DE004D0305 /* Enum+CaseReflectable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Enum+CaseReflectable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +148,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C067221F28E091AC004D0305 /* GRPC in Frameworks */,
+				0A5E9F7F28DB8175008B27F5 /* heresdk in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,8 +193,11 @@
 		0A342B8328D6D7AB00F5C95B /* TestCICD */ = {
 			isa = PBXGroup;
 			children = (
-				0A342B8428D6D7AB00F5C95B /* TestCICDApp.swift */,
-				0A342B8628D6D7AB00F5C95B /* ContentView.swift */,
+				C06721B728E0907E004D0305 /* AppDelegate.swift */,
+				C06721B928E090A3004D0305 /* SceneDelegate.swift */,
+				C06721BB28E090B9004D0305 /* Foundation */,
+				C06721F628E090D1004D0305 /* Domain */,
+				C067221728E090DE004D0305 /* Utils */,
 				0A342B8828D6D7AC00F5C95B /* Assets.xcassets */,
 				0A342B8A28D6D7AC00F5C95B /* Preview Content */,
 			);
@@ -127,6 +229,172 @@
 			path = TestCICDUITests;
 			sourceTree = "<group>";
 		};
+		C06721BB28E090B9004D0305 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				C06721BC28E090B9004D0305 /* Configuration */,
+				C06721BE28E090B9004D0305 /* UserDefault */,
+				C06721C028E090B9004D0305 /* Location */,
+				C06721C228E090B9004D0305 /* Bluetooth */,
+				C06721D628E090B9004D0305 /* Navigator */,
+				C06721D828E090B9004D0305 /* New Group */,
+				C06721D928E090B9004D0305 /* Routing */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		C06721BC28E090B9004D0305 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				C06721BD28E090B9004D0305 /* Configuration.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		C06721BE28E090B9004D0305 /* UserDefault */ = {
+			isa = PBXGroup;
+			children = (
+				C06721BF28E090B9004D0305 /* UserDefaultsService.swift */,
+			);
+			path = UserDefault;
+			sourceTree = "<group>";
+		};
+		C06721C028E090B9004D0305 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				C06721C128E090B9004D0305 /* LocationManager.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		C06721C228E090B9004D0305 /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				C06721C328E090B9004D0305 /* BluetoothKit */,
+			);
+			path = Bluetooth;
+			sourceTree = "<group>";
+		};
+		C06721C328E090B9004D0305 /* BluetoothKit */ = {
+			isa = PBXGroup;
+			children = (
+				C06721C428E090B9004D0305 /* ConnectResult.swift */,
+				C06721C528E090B9004D0305 /* L2CAPChannel.swift */,
+				C06721C628E090B9004D0305 /* BLEService.swift */,
+				C06721C728E090B9004D0305 /* BluetoothKit.swift */,
+				C06721C828E090B9004D0305 /* Peripheral.swift */,
+				C06721C928E090B9004D0305 /* BLEData.swift */,
+				C06721CA28E090B9004D0305 /* CentralManagerType.swift */,
+				C06721CB28E090B9004D0305 /* BluetoothError.swift */,
+				C06721CC28E090B9004D0305 /* BluetoothKitExtension.swift */,
+				C06721CD28E090B9004D0305 /* PeripheralAttribute.swift */,
+				C06721CE28E090B9004D0305 /* README.md */,
+				C06721CF28E090B9004D0305 /* CentralManager.swift */,
+				C06721D028E090B9004D0305 /* PeripheralManagerType.swift */,
+				C06721D128E090B9004D0305 /* ScanResult.swift */,
+				C06721D228E090B9004D0305 /* PeripheralManager.swift */,
+				C06721D328E090B9004D0305 /* BLECharacteristic.swift */,
+				C06721D428E090B9004D0305 /* PeripheralType.swift */,
+				C06721D528E090B9004D0305 /* L2CAPChannelType.swift */,
+			);
+			path = BluetoothKit;
+			sourceTree = "<group>";
+		};
+		C06721D628E090B9004D0305 /* Navigator */ = {
+			isa = PBXGroup;
+			children = (
+				C06721D728E090B9004D0305 /* Navigator.swift */,
+			);
+			path = Navigator;
+			sourceTree = "<group>";
+		};
+		C06721D828E090B9004D0305 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		C06721D928E090B9004D0305 /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				C06721DA28E090B9004D0305 /* ViewController.swift */,
+				C06721DB28E090B9004D0305 /* ViewState.swift */,
+				C06721DC28E090B9004D0305 /* Router.swift */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
+		C06721F628E090D1004D0305 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				C06721F728E090D1004D0305 /* App */,
+				C06721FB28E090D1004D0305 /* Navigation */,
+				C06721FE28E090D1004D0305 /* RoutePlanning */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		C06721F728E090D1004D0305 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C06721F828E090D1004D0305 /* AppState.swift */,
+				C06721F928E090D1004D0305 /* AppFoundation.swift */,
+				C06721FA28E090D1004D0305 /* AppStore.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		C06721FB28E090D1004D0305 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				C06721FC28E090D1004D0305 /* NavigatingAction.swift */,
+				C06721FD28E090D1004D0305 /* NavigatingView.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		C06721FE28E090D1004D0305 /* RoutePlanning */ = {
+			isa = PBXGroup;
+			children = (
+				C06721FF28E090D1004D0305 /* RoutePlanningAction.swift */,
+				C067220028E090D1004D0305 /* Components */,
+				C067220728E090D1004D0305 /* RoutePlanningViewState.swift */,
+				C067220828E090D1004D0305 /* RoutePlanningView.swift */,
+			);
+			path = RoutePlanning;
+			sourceTree = "<group>";
+		};
+		C067220028E090D1004D0305 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C067220128E090D1004D0305 /* SearchBarViewState.swift */,
+				C067220228E090D1004D0305 /* DetailInfoView.swift */,
+				C067220328E090D1004D0305 /* SearchResultView.swift */,
+				C067220428E090D1004D0305 /* SearchBar.swift */,
+				C067220528E090D1004D0305 /* HEREMapViewState.swift */,
+				C067220628E090D1004D0305 /* HEREMapView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		C067221728E090DE004D0305 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C067221828E090DE004D0305 /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C067221828E090DE004D0305 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C067221928E090DE004D0305 /* UIColor+Extension.swift */,
+				C067221A28E090DE004D0305 /* Enum+CaseReflectable.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,12 +405,17 @@
 				0A342B7D28D6D7AB00F5C95B /* Sources */,
 				0A342B7E28D6D7AB00F5C95B /* Frameworks */,
 				0A342B7F28D6D7AB00F5C95B /* Resources */,
+				0A342BB328D80BCD00F5C95B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = TestCICD;
+			packageProductDependencies = (
+				0A5E9F7E28DB8175008B27F5 /* heresdk */,
+				C067221E28E091AC004D0305 /* GRPC */,
+			);
 			productName = TestCICD;
 			productReference = 0A342B8128D6D7AB00F5C95B /* TestCICD.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +488,10 @@
 				Base,
 			);
 			mainGroup = 0A342B7828D6D7AB00F5C95B;
+			packageReferences = (
+				0A5E9F7D28DB8175008B27F5 /* XCRemoteSwiftPackageReference "heresdk" */,
+				C067221D28E091AC004D0305 /* XCRemoteSwiftPackageReference "grpc-swift" */,
+			);
 			productRefGroup = 0A342B8228D6D7AB00F5C95B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -231,6 +508,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C06721EA28E090B9004D0305 /* README.md in Resources */,
 				0A342B8C28D6D7AC00F5C95B /* Preview Assets.xcassets in Resources */,
 				0A342B8928D6D7AC00F5C95B /* Assets.xcassets in Resources */,
 			);
@@ -257,8 +535,48 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A342B8728D6D7AB00F5C95B /* ContentView.swift in Sources */,
-				0A342B8528D6D7AB00F5C95B /* TestCICDApp.swift in Sources */,
+				C06721F128E090B9004D0305 /* L2CAPChannelType.swift in Sources */,
+				C06721DE28E090B9004D0305 /* UserDefaultsService.swift in Sources */,
+				C06721E028E090B9004D0305 /* ConnectResult.swift in Sources */,
+				C067220928E090D1004D0305 /* AppState.swift in Sources */,
+				C06721DD28E090B9004D0305 /* Configuration.swift in Sources */,
+				C067221228E090D1004D0305 /* SearchBar.swift in Sources */,
+				C06721F228E090B9004D0305 /* Navigator.swift in Sources */,
+				C067220A28E090D1004D0305 /* AppFoundation.swift in Sources */,
+				C067221328E090D1004D0305 /* HEREMapViewState.swift in Sources */,
+				C06721EC28E090B9004D0305 /* PeripheralManagerType.swift in Sources */,
+				C06721F328E090B9004D0305 /* ViewController.swift in Sources */,
+				C06721F428E090B9004D0305 /* ViewState.swift in Sources */,
+				C067221C28E090DE004D0305 /* Enum+CaseReflectable.swift in Sources */,
+				C067221B28E090DE004D0305 /* UIColor+Extension.swift in Sources */,
+				C06721F028E090B9004D0305 /* PeripheralType.swift in Sources */,
+				C06721EB28E090B9004D0305 /* CentralManager.swift in Sources */,
+				C06721DF28E090B9004D0305 /* LocationManager.swift in Sources */,
+				C067221028E090D1004D0305 /* DetailInfoView.swift in Sources */,
+				C06721E928E090B9004D0305 /* PeripheralAttribute.swift in Sources */,
+				C06721F528E090B9004D0305 /* Router.swift in Sources */,
+				C06721B828E0907E004D0305 /* AppDelegate.swift in Sources */,
+				C06721E728E090B9004D0305 /* BluetoothError.swift in Sources */,
+				C06721EE28E090B9004D0305 /* PeripheralManager.swift in Sources */,
+				C06721EF28E090B9004D0305 /* BLECharacteristic.swift in Sources */,
+				C067220C28E090D1004D0305 /* NavigatingAction.swift in Sources */,
+				C06721E428E090B9004D0305 /* Peripheral.swift in Sources */,
+				C067221528E090D1004D0305 /* RoutePlanningViewState.swift in Sources */,
+				C067220D28E090D1004D0305 /* NavigatingView.swift in Sources */,
+				C06721BA28E090A3004D0305 /* SceneDelegate.swift in Sources */,
+				C06721ED28E090B9004D0305 /* ScanResult.swift in Sources */,
+				C067220E28E090D1004D0305 /* RoutePlanningAction.swift in Sources */,
+				C06721E128E090B9004D0305 /* L2CAPChannel.swift in Sources */,
+				C06721E328E090B9004D0305 /* BluetoothKit.swift in Sources */,
+				C06721E628E090B9004D0305 /* CentralManagerType.swift in Sources */,
+				C067221128E090D1004D0305 /* SearchResultView.swift in Sources */,
+				C067220F28E090D1004D0305 /* SearchBarViewState.swift in Sources */,
+				C06721E528E090B9004D0305 /* BLEData.swift in Sources */,
+				C067221628E090D1004D0305 /* RoutePlanningView.swift in Sources */,
+				C067220B28E090D1004D0305 /* AppStore.swift in Sources */,
+				C06721E228E090B9004D0305 /* BLEService.swift in Sources */,
+				C06721E828E090B9004D0305 /* BluetoothKitExtension.swift in Sources */,
+				C067221428E090D1004D0305 /* HEREMapView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,10 +732,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TestCICD/Preview Content\"";
-				DEVELOPMENT_TEAM = 9A5GR5G69Y;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 9A5GR5G69Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -432,6 +753,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = jp.tokyo.TestCICD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AdHoc jp.tokyo.TestCICD";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -443,10 +766,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TestCICD/Preview Content\"";
-				DEVELOPMENT_TEAM = 9A5GR5G69Y;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 9A5GR5G69Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -461,6 +787,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = jp.tokyo.TestCICD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AdHoc jp.tokyo.TestCICD";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -472,7 +800,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9A5GR5G69Y;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -492,7 +820,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9A5GR5G69Y;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -511,7 +839,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9A5GR5G69Y;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -529,7 +857,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9A5GR5G69Y;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -583,6 +911,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0A5E9F7D28DB8175008B27F5 /* XCRemoteSwiftPackageReference "heresdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Antony138/heresdk";
+			requirement = {
+				kind = exactVersion;
+				version = 1.0.1;
+			};
+		};
+		C067221D28E091AC004D0305 /* XCRemoteSwiftPackageReference "grpc-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/grpc/grpc-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0A5E9F7E28DB8175008B27F5 /* heresdk */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A5E9F7D28DB8175008B27F5 /* XCRemoteSwiftPackageReference "heresdk" */;
+			productName = heresdk;
+		};
+		C067221E28E091AC004D0305 /* GRPC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C067221D28E091AC004D0305 /* XCRemoteSwiftPackageReference "grpc-swift" */;
+			productName = GRPC;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0A342B7928D6D7AB00F5C95B /* Project object */;
 }

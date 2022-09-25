@@ -1,0 +1,12 @@
+//
+//  Config.xcconfig
+//  EVP4
+//
+//  Created by Stone Zhang on 8/29/22.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+HERE_SDK_CREDENTIAL_ID = Input your ID here
+HERE_SDK_CREDENTIAL_SECRET = Input your secret here

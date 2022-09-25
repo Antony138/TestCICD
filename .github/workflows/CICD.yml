@@ -1,0 +1,60 @@
+name: Build iOS app
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    # runs-on: [self-hosted, macOS, ARM64, antony, m1pro]
+    # runs-on: [self-hosted, macOS, ARM64, M1, Air]
+    runs-on: [self-hosted, macOS, X64, test, office]
+    # runs-on: [self-hosted, macOS, ARM64, M1, test, office]
+    env:
+      LC_ALL: en_US.UTF-8
+      LANG: en_US.UTF-8
+      ImageOS: macos1015
+
+    steps:
+      - name: whoami
+        run: |
+          whoami
+          ruby --version
+
+      - uses: actions/checkout@v3
+
+      # - name: Set up Ruby 3.1.2
+      #   uses: actions/setup-ruby@v1
+      #   with:
+      #     ruby-version: '3.1.2'
+          
+      - name: Set up Ruby 3.1.2
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1.2'
+          bundler-cache: true # 好像影响不大
+
+      - name: whoami
+        run: |
+          whoami
+          ruby --version
+
+      - name: Install bundler
+        run: gem install bundler
+
+      - name: Run bundle install
+        run: bundle install
+        # run: bundle install --path vendor/bundle
+
+      - name: Buiding!
+        run: bundle exec fastlane build
+        # run: fastlane build
+        env:
+          APP_STORE_CONNECT_API_KEY_KEY_ID: '${{ secrets.APP_STORE_CONNECT_API_KEY_KEY_ID }}'
+          APP_STORE_CONNECT_API_KEY_ISSUER_ID: '${{ secrets.APP_STORE_CONNECT_API_KEY_ISSUER_ID }}'
+          APP_STORE_CONNECT_API_KEY_KEY: '${{ secrets.APP_STORE_CONNECT_API_KEY_KEY }}'
+          MATCH_GIT_BASIC_AUTHORIZATION: '${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}'
+          MATCH_GIT_URL: '${{ secrets.MATCH_GIT_URL }}'
+          MATCH_PASSWORD: '${{ secrets.MATCH_PASSWORD }}'
+          # MATCH_KEYCHAIN_PASSWORD: '${{ secrets.MATCH_KEYCHAIN_PASSWORD }}'
+          # SLACK_CDCI_CHANNEL_URL: '${{ secrets.SLACK_CDCI_CHANNEL_URL }}'

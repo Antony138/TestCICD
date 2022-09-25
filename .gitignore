@@ -89,3 +89,9 @@ fastlane/test_output
 
 iOSInjectionProject/
 .DS_Store
+
+# hereSDK
+heresdk.xcframework/
+
+# Credential Configuration
+Config.xcconfig
