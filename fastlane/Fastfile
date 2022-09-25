@@ -67,7 +67,7 @@ private_lane :archive do
 
   unlock_keychain( 
     path: "fastlane_tmp_keychain-db",
-    password: ""
+    password: "123456"
   )
   
 	gym(
