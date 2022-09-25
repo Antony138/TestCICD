@@ -1,0 +1,117 @@
+default_platform(:ios)
+
+platform :ios do
+  
+  before_all do
+    # setup_ci
+    check_env_var
+    ensure_temp_keychain 'fastlane_cicd_temp_keychain'
+  end
+
+  desc "Building"
+  lane :build do
+    xcode_select("/Applications/Xcode.app")
+    
+    # run_unit_test
+
+    match_adhoc
+
+    archive
+    
+    # upload_deploygate
+
+  end
+
+  after_all do
+    clean_build_artifacts
+    delete_keychain(name: 'fastlane_cicd_temp_keychain')
+  end
+
+end
+
+private_lane :run_unit_test do
+	scan(
+		scheme: "TestCICD",
+		clean: true
+	)
+end
+
+private_lane :get_apple_api_key do
+	api_key = app_store_connect_api_key(
+		key_id: ENV["APP_STORE_CONNECT_API_KEY_KEY_ID"],
+		issuer_id: ENV["APP_STORE_CONNECT_API_KEY_ISSUER_ID"],
+		key_content: ENV["APP_STORE_CONNECT_API_KEY_KEY"],
+		is_key_content_base64: true
+	)
+end
+
+private_lane :match_adhoc do
+	get_apple_api_key
+
+	match(
+    git_url: ENV["MATCH_GIT_URL"], # 因为是环境变量，不写也可以
+		type: 'adhoc',
+		app_identifier: "jp.tokyo.TestCICD",
+		api_key: lane_context[SharedValues::APP_STORE_CONNECT_API_KEY],
+		git_basic_authorization: ENV["MATCH_GIT_BASIC_AUTHORIZATION"],
+    keychain_name: 'fastlane_cicd_temp_keychain',
+    keychain_password: 'temppassword'
+	)
+end
+
+private_lane :archive do
+	# update_code_signing_settings(use_automatic_signing: false)
+
+	# settings_to_override = {
+	# 	:PRODUCT_BUNDLE_IDENTIFIER => "jp.tokyo.TestCICD",
+	# 	:PROVISIONING_PROFILE_SPECIFIER => "match AdHoc jp.tokyo.TestCICD"
+	# }
+  
+	gym(
+		# codesigning_identity: "iOS Distribution",
+		scheme: "TestCICD", # The project's scheme. Make sure it's marked as `Shared`
+		clean: true,
+		# xcargs: settings_to_override,
+		xcconfig: "../../../Config.xcconfig",
+		silent: true
+	)
+end
+
+private_lane :upload_deploygate do
+  deploygate_api_token = 'f0e6b9c8-083d-4d2d-9771-640f2a580018'
+  deploygate_user = 'antony1380'
+
+  deploygate(
+      api_token: deploygate_api_token,
+      user: deploygate_user,
+      ipa: "TestCICD.ipa",
+      message: "🚀🚀🚀 New build of TestCICD in deploygate! 🎉🎉🎉"
+  )
+end
+
+private_lane :check_env_var do
+  ensure_env_vars(
+    env_vars: [
+      # 'MATCH_KEYCHAIN_PASSWORD', # runer电脑的密码
+      'APP_STORE_CONNECT_API_KEY_KEY_ID',     # APP STORE CONNECT API KEY: use to adovid 2FA (Two-Factor Authentication)
+      'APP_STORE_CONNECT_API_KEY_ISSUER_ID',
+      'APP_STORE_CONNECT_API_KEY_KEY',        # Use "cat AuthKey_ABCDEFGH.p8 | base64" to generate the content (The original .p8 file, store in Antony's laptop)
+      'MATCH_GIT_URL',                        # URL of the certificates repository
+      'MATCH_GIT_BASIC_AUTHORIZATION',        # Use to access the certificates repository: evp4-ios-certificates
+      'MATCH_PASSWORD'
+    ]
+  )
+end
+
+def ensure_temp_keychain(name)
+  delete_keychain(
+    name: name
+  ) if File.exist? File.expand_path("~/Library/Keychains/#{name}-db")
+
+  create_keychain(
+    name: name,
+    password: 'temppassword',
+    unlock: true,
+    timeout: 1800
+  )
+end
