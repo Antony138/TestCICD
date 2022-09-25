@@ -6,9 +6,9 @@ on:
 
 jobs:
   build:
-    runs-on: [self-hosted, macOS, ARM64, antony, m1pro]
+    # runs-on: [self-hosted, macOS, ARM64, antony, m1pro]
     # runs-on: [self-hosted, macOS, ARM64, M1, Air]
-    # runs-on: [self-hosted, macOS, X64, test, office]
+    runs-on: [self-hosted, macOS, X64, test, office]
     # runs-on: [self-hosted, macOS, ARM64, M1, test, office]
     env:
       LC_ALL: en_US.UTF-8
