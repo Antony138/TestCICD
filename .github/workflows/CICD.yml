@@ -56,5 +56,5 @@ jobs:
           MATCH_GIT_BASIC_AUTHORIZATION: '${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}'
           MATCH_GIT_URL: '${{ secrets.MATCH_GIT_URL }}'
           MATCH_PASSWORD: '${{ secrets.MATCH_PASSWORD }}'
-          # MATCH_KEYCHAIN_PASSWORD: '${{ secrets.MATCH_KEYCHAIN_PASSWORD }}'
+          MATCH_KEYCHAIN_PASSWORD: '${{ secrets.MATCH_KEYCHAIN_PASSWORD }}'
           # SLACK_CDCI_CHANNEL_URL: '${{ secrets.SLACK_CDCI_CHANNEL_URL }}'
