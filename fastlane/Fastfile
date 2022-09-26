@@ -89,7 +89,7 @@ private_lane :upload_deploygate do
 
   commit = last_git_commit
 
-  deploy_message = "#{commit[:abbreviated_commit_hash]} #{commit[:message]}. #{ENV["DEPLOYGATE_MESSAGE"]}"
+  deploy_message = "#{ENV["DEPLOYGATE_CUSTOM_MESSAGE"]}. #{commit[:abbreviated_commit_hash]} #{commit[:message]}"
 
   puts "deploy_message: #{deploy_message}"
 
