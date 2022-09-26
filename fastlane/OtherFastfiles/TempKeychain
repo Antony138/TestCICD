@@ -1,0 +1,12 @@
+def ensure_temp_keychain(name)
+    delete_keychain(
+        name: name
+    ) if File.exist? File.expand_path("~/Library/Keychains/#{name}-db")
+
+    create_keychain(
+        name: name,
+        password: 'temppassword',
+        unlock: true,
+        timeout: 1800
+    )
+end

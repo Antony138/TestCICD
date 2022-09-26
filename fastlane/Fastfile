@@ -1,3 +1,5 @@
+import("./OtherFastfiles/TempKeychain")
+
 default_platform(:ios)
 
 platform :ios do  
@@ -113,15 +115,15 @@ private_lane :check_env_var do
   )
 end
 
-def ensure_temp_keychain(name)
-  delete_keychain(
-    name: name
-  ) if File.exist? File.expand_path("~/Library/Keychains/#{name}-db")
+# def ensure_temp_keychain(name)
+#   delete_keychain(
+#     name: name
+#   ) if File.exist? File.expand_path("~/Library/Keychains/#{name}-db")
 
-  create_keychain(
-    name: name,
-    password: 'temppassword',
-    unlock: true,
-    timeout: 1800
-  )
-end
+#   create_keychain(
+#     name: name,
+#     password: 'temppassword',
+#     unlock: true,
+#     timeout: 1800
+#   )
+# end
