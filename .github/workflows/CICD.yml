@@ -56,6 +56,6 @@ jobs:
           MATCH_GIT_BASIC_AUTHORIZATION: '${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}'
           MATCH_GIT_URL: '${{ secrets.MATCH_GIT_URL }}'
           MATCH_PASSWORD: '${{ secrets.MATCH_PASSWORD }}'
-          DEPLOYGATE_MESSAGE: '${{ secrets.DEPLOYGATE_MESSAGE }}'
+          DEPLOYGATE_CUSTOM_MESSAGE: '${{ secrets.DEPLOYGATE_CUSTOM_MESSAGE }}'
           # MATCH_KEYCHAIN_PASSWORD: '${{ secrets.MATCH_KEYCHAIN_PASSWORD }}'
           # SLACK_CDCI_CHANNEL_URL: '${{ secrets.SLACK_CDCI_CHANNEL_URL }}'
