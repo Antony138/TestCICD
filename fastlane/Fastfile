@@ -1,7 +1,6 @@
 default_platform(:ios)
 
-platform :ios do
-  
+platform :ios do  
   before_all do
     # setup_ci
     check_env_var
@@ -21,6 +20,11 @@ platform :ios do
     upload_deploygate
 
   end
+
+  rescue => exception
+    delete_keychain(name: 'fastlane_cicd_temp_keychain')
+    # send error message to Slack
+    raise exception
 
   after_all do
     clean_build_artifacts
@@ -81,11 +85,17 @@ private_lane :upload_deploygate do
   deploygate_api_token = 'f0e6b9c8-083d-4d2d-9771-640f2a580018'
   deploygate_user = 'antony1380'
 
+  commit = last_git_commit
+
+  deploy_message = "#{commit[:abbreviated_commit_hash]} #{commit[:message]}"
+
+  puts "deploy_message: #{deploy_message}"
+
   deploygate(
       api_token: deploygate_api_token,
       user: deploygate_user,
       ipa: "TestCICD.ipa",
-      message: "🚀🚀🚀 New build of TestCICD in deploygate! 🎉🎉🎉"
+      message: deploy_message
   )
 end
 
