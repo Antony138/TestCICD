@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "heresdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Antony138/heresdk",
+      "state" : {
+        "revision" : "939790c376b85c9b31ea35ffce548f86099d4de4",
+        "version" : "1.0.1"
+      }
+    }
+  ],
+  "version" : 2
+}
