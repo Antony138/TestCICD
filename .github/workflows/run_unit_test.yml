@@ -11,12 +11,12 @@ jobs:
     # runs-on: [self-hosted, macOS, ARM64, CompanyMac]
 
     steps:
-      # - name: Set up Ruby to 3.1.2
-      #   uses: ruby/setup-ruby@v1
-      #   with:
-      #     ruby-version: '3.1.2'
-      #   env:
-      #     ImageOS: macos12
+      - name: Set up Ruby to 3.1.2
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1.2'
+        env:
+          ImageOS: macos12
 
       - name: Check out
         uses: actions/checkout@v3
