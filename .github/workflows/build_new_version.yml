@@ -2,7 +2,7 @@ name: Build a new version
 
 on:
   workflow_dispatch:
-  
+
   schedule:
     # - cron: 49 16 * * FRI # Every Thursday 8 PM, release a new build
     - cron: '*/5 * * * *' # Runs at every 5th minute.. (Must have single quotes: '')
@@ -23,26 +23,16 @@ jobs:
         run: |
           whoami
           ruby --version
+          type -a ruby
+          which ruby
 
       - uses: actions/checkout@v3
-        with:
-          ref: main
-
-      # - name: Set up Ruby 3.1.2
-      #   uses: actions/setup-ruby@v1
-      #   with:
-      #     ruby-version: '3.1.2'
           
       # - name: Set up Ruby 3.1.2
       #   uses: ruby/setup-ruby@v1
       #   with:
       #     ruby-version: '3.1.2'
       #     bundler-cache: true # 好像影响不大
-
-      - name: whoami
-        run: |
-          whoami
-          ruby --version
 
       - name: Install bundler
         run: gem install bundler
@@ -51,18 +41,18 @@ jobs:
         run: bundle install
         # run: bundle install --path vendor/bundle
 
-      # - name: Buiding!
-      #   run: bundle exec fastlane build
-      #   # run: fastlane build
-      #   env:
-      #     LC_ALL: en_US.UTF-8
-      #     LANG: en_US.UTF-8
-      #     APP_STORE_CONNECT_API_KEY_KEY_ID: '${{ secrets.APP_STORE_CONNECT_API_KEY_KEY_ID }}'
-      #     APP_STORE_CONNECT_API_KEY_ISSUER_ID: '${{ secrets.APP_STORE_CONNECT_API_KEY_ISSUER_ID }}'
-      #     APP_STORE_CONNECT_API_KEY_KEY: '${{ secrets.APP_STORE_CONNECT_API_KEY_KEY }}'
-      #     MATCH_GIT_BASIC_AUTHORIZATION: '${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}'
-      #     MATCH_GIT_URL: '${{ secrets.MATCH_GIT_URL }}'
-      #     MATCH_PASSWORD: '${{ secrets.MATCH_PASSWORD }}'
-      #     DEPLOYGATE_CUSTOM_MESSAGE: '${{ secrets.DEPLOYGATE_CUSTOM_MESSAGE }}'
+      - name: Buiding!
+        run: bundle exec fastlane build
+        env:
+          LC_ALL: en_US.UTF-8
+          LANG: en_US.UTF-8
+          APP_STORE_CONNECT_API_KEY_KEY_ID: '${{ secrets.APP_STORE_CONNECT_API_KEY_KEY_ID }}'
+          APP_STORE_CONNECT_API_KEY_ISSUER_ID: '${{ secrets.APP_STORE_CONNECT_API_KEY_ISSUER_ID }}'
+          APP_STORE_CONNECT_API_KEY_KEY: '${{ secrets.APP_STORE_CONNECT_API_KEY_KEY }}'
+          MATCH_GIT_BASIC_AUTHORIZATION: '${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}'
+          MATCH_GIT_URL: '${{ secrets.MATCH_GIT_URL }}'
+          MATCH_PASSWORD: '${{ secrets.MATCH_PASSWORD }}'
+          DEPLOYGATE_CUSTOM_MESSAGE: '${{ secrets.DEPLOYGATE_CUSTOM_MESSAGE }}'
+
           # MATCH_KEYCHAIN_PASSWORD: '${{ secrets.MATCH_KEYCHAIN_PASSWORD }}'
           # SLACK_CDCI_CHANNEL_URL: '${{ secrets.SLACK_CDCI_CHANNEL_URL }}'
