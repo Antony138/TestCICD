@@ -1,0 +1,6 @@
+lane :run_unit_test do
+	scan(
+		scheme: "TestCICD",
+		clean: true
+	)
+end

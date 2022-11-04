@@ -1,4 +1,5 @@
 import("./OtherFastfiles/TempKeychain")
+import("./OtherFastfiles/RunUnitTest")
 
 default_platform(:ios)
 
@@ -33,13 +34,6 @@ platform :ios do
     delete_keychain(name: 'fastlane_cicd_temp_keychain')
   end
 
-end
-
-lane :run_unit_test do
-	scan(
-		scheme: "TestCICD",
-		clean: true
-	)
 end
 
 private_lane :get_apple_api_key do
