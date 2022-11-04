@@ -5,16 +5,15 @@ default_platform(:ios)
 
 platform :ios do  
   before_all do
-    # setup_ci
+    setup_ci # will creste the "fastlane_tmp_keychain-db" in CI
     check_env_var
-    ensure_temp_keychain 'fastlane_cicd_temp_keychain'
   end
 
   desc "Building"
   lane :build do
     xcode_select("/Applications/Xcode.app")
     
-    # run_unit_test
+    run_unit_test
 
     match_adhoc
 
@@ -25,13 +24,15 @@ platform :ios do
   end
 
   rescue => exception
-    delete_keychain(name: 'fastlane_cicd_temp_keychain')
+    # Error handle
+    delete_keychain(name: 'fastlane_tmp_keychain-db') if File.exist? File.expand_path("~/Library/Keychains/fastlane_tmp_keychain-db")
+    clean_build_artifacts
     # send error message to Slack
     raise exception
 
   after_all do
+    delete_keychain(name: 'fastlane_tmp_keychain-db') if File.exist? File.expand_path("~/Library/Keychains/fastlane_tmp_keychain-db")
     clean_build_artifacts
-    delete_keychain(name: 'fastlane_cicd_temp_keychain')
   end
 
 end

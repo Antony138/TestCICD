@@ -7,9 +7,19 @@ on:
 
 jobs:
   run-unit-test:
-    runs-on: [self-hosted, macOS, ARM64, CompanyMac]
+    runs-on: [self-hosted, macOS, ARM64, M1, test, office]
+    # runs-on: [self-hosted, macOS, ARM64, CompanyMac]
 
     steps:
+      # 似乎这个action还不支持M1的mac，是不是后面可以自己弄一个setup ruby的私有action？
+      # https://github.com/ruby/setup-ruby/issues/341
+      # - name: Set up Ruby to 3.1.2
+      #   uses: ruby/setup-ruby@v1
+      #   with:
+      #     ruby-version: '3.1.2'
+      #   env:
+      #     ImageOS: macos12
+
       - name: Check out
         uses: actions/checkout@v3
         
@@ -26,3 +36,7 @@ jobs:
 
       - name: Run unit test
         run: bundle exec fastlane run_unit_test
+        # https://docs.fastlane.tools/getting-started/ios/setup/#set-up-environment-variables
+        env:
+          LC_ALL: en_US.UTF-8
+          LANG: en_US.UTF-8
