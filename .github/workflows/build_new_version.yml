@@ -23,6 +23,7 @@ jobs:
         run: |
           whoami
           ruby --version
+          rbenv versions
 
       - uses: actions/checkout@v3
         with:
