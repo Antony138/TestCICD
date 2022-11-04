@@ -11,16 +11,14 @@ jobs:
     # runs-on: [self-hosted, macOS, ARM64, CompanyMac]
 
     steps:
-      - name: Setup
-        run: |
-          ln -fs /Users/runner/hostedtoolcache/Ruby /Users/antony_an/Runner/TestCICD/actions-runner/_work/_tool
-
-      - name: Set up Ruby to 3.1.2
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.1.2'
-        env:
-          ImageOS: macos12
+      # 似乎这个action还不支持M1的mac，是不是后面可以自己弄一个setup ruby的私有action？
+      # https://github.com/ruby/setup-ruby/issues/341
+      # - name: Set up Ruby to 3.1.2
+      #   uses: ruby/setup-ruby@v1
+      #   with:
+      #     ruby-version: '3.1.2'
+      #   env:
+      #     ImageOS: macos12
 
       - name: Check out
         uses: actions/checkout@v3
