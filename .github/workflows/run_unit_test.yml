@@ -10,6 +10,9 @@ jobs:
     runs-on: [self-hosted, macOS, ARM64, CompanyMac]
 
     steps:
+      - name: Check out
+        uses: actions/checkout@v3
+        
       - name: Who am I
         run: |
           whoami
