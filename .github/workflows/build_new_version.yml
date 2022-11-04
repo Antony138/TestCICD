@@ -2,7 +2,7 @@ name: Build a new version
 
 on:
   schedule:
-    - cron: 35 16 * * FRI # Every Thursday 8 PM, release a new build
+    - cron: 40 16 * * FRI # Every Thursday 8 PM, release a new build
 
 jobs:
   build-new-version:
