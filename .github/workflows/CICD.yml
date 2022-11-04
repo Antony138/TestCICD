@@ -1,15 +1,16 @@
 name: Build iOS app
 
 on:
-  pull_request:
-    branches: [ "main" ]
+  schedule:
+    - cron: 0 20 * * THU # Every Thursday 8 PM, release a new build
 
 jobs:
   build:
     # runs-on: [self-hosted, macOS, ARM64, antony, m1pro]
     # runs-on: [self-hosted, macOS, ARM64, M1, Air]
-    runs-on: [self-hosted, macOS, X64, test, office]
+    # runs-on: [self-hosted, macOS, X64, test, office]
     # runs-on: [self-hosted, macOS, ARM64, M1, test, office]
+    runs-on: [self-hosted, macOS, ARM64, CompanyMac]
     env:
       LC_ALL: en_US.UTF-8
       LANG: en_US.UTF-8

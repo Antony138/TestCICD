@@ -1,0 +1,28 @@
+name: Run unit test
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    branches: [main]
+
+jobs:
+  run-unit-test:
+    runs-on: [self-hosted, macOS, ARM64, CompanyMac]
+
+    steps:
+      - name: Check out
+        uses: actions/checkout@v3
+        
+      - name: Who am I
+        run: |
+          whoami
+          ruby --version
+
+      - name: Install bundler
+        run: gem install bundler
+
+      - name: Run bundle install
+        run: bundle install
+
+      - name: Run unit test
+        run: bundle exec fastlane run_unit_test
