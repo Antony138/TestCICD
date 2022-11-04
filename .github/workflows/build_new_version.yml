@@ -1,20 +1,20 @@
-name: Build iOS app
+name: Build a new version
 
 on:
   schedule:
-    - cron: 0 20 * * THU # Every Thursday 8 PM, release a new build
+    - cron: 35 16 * * FRI # Every Thursday 8 PM, release a new build
 
 jobs:
-  build:
+  build-new-version:
     # runs-on: [self-hosted, macOS, ARM64, antony, m1pro]
     # runs-on: [self-hosted, macOS, ARM64, M1, Air]
     # runs-on: [self-hosted, macOS, X64, test, office]
-    # runs-on: [self-hosted, macOS, ARM64, M1, test, office]
-    runs-on: [self-hosted, macOS, ARM64, CompanyMac]
-    env:
-      LC_ALL: en_US.UTF-8
-      LANG: en_US.UTF-8
-      ImageOS: macos1015
+    runs-on: [self-hosted, macOS, ARM64, M1, test, office]
+    # runs-on: [self-hosted, macOS, ARM64, CompanyMac]
+    # env:
+    #   LC_ALL: en_US.UTF-8
+    #   LANG: en_US.UTF-8
+    #   ImageOS: macos1015
 
     steps:
       - name: whoami
@@ -29,11 +29,11 @@ jobs:
       #   with:
       #     ruby-version: '3.1.2'
           
-      - name: Set up Ruby 3.1.2
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.1.2'
-          bundler-cache: true # 好像影响不大
+      # - name: Set up Ruby 3.1.2
+      #   uses: ruby/setup-ruby@v1
+      #   with:
+      #     ruby-version: '3.1.2'
+      #     bundler-cache: true # 好像影响不大
 
       - name: whoami
         run: |
@@ -51,6 +51,8 @@ jobs:
         run: bundle exec fastlane build
         # run: fastlane build
         env:
+          LC_ALL: en_US.UTF-8
+          LANG: en_US.UTF-8
           APP_STORE_CONNECT_API_KEY_KEY_ID: '${{ secrets.APP_STORE_CONNECT_API_KEY_KEY_ID }}'
           APP_STORE_CONNECT_API_KEY_ISSUER_ID: '${{ secrets.APP_STORE_CONNECT_API_KEY_ISSUER_ID }}'
           APP_STORE_CONNECT_API_KEY_KEY: '${{ secrets.APP_STORE_CONNECT_API_KEY_KEY }}'
