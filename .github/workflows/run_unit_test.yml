@@ -11,6 +11,16 @@ jobs:
     # runs-on: [self-hosted, macOS, ARM64, CompanyMac]
 
     steps:
+      - name: Setup
+        run: |
+          ln -s /Users/runner/.rbenv/versions/3.1.2 /Users/runner/hostedtoolcache/Ruby/3.1.2/arm64
+          ln -s /Users/runner/.rbenv/versions/3.1.2 /Users/runner/hostedtoolcache/Ruby/3.1.2/x86
+          ln -s /Users/runner/.rbenv/versions/3.1.2 /Users/runner/hostedtoolcache/Ruby/3.1.2/x64
+          touch /Users/runner/hostedtoolcache/Ruby/3.1.2/arm64.complete
+          touch /Users/runner/hostedtoolcache/Ruby/3.1.2/x86.complete
+          touch /Users/runner/hostedtoolcache/Ruby/3.1.2/x64.complete
+          ln -fs /Users/runner/hostedtoolcache/Ruby /Users/runner/actions-runner/_work/_tool
+
       - name: Set up Ruby to 3.1.2
         uses: ruby/setup-ruby@v1
         with:
