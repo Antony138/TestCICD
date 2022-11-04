@@ -14,6 +14,7 @@ jobs:
       # https://docs.fastlane.tools/getting-started/ios/setup/#set-up-environment-variables
       LC_ALL: en_US.UTF-8
       LANG: en_US.UTF-8
+      ImageOS: macos12
 
     steps:
       # 似乎这个action还不支持M1的mac，是不是后面可以自己弄一个setup ruby的私有action？
