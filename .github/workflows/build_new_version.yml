@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
 
   schedule:
-    # - cron: 49 16 * * FRI # Every Thursday 8 PM, release a new build
-    - cron: '*/5 * * * *' # Runs at every 5th minute.. (Must have single quotes: '')
+    - cron: 00 20 * * THU # Every Thursday 8 PM, release a new build
+    # - cron: '*/5 * * * *' # Runs at every 5th minute.. (Must have single quotes: '')
 jobs:
   build-new-version:
     # runs-on: [self-hosted, macOS, ARM64, antony, m1pro]
