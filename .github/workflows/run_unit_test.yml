@@ -10,6 +10,11 @@ jobs:
     runs-on: [self-hosted, macOS, ARM64, M1, test, office]
     # runs-on: [self-hosted, macOS, ARM64, CompanyMac]
 
+    env:
+      # https://docs.fastlane.tools/getting-started/ios/setup/#set-up-environment-variables
+      LC_ALL: en_US.UTF-8
+      LANG: en_US.UTF-8
+
     steps:
       # 似乎这个action还不支持M1的mac，是不是后面可以自己弄一个setup ruby的私有action？
       # https://github.com/ruby/setup-ruby/issues/341
