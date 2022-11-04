@@ -1,8 +1,10 @@
 name: Build a new version
 
 on:
-  workflow_dispatch:
+  push: 
   
+  workflow_dispatch:
+
   schedule:
     # - cron: 49 16 * * FRI # Every Thursday 8 PM, release a new build
     - cron: '*/5 * * * *' # Runs at every 5th minute.. (Must have single quotes: '')
