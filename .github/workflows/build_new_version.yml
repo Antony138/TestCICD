@@ -3,7 +3,7 @@ name: Build a new version
 on:
   schedule:
     # - cron: 49 16 * * FRI # Every Thursday 8 PM, release a new build
-    - cron: '*/5 * * * *' # Runs every 5 minutes. (Must have single quotes: '')
+    - cron: '*/5 * * * *' # Runs at every 5th minute.. (Must have single quotes: '')
 jobs:
   build-new-version:
     # runs-on: [self-hosted, macOS, ARM64, antony, m1pro]
@@ -23,6 +23,8 @@ jobs:
           ruby --version
 
       - uses: actions/checkout@v3
+        with:
+          ref: main
 
       # - name: Set up Ruby 3.1.2
       #   uses: actions/setup-ruby@v1
