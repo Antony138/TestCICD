@@ -4,8 +4,6 @@ on:
   # 有输入branch的时候，就build输入的branch（要先检查有没有这个branch？还是直接checkout就知道有没有了）；
   # 没有输入的branch，就build main branch
   workflow_dispatch:
-    branchName:
-    description: 'Type in the branch name you want to build, if empty, will build main branch'
 
   schedule:
     - cron: 00 20 * * THU # Every Thursday 8 PM, release a new build
@@ -25,7 +23,7 @@ env:
   # MATCH_KEYCHAIN_PASSWORD: '${{ secrets.MATCH_KEYCHAIN_PASSWORD }}'
   # SLACK_CDCI_CHANNEL_URL: '${{ secrets.SLACK_CDCI_CHANNEL_URL }}'
 jobs:
-  build-main-branch:
+  build-new-version:
     if: ${{ inputs.branchName == '' }}
     # runs-on: [self-hosted, macOS, ARM64, antony, m1pro]
     # runs-on: [self-hosted, macOS, ARM64, M1, Air]
@@ -60,31 +58,6 @@ jobs:
       - name: Run bundle install
         run: bundle install
         # run: bundle install --path vendor/bundle
-
-      - name: Buiding!
-        run: bundle exec fastlane build
-
-  build-custom-branch:
-    if: ${{ inputs.branchName != '' }}
-    runs-on: [self-hosted, macOS, ARM64, M1, test, office]
-
-    steps:
-      - name: whoami
-        run: |
-          whoami
-          ruby --version
-          type -a ruby
-          which ruby
-
-      - uses: actions/checkout@v3
-        with:
-          ref:  ${{ inputs.branchName }}
-
-      - name: Install bundler
-        run: gem install bundler
-
-      - name: Run bundle install
-        run: bundle install
 
       - name: Buiding!
         run: bundle exec fastlane build
