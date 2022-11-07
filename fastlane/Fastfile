@@ -13,7 +13,7 @@ platform :ios do
   lane :build do
     xcode_select("/Applications/Xcode.app")
     
-    run_unit_test
+    # run_unit_test
 
     match_adhoc
 
