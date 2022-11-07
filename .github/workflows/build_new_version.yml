@@ -1,13 +1,32 @@
 name: Build a new version
 
 on:
+  # 有输入branch的时候，就build输入的branch（要先检查有没有这个branch？还是直接checkout就知道有没有了）；
+  # 没有输入的branch，就build main branch
   workflow_dispatch:
+    branchName:
+    description: 'Type in the branch name you want to build, if empty, will build main branch'
 
   schedule:
     - cron: 00 20 * * THU # Every Thursday 8 PM, release a new build
     # - cron: '*/5 * * * *' # Runs at every 5th minute.. (Must have single quotes: '')
+
+env:
+  LC_ALL: en_US.UTF-8
+  LANG: en_US.UTF-8
+  APP_STORE_CONNECT_API_KEY_KEY_ID: '${{ secrets.APP_STORE_CONNECT_API_KEY_KEY_ID }}'
+  APP_STORE_CONNECT_API_KEY_ISSUER_ID: '${{ secrets.APP_STORE_CONNECT_API_KEY_ISSUER_ID }}'
+  APP_STORE_CONNECT_API_KEY_KEY: '${{ secrets.APP_STORE_CONNECT_API_KEY_KEY }}'
+  MATCH_GIT_BASIC_AUTHORIZATION: '${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}'
+  MATCH_GIT_URL: '${{ secrets.MATCH_GIT_URL }}'
+  MATCH_PASSWORD: '${{ secrets.MATCH_PASSWORD }}'
+  DEPLOYGATE_CUSTOM_MESSAGE: '${{ secrets.DEPLOYGATE_CUSTOM_MESSAGE }}'
+
+  # MATCH_KEYCHAIN_PASSWORD: '${{ secrets.MATCH_KEYCHAIN_PASSWORD }}'
+  # SLACK_CDCI_CHANNEL_URL: '${{ secrets.SLACK_CDCI_CHANNEL_URL }}'
 jobs:
-  build-new-version:
+  build-main-branch:
+    if: ${{ inputs.branchName == '' }}
     # runs-on: [self-hosted, macOS, ARM64, antony, m1pro]
     # runs-on: [self-hosted, macOS, ARM64, M1, Air]
     # runs-on: [self-hosted, macOS, X64, test, office]
@@ -26,6 +45,7 @@ jobs:
           type -a ruby
           which ruby
 
+      # build main branch or build other branch
       - uses: actions/checkout@v3
           
       # - name: Set up Ruby 3.1.2
@@ -43,16 +63,28 @@ jobs:
 
       - name: Buiding!
         run: bundle exec fastlane build
-        env:
-          LC_ALL: en_US.UTF-8
-          LANG: en_US.UTF-8
-          APP_STORE_CONNECT_API_KEY_KEY_ID: '${{ secrets.APP_STORE_CONNECT_API_KEY_KEY_ID }}'
-          APP_STORE_CONNECT_API_KEY_ISSUER_ID: '${{ secrets.APP_STORE_CONNECT_API_KEY_ISSUER_ID }}'
-          APP_STORE_CONNECT_API_KEY_KEY: '${{ secrets.APP_STORE_CONNECT_API_KEY_KEY }}'
-          MATCH_GIT_BASIC_AUTHORIZATION: '${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}'
-          MATCH_GIT_URL: '${{ secrets.MATCH_GIT_URL }}'
-          MATCH_PASSWORD: '${{ secrets.MATCH_PASSWORD }}'
-          DEPLOYGATE_CUSTOM_MESSAGE: '${{ secrets.DEPLOYGATE_CUSTOM_MESSAGE }}'
 
-          # MATCH_KEYCHAIN_PASSWORD: '${{ secrets.MATCH_KEYCHAIN_PASSWORD }}'
-          # SLACK_CDCI_CHANNEL_URL: '${{ secrets.SLACK_CDCI_CHANNEL_URL }}'
+  build-custom-branch:
+    if: ${{ inputs.branchName != '' }}
+    runs-on: [self-hosted, macOS, ARM64, M1, test, office]
+
+    steps:
+      - name: whoami
+        run: |
+          whoami
+          ruby --version
+          type -a ruby
+          which ruby
+
+      - uses: actions/checkout@v3
+        with:
+          ref:  ${{ inputs.branchName }}
+
+      - name: Install bundler
+        run: gem install bundler
+
+      - name: Run bundle install
+        run: bundle install
+
+      - name: Buiding!
+        run: bundle exec fastlane build
