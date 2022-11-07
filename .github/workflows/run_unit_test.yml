@@ -23,10 +23,12 @@ jobs:
       - name: Check out
         uses: actions/checkout@v3
         
-      - name: Who am I
+      - name: whoami
         run: |
           whoami
           ruby --version
+          type -a ruby
+          which ruby
 
       - name: Install bundler
         run: gem install bundler
