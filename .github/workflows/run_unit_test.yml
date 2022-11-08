@@ -27,6 +27,7 @@ jobs:
       - name: whoami
         # shell: sh
         run: |
+          source ~/.zshrc
           whoami
           echo "$PATH"
           type -a ruby
@@ -43,6 +44,7 @@ jobs:
 
       - name: whoami 2
         run: |
+          source ~/.zshrc
           whoami
           echo "$PATH"
           type -a ruby
