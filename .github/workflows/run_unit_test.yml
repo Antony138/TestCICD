@@ -25,21 +25,27 @@ jobs:
       - name: whoami
         run: |
           whoami
+          echo "$PATH"
           type -a ruby
           which ruby
           ruby --version
 
-      - name: Setup ruby
-        run: |
-          echo "$PATH"
-          asdf list
-          asdf global ruby 3.1.2
-          ruby --version
-          type -a ruby
-          which ruby
+      # asdf list
+      # asdf global ruby 3.1.2
+      # - name: Setup ruby
+      #   run: |
 
       - name: Check out
         uses: actions/checkout@v3
+
+
+      - name: whoami 2
+        run: |
+          whoami
+          echo "$PATH"
+          type -a ruby
+          which ruby
+          ruby --version
 
       - name: Install bundler
         run: gem install bundler
