@@ -29,7 +29,6 @@ jobs:
       - name: whoami
         # shell: sh
         run: |
-
           whoami
           echo "$PATH"
           type -a ruby
