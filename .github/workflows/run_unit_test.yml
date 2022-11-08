@@ -22,9 +22,16 @@ jobs:
       #   env:
       #     ImageOS: macos12
 
-      - name: whoami
+      - name: source ~/ .zshrc
+        run: |
+          source ~/.zshrc
+
+      - name: source ~/ .zshrc
         run: |
           source ~/ .zshrc
+
+      - name: whoami
+        run: |
           whoami
           echo "$PATH"
           type -a ruby
