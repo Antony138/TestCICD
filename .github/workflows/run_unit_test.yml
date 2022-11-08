@@ -9,8 +9,8 @@ on:
 
 jobs:
   run-unit-test:
-    # runs-on: [self-hosted, macOS, ARM64, M1, test, office]
-    runs-on: [self-hosted, macOS, ARM64, CompanyMac]
+    runs-on: [self-hosted, macOS, ARM64, M1, test, office]
+    # runs-on: [self-hosted, macOS, ARM64, CompanyMac]
     # runs-on: [self-hosted, macOS, ARM64, antony, m1pro]
 
     steps:
