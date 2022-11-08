@@ -23,7 +23,7 @@ jobs:
       #     ImageOS: macos12
 
       - name: whoami
-        shell: zsh
+        shell: sh
         run: |
           source ~/.zshrc
           whoami
