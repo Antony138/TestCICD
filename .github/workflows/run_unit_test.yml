@@ -22,7 +22,7 @@ jobs:
       #   env:
       #     ImageOS: macos12
 
-      # source ~/.zshrc
+      # source ~/.zshrc # 反斜杠后不能有空格
       - name: whoami
         # shell: sh
         run: |
