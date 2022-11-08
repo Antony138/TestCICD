@@ -20,15 +20,24 @@ jobs:
       #   env:
       #     ImageOS: macos12
 
-      - name: Check out
-        uses: actions/checkout@v3
-        
       - name: whoami
         run: |
           whoami
           ruby --version
           type -a ruby
           which ruby
+
+      - name: Setup ruby
+        run: |
+          asdf list
+          asdf global ruby 3.1.2
+          ruby --version
+          ruby --version
+          type -a ruby
+          which ruby
+
+      - name: Check out
+        uses: actions/checkout@v3
 
       - name: Install bundler
         run: gem install bundler
