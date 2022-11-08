@@ -22,13 +22,9 @@ jobs:
       #   env:
       #     ImageOS: macos12
 
-      - name: source ~/ .zshrc
+      - name: source ~/.zshrc
         run: |
           source ~/.zshrc
-
-      - name: source ~/ .zshrc
-        run: |
-          source ~/ .zshrc
 
       - name: whoami
         run: |
