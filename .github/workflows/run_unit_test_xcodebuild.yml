@@ -1,0 +1,23 @@
+name: Run unit test(xcodebuild test)
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    branches: [main]
+
+  workflow_dispatch:
+
+jobs:
+  run-unit-test:
+    runs-on: [self-hosted, macOS, ARM64, M1, test, office]
+    # runs-on: [self-hosted, macOS, ARM64, CompanyMac]
+    # runs-on: [self-hosted, macOS, ARM64, antony, m1pro]
+
+    steps:
+      - name: Check out
+        uses: actions/checkout@v3
+
+      - name: Run unit test (xcodebuild test)
+        run: |
+          xcodebuild -version
+          xcodebuild test -project 'TestCICD.xcodeproj' -scheme 'TestCICD' -destination 'platform=iOS Simulator,name=iPhone 14'
