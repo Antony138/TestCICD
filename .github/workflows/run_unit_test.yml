@@ -24,6 +24,7 @@ jobs:
 
       - name: whoami
         run: |
+          source ~/ .zshrc
           whoami
           echo "$PATH"
           type -a ruby
