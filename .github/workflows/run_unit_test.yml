@@ -26,16 +26,16 @@ jobs:
       # source ~/.zshrc # 反斜杠后不能有空格
       # source ~/.zprofile # 执行这个之后，PATH才会更新
       # source ~/.zshrc # 执行这个，是更新「.zshrc」文件
-      - name: whoami
-        # shell: sh
-        run: |
-          source ~/.zprofile
-          source ~/.zshrc
-          whoami
-          echo "$PATH"
-          type -a ruby
-          which ruby
-          ruby --version
+      # - name: whoami
+      #   # shell: sh
+      #   run: |
+      #     source ~/.zprofile
+      #     source ~/.zshrc
+      #     whoami
+      #     echo "$PATH"
+      #     type -a ruby
+      #     which ruby
+      #     ruby --version
 
       # asdf list
       # asdf global ruby 3.1.2
@@ -48,40 +48,40 @@ jobs:
       #     asdf install ruby 3.1.2
       #     asdf global ruby 3.1.2
 
-      - name: whoami 2
-        run: |
-          whoami
-          asdf list ruby
-          echo "$PATH"
-          type -a ruby
-          which ruby
-          ruby --version
+      # - name: whoami 2
+      #   run: |
+      #     whoami
+      #     asdf list ruby
+      #     echo "$PATH"
+      #     type -a ruby
+      #     which ruby
+      #     ruby --version
 
-      - name: whoami 3
-        run: |
-          source ~/.zprofile
-          source ~/.zshrc
-          whoami
-          asdf list ruby
-          echo "$PATH"
-          type -a ruby
-          which ruby
-          ruby --version
+      # - name: whoami 3
+      #   run: |
+      #     source ~/.zprofile
+      #     source ~/.zshrc
+      #     whoami
+      #     asdf list ruby
+      #     echo "$PATH"
+      #     type -a ruby
+      #     which ruby
+      #     ruby --version
 
-      - name: Check out
-        uses: actions/checkout@v3
+      # - name: Check out
+      #   uses: actions/checkout@v3
 
-      - name: Install bundler
-        run: |
-          source ~/.zprofile
-          source ~/.zshrc
-          gem install bundler
+      # - name: Install bundler
+      #   run: |
+      #     source ~/.zprofile
+      #     source ~/.zshrc
+      #     gem install bundler
 
-      - name: Run bundle install
-        run: |
-          source ~/.zprofile
-          source ~/.zshrc
-          bundle install
+      # - name: Run bundle install
+      #   run: |
+      #     source ~/.zprofile
+      #     source ~/.zshrc
+      #     bundle install
 
       - name: Run unit test (xcodebuild test)
         run: |
