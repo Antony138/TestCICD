@@ -68,8 +68,8 @@ jobs:
       #     which ruby
       #     ruby --version
 
-      # - name: Check out
-      #   uses: actions/checkout@v3
+      - name: Check out
+        uses: actions/checkout@v3
 
       # - name: Install bundler
       #   run: |
