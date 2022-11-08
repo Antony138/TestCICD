@@ -22,16 +22,15 @@ jobs:
       #   env:
       #     ImageOS: macos12
 
+      # source ~/.zshrc
       - name: whoami
-        shell: sh
+        # shell: sh
         run: |
-          source ~/.zshrc
           whoami
           echo "$PATH"
           type -a ruby
           which ruby
           ruby --version
-          echo $SHELL
 
       # asdf list
       # asdf global ruby 3.1.2
