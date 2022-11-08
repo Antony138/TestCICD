@@ -30,6 +30,7 @@ jobs:
           type -a ruby
           which ruby
           ruby --version
+          echo $SHELL
 
       # asdf list
       # asdf global ruby 3.1.2
