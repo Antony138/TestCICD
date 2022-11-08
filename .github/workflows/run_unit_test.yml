@@ -39,13 +39,13 @@ jobs:
 
       # asdf list
       # asdf global ruby 3.1.2
-      - name: Setup ruby
-        run: |
-          brew install asdf
-          echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >> ${ZDOTDIR:-~}/.zshrc
-          asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
-          asdf install ruby 3.1.2
-          asdf global ruby 3.1.2
+      # - name: Setup ruby
+      #   run: |
+      #     brew install asdf
+      #     echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >> ${ZDOTDIR:-~}/.zshrc
+      #     asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
+      #     asdf install ruby 3.1.2
+      #     asdf global ruby 3.1.2
 
       - name: whoami 2
         run: |
