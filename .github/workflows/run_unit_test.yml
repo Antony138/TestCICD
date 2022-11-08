@@ -24,11 +24,13 @@ jobs:
       #     ImageOS: macos12
 
       # source ~/.zshrc # 反斜杠后不能有空格
-      # source ~/.zprofile # 两个都要，PATH才会生效？
-      # source ~/.zshrc
+      # source ~/.zprofile # 执行这个之后，PATH才会更新
+      # source ~/.zshrc # 执行这个，是更新「.zshrc」文件
       - name: whoami
         # shell: sh
         run: |
+          source ~/.zprofile
+          source ~/.zshrc
           whoami
           echo "$PATH"
           type -a ruby
