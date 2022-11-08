@@ -83,10 +83,10 @@ jobs:
           source ~/.zshrc
           bundle install
 
-      - name: Run unit test (xcode)
+      - name: Run unit test (xcodebuild test)
         run: |
           xcodebuild -version
-          xcodebuild test -project 'TestCICD.xcodeproj' -scheme 'TestCICD' -destination 'platform=iOS Simulator,name=iPhone 13'
+          xcodebuild test -project 'TestCICD.xcodeproj' -scheme 'TestCICD' -destination 'platform=iOS Simulator,name=iPhone 14'
 
       # - name: Run unit test (fastlane)
       #   run: bundle exec fastlane run_unit_test
