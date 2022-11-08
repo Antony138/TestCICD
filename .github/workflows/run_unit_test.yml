@@ -77,7 +77,10 @@ jobs:
           gem install bundler
 
       - name: Run bundle install
-        run: bundle install
+        run: |
+          source ~/.zprofile
+          source ~/.zshrc
+          bundle install
 
       # - name: Run unit test
       #   run: bundle exec fastlane run_unit_test
