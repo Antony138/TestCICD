@@ -27,6 +27,7 @@ jobs:
       - name: whoami
         # shell: sh
         run: |
+          source ~/.zprofile
           source ~/.zshrc
           whoami
           echo "$PATH"
@@ -44,6 +45,7 @@ jobs:
 
       - name: whoami 2
         run: |
+          source ~/.zprofile
           source ~/.zshrc
           whoami
           echo "$PATH"
