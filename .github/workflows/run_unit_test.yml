@@ -83,9 +83,9 @@ jobs:
           source ~/.zshrc
           bundle install
 
-      # - name: Run unit test
-      #   run: bundle exec fastlane run_unit_test
-      #   # https://docs.fastlane.tools/getting-started/ios/setup/#set-up-environment-variables
-      #   env:
-      #     LC_ALL: en_US.UTF-8
-      #     LANG: en_US.UTF-8
+      - name: Run unit test
+        run: bundle exec fastlane run_unit_test
+        # https://docs.fastlane.tools/getting-started/ios/setup/#set-up-environment-variables
+        env:
+          LC_ALL: en_US.UTF-8
+          LANG: en_US.UTF-8
