@@ -17,7 +17,7 @@ platform :ios do
     # run_unit_test
 
     match_adhoc
-    # match_development
+    match_development
 
     archive
     
@@ -56,8 +56,8 @@ private_lane :match_adhoc do
 		type: 'adhoc',
 		app_identifier: "jp.tokyo.TestCICD",
 		api_key: lane_context[SharedValues::APP_STORE_CONNECT_API_KEY],
-		git_basic_authorization: ENV["MATCH_GIT_BASIC_AUTHORIZATION"],
-    keychain_name: 'fastlane_tmp_keychain-db'
+		git_basic_authorization: ENV["MATCH_GIT_BASIC_AUTHORIZATION"]
+    # keychain_name: 'fastlane_tmp_keychain-db'
 	)
 end
 
@@ -69,8 +69,8 @@ private_lane :match_development do
 		type: 'development',
 		app_identifier: "jp.tokyo.TestCICD",
 		api_key: lane_context[SharedValues::APP_STORE_CONNECT_API_KEY],
-		git_basic_authorization: ENV["MATCH_GIT_BASIC_AUTHORIZATION"],
-    keychain_name: 'fastlane_tmp_keychain-db',
+		git_basic_authorization: ENV["MATCH_GIT_BASIC_AUTHORIZATION"]
+    # keychain_name: 'fastlane_tmp_keychain-db',
     # readonly: false,
     # include_all_certificates: true,
     # force_for_new_certificates: true
