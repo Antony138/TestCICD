@@ -91,7 +91,12 @@ private_lane :archive do
 		scheme: "TestCICD", # The project's scheme. Make sure it's marked as `Shared`
 		clean: true,
 		xcargs: settings_to_override,
-		silent: true
+		silent: true,
+    export_options: {
+      provisioningProfiles: { 
+        "jp.tokyo.TestCICD" => "match AdHoc jp.tokyo.TestCICD"
+      }
+    }
 	)
 end
 
