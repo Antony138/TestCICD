@@ -36,10 +36,10 @@ jobs:
           pwd
           xcodebuild -version
 
+      # rm TestCICD/Config.xcconfig
       - name: Delete confidential info from CI environment
         run: |
-          pwd
-          rm TestCICD/Config.xcconfig
+          pwd    
           cd ~
           pwd
           rm .netrc
