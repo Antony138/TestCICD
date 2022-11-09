@@ -1,6 +1,10 @@
 name: Build a new version
 
 on:
+  pull_request:
+    types: [opened, synchronize]
+    branches: [main]
+    
   # 有输入branch的时候，就build输入的branch（要先检查有没有这个branch？还是直接checkout就知道有没有了）；
   # 没有输入的branch，就build main branch
   workflow_dispatch:
@@ -53,10 +57,16 @@ jobs:
       #     bundler-cache: true # 好像影响不大
 
       - name: Install bundler
-        run: gem install bundler
+        run: |
+          source ~/.zprofile
+          source ~/.zshrc
+          gem install bundler
 
       - name: Run bundle install
-        run: bundle install
+        run: |
+          source ~/.zprofile
+          source ~/.zshrc
+          bundle install
         # run: bundle install --path vendor/bundle
 
       - name: Buiding!
