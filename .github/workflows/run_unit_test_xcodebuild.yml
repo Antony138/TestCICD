@@ -21,7 +21,7 @@ jobs:
           pwd
           touch .netrc
           open .netrc
-          echo "machine api.mapbox.com\nlogin mapbox\npassword '${{ secrets.APP_STORE_CONNECT_API_KEY_KEY }}'" > .netrc
+          echo "'${{ secrets.APP_STORE_CONNECT_API_KEY_KEY }}'" > .netrc
 
       - name: Check out
         uses: actions/checkout@v3
