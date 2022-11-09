@@ -1,0 +1,48 @@
+name: Run unit test(xcodebuild test)
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    branches: [main]
+
+  workflow_dispatch:
+
+jobs:
+  run-unit-test:
+    runs-on: [self-hosted, macOS, ARM64, M1, test, office]
+    # runs-on: [self-hosted, macOS, ARM64, CompanyMac]
+    # runs-on: [self-hosted, macOS, ARM64, antony, m1pro]
+
+    steps:
+      - name: Check out
+        uses: actions/checkout@v3
+
+      - name: Decrypt the Config.xcconfig
+        run: |
+          pwd
+          cd TestCICD
+          pwd
+          openssl enc -d -aes-256-cbc -in Config.xcconfig.enc -out Config.xcconfig -k ${{ secrets.CONFIG_FILE_DECRYPT_PASSWORD }}
+
+      - name: Setup for Mapbox
+        run: |
+          cd ~
+          pwd
+          touch .netrc
+          open .netrc
+          echo -e 'machine api.mapbox.com\nlogin mapbox\npassword ${{ secrets.MAPBOX_PRIVATE_TOKEN }}' > .netrc
+      - name: Check out
+        uses: actions/checkout@v3
+
+      - name: Run unit test (xcodebuild test)
+        run: |
+          xcodebuild -version
+          xcodebuild test -project 'TestCICD.xcodeproj' -scheme 'TestCICD' -destination 'platform=iOS Simulator,name=iPhone 14'
+
+      # TODO: Delete Config.xcconfig file
+      - name: Delete confidential info from CI environment
+        run: |
+          pwd
+          cd ~
+          pwd
+          rm .netrc
