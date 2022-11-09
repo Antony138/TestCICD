@@ -92,7 +92,11 @@ private_lane :archive do
 		clean: true,
 		xcargs: settings_to_override,
 		silent: true,
-    export_method: "ad-hoc"
+    export_options: {
+      provisioningProfiles: { 
+        "jp.tokyo.TestCICD" => "match AdHoc jp.tokyo.TestCICD"
+      }
+    }
 	)
 end
 
