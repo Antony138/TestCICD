@@ -74,7 +74,10 @@ jobs:
         # run: bundle install --path vendor/bundle
 
       - name: Buiding!
-        run: bundle exec fastlane build
+        run: |
+          source ~/.zprofile
+          source ~/.zshrc
+          bundle exec fastlane build
 
       - name: Delete confidential info from CI environment
         if: always()
