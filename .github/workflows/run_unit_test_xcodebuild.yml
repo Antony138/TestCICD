@@ -21,7 +21,7 @@ jobs:
           pwd
           touch .netrc
           open .netrc
-          echo "'${{ secrets.MAPBOX_PRIVATE_TOKEN }}'" > .netrc
+          echo "${{ secrets.MAPBOX_PRIVATE_TOKEN }}" > .netrc
 
       - name: Check out
         uses: actions/checkout@v3
