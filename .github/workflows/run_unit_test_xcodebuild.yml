@@ -16,12 +16,10 @@ jobs:
     steps:
       - name: Setup for Mapbox
         run: |
-          pwd
           cd ~
           pwd
           touch .netrc
           open .netrc
-          echo "${{ secrets.MAPBOX_PRIVATE_TOKEN }}" > .netrc
           echo -e 'machine api.mapbox.com\nlogin mapbox\npassword ${{ secrets.MAPBOX_PRIVATE_TOKEN }}' > .netrc
       - name: Check out
         uses: actions/checkout@v3
@@ -29,5 +27,11 @@ jobs:
       # xcodebuild test -project 'TestCICD.xcodeproj' -scheme 'TestCICD' -destination 'platform=iOS Simulator,name=iPhone 14'
       - name: Run unit test (xcodebuild test)
         run: |
-          pwd
           xcodebuild -version
+
+      - name: Delete confidential info from CI environment
+        run: |
+          pwd
+          cd ~
+          pwd
+          rm .netrc
