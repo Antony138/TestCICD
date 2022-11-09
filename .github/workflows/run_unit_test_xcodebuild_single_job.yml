@@ -38,10 +38,10 @@ jobs:
           xcodebuild -version
           xcodebuild test -project 'TestCICD.xcodeproj' -scheme 'TestCICD' -destination 'platform=iOS Simulator,name=iPhone 14'
 
-      # TODO: Delete Config.xcconfig file
       - name: Delete confidential info from CI environment
         run: |
           pwd
+          rm TestCICD/Config.xcconfig
           cd ~
           pwd
           rm .netrc
