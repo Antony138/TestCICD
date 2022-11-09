@@ -30,11 +30,11 @@ jobs:
           open .netrc
           echo -e 'machine api.mapbox.com\nlogin mapbox\npassword ${{ secrets.MAPBOX_PRIVATE_TOKEN }}' > .netrc
           
-      # xcodebuild test -project 'TestCICD.xcodeproj' -scheme 'TestCICD' -destination 'platform=iOS Simulator,name=iPhone 14'
       - name: Run unit test (xcodebuild test)
         run: |
           pwd
           xcodebuild -version
+          xcodebuild test -project 'TestCICD.xcodeproj' -scheme 'TestCICD' -destination 'platform=iOS Simulator,name=iPhone 14'
       
       - name: Delete confidential info from CI environment
         if: always()
