@@ -8,12 +8,13 @@ on:
   workflow_dispatch:
 
 jobs:
-  run-unit-test:
+  #
+  preparation:
     runs-on: [self-hosted, macOS, ARM64, M1, test, office]
-    # runs-on: [self-hosted, macOS, ARM64, CompanyMac]
-    # runs-on: [self-hosted, macOS, ARM64, antony, m1pro]
-
     steps:
+      - name: Check out
+        uses: actions/checkout@v3
+
       - name: Decrypt the Config.xcconfig
         run: |
           pwd
@@ -28,6 +29,14 @@ jobs:
           touch .netrc
           open .netrc
           echo -e 'machine api.mapbox.com\nlogin mapbox\npassword ${{ secrets.MAPBOX_PRIVATE_TOKEN }}' > .netrc
+
+  # 
+  run-unit-test:
+    runs-on: [self-hosted, macOS, ARM64, M1, test, office]
+    # runs-on: [self-hosted, macOS, ARM64, CompanyMac]
+    # runs-on: [self-hosted, macOS, ARM64, antony, m1pro]
+
+    steps:
       - name: Check out
         uses: actions/checkout@v3
 
@@ -36,6 +45,10 @@ jobs:
           xcodebuild -version
           xcodebuild test -project 'TestCICD.xcodeproj' -scheme 'TestCICD' -destination 'platform=iOS Simulator,name=iPhone 14'
 
+  # 
+  clear-sensitive-info:
+    runs-on: [self-hosted, macOS, ARM64, M1, test, office]
+    steps:
       # TODO: Delete Config.xcconfig file
       - name: Delete confidential info from CI environment
         run: |
