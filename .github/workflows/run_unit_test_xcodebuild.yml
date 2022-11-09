@@ -21,13 +21,13 @@ jobs:
           pwd
           touch .netrc
           open .netrc
-          echo "'${{ secrets.APP_STORE_CONNECT_API_KEY_KEY }}'" > .netrc
+          echo "'${{ secrets.MAPBOX_PRIVATE_TOKEN }}'" > .netrc
 
       - name: Check out
         uses: actions/checkout@v3
 
+      # xcodebuild test -project 'TestCICD.xcodeproj' -scheme 'TestCICD' -destination 'platform=iOS Simulator,name=iPhone 14'
       - name: Run unit test (xcodebuild test)
         run: |
           pwd
           xcodebuild -version
-          xcodebuild test -project 'TestCICD.xcodeproj' -scheme 'TestCICD' -destination 'platform=iOS Simulator,name=iPhone 14'
