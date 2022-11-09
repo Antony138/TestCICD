@@ -17,26 +17,24 @@ jobs:
       - name: Check out
         uses: actions/checkout@v3
 
-      - name: Decrypt the Config.xcconfig
+      - name: Decrypt Config.xcconfig for project
         run: |
           pwd
-          cd TestCICD
-          pwd
-          openssl enc -d -aes-256-cbc -in Config.xcconfig.enc -out Config.xcconfig -k ${{ secrets.CONFIG_FILE_DECRYPT_PASSWORD }}
+          openssl enc -d -aes-256-cbc -in TestCICD/Config.xcconfig.enc -out TestCICD/Config.xcconfig -k ${{ secrets.CONFIG_FILE_DECRYPT_PASSWORD }}
 
-      - name: Setup for Mapbox
+      - name: Setup private token for Mapbox
         run: |
           cd ~
           pwd
           touch .netrc
           open .netrc
           echo -e 'machine api.mapbox.com\nlogin mapbox\npassword ${{ secrets.MAPBOX_PRIVATE_TOKEN }}' > .netrc
-
+          
+      # xcodebuild test -project 'TestCICD.xcodeproj' -scheme 'TestCICD' -destination 'platform=iOS Simulator,name=iPhone 14'
       - name: Run unit test (xcodebuild test)
         run: |
           pwd
           xcodebuild -version
-          xcodebuild test -project 'TestCICD.xcodeproj' -scheme 'TestCICD' -destination 'platform=iOS Simulator,name=iPhone 14'
 
       - name: Delete confidential info from CI environment
         run: |
