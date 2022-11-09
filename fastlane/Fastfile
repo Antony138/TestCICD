@@ -17,7 +17,7 @@ platform :ios do
     # run_unit_test
 
     match_adhoc
-    match_development
+    # match_development
 
     archive
     
