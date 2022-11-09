@@ -17,8 +17,6 @@
 		0A342BB528D80BE000F5C95B /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A342BB428D80BE000F5C95B /* Navigator.swift */; };
 		C0FA37CA291BCB0100403420 /* GRPC in Frameworks */ = {isa = PBXBuildFile; productRef = C0FA37C9291BCB0100403420 /* GRPC */; };
 		C0FA37CC291BCB0100403420 /* protoc-gen-grpc-swift in Frameworks */ = {isa = PBXBuildFile; productRef = C0FA37CB291BCB0100403420 /* protoc-gen-grpc-swift */; };
-		C0FA37D4291BCC2500403420 /* MapboxSearch in Frameworks */ = {isa = PBXBuildFile; productRef = C0FA37D3291BCC2500403420 /* MapboxSearch */; };
-		C0FA37D6291BCC2500403420 /* MapboxSearchUI in Frameworks */ = {isa = PBXBuildFile; productRef = C0FA37D5291BCC2500403420 /* MapboxSearchUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,8 +68,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0FA37D4291BCC2500403420 /* MapboxSearch in Frameworks */,
-				C0FA37D6291BCC2500403420 /* MapboxSearchUI in Frameworks */,
 				C0FA37CC291BCB0100403420 /* protoc-gen-grpc-swift in Frameworks */,
 				C0FA37CA291BCB0100403420 /* GRPC in Frameworks */,
 			);
@@ -171,8 +167,6 @@
 			packageProductDependencies = (
 				C0FA37C9291BCB0100403420 /* GRPC */,
 				C0FA37CB291BCB0100403420 /* protoc-gen-grpc-swift */,
-				C0FA37D3291BCC2500403420 /* MapboxSearch */,
-				C0FA37D5291BCC2500403420 /* MapboxSearchUI */,
 			);
 			productName = TestCICD;
 			productReference = 0A342B8128D6D7AB00F5C95B /* TestCICD.app */;
@@ -248,7 +242,6 @@
 			mainGroup = 0A342B7828D6D7AB00F5C95B;
 			packageReferences = (
 				C0FA37C8291BCB0100403420 /* XCRemoteSwiftPackageReference "grpc-swift" */,
-				C0FA37D2291BCC2500403420 /* XCRemoteSwiftPackageReference "search-ios" */,
 			);
 			productRefGroup = 0A342B8228D6D7AB00F5C95B /* Products */;
 			projectDirPath = "";
@@ -641,14 +634,6 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		C0FA37D2291BCC2500403420 /* XCRemoteSwiftPackageReference "search-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/mapbox/search-ios.git";
-			requirement = {
-				kind = exactVersion;
-				version = "1.0.0-beta.33.1";
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -661,16 +646,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C0FA37C8291BCB0100403420 /* XCRemoteSwiftPackageReference "grpc-swift" */;
 			productName = "protoc-gen-grpc-swift";
-		};
-		C0FA37D3291BCC2500403420 /* MapboxSearch */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C0FA37D2291BCC2500403420 /* XCRemoteSwiftPackageReference "search-ios" */;
-			productName = MapboxSearch;
-		};
-		C0FA37D5291BCC2500403420 /* MapboxSearchUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C0FA37D2291BCC2500403420 /* XCRemoteSwiftPackageReference "search-ios" */;
-			productName = MapboxSearchUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

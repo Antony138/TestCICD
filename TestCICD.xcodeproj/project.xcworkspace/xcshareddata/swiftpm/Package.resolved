@@ -10,24 +10,6 @@
       }
     },
     {
-      "identity" : "mapbox-common-ios",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/mapbox/mapbox-common-ios.git",
-      "state" : {
-        "revision" : "e39540d5e8c8709db5ca53f0fdaeea64e351548c",
-        "version" : "22.1.0"
-      }
-    },
-    {
-      "identity" : "search-ios",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/mapbox/search-ios.git",
-      "state" : {
-        "revision" : "0dfde5a5f4962d22b97ec79c2dd7fd2caaaaa032",
-        "version" : "1.0.0-beta.33.1"
-      }
-    },
-    {
       "identity" : "swift-atomics",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-atomics.git",
