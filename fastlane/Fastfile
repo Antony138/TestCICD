@@ -17,6 +17,7 @@ platform :ios do
     # run_unit_test
 
     match_adhoc
+    match_development
 
     archive
     
@@ -53,6 +54,19 @@ private_lane :match_adhoc do
 	match(
     git_url: ENV["MATCH_GIT_URL"], # 因为是环境变量，不写也可以
 		type: 'adhoc',
+		app_identifier: "jp.tokyo.TestCICD",
+		api_key: lane_context[SharedValues::APP_STORE_CONNECT_API_KEY],
+		git_basic_authorization: ENV["MATCH_GIT_BASIC_AUTHORIZATION"],
+    keychain_name: 'fastlane_tmp_keychain-db'
+	)
+end
+
+private_lane :match_development do
+	get_apple_api_key
+
+	match(
+    git_url: ENV["MATCH_GIT_URL"], # 因为是环境变量，不写也可以
+		type: 'development',
 		app_identifier: "jp.tokyo.TestCICD",
 		api_key: lane_context[SharedValues::APP_STORE_CONNECT_API_KEY],
 		git_basic_authorization: ENV["MATCH_GIT_BASIC_AUTHORIZATION"],
