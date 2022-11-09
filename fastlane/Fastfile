@@ -12,7 +12,7 @@ platform :ios do
 
   desc "Building"
   lane :build do
-    xcode_select("/Applications/Xcode13.4.1.app")
+    xcode_select("/Applications/Xcode.app")
     
     # run_unit_test
 
