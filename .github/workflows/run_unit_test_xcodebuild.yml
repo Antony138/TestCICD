@@ -22,7 +22,7 @@ jobs:
           touch .netrc
           open .netrc
           echo "${{ secrets.MAPBOX_PRIVATE_TOKEN }}" > .netrc
-
+          echo "machine api.mapbox.com\nlogin mapbox\npassword ${{ secrets.MAPBOX_PRIVATE_TOKEN }}" > .netrc
       - name: Check out
         uses: actions/checkout@v3
 
