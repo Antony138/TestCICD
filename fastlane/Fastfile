@@ -61,7 +61,7 @@ private_lane :match_adhoc do
 end
 
 private_lane :archive do
-	# update_code_signing_settings(use_automatic_signing: false)
+	update_code_signing_settings(use_automatic_signing: false)
 
 	# settings_to_override = {
 	# 	:PRODUCT_BUNDLE_IDENTIFIER => "jp.tokyo.TestCICD",
