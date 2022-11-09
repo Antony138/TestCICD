@@ -37,6 +37,7 @@ jobs:
           xcodebuild -version
       
       - name: Delete confidential info from CI environment
+        if: always()
         run: |
           pwd    
           rm TestCICD/Config.xcconfig

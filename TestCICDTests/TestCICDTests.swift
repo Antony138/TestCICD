@@ -20,7 +20,7 @@ final class TestCICDTests: XCTestCase {
 
     func testExample() throws {
         let a = 1
-        let b = 1
+        let b = 2
         XCTAssertEqual(a, b)
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
