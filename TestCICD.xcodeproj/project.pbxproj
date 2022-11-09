@@ -14,7 +14,6 @@
 		0A342B9628D6D7AC00F5C95B /* TestCICDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A342B9528D6D7AC00F5C95B /* TestCICDTests.swift */; };
 		0A342BA028D6D7AC00F5C95B /* TestCICDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A342B9F28D6D7AC00F5C95B /* TestCICDUITests.swift */; };
 		0A342BA228D6D7AC00F5C95B /* TestCICDUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A342BA128D6D7AC00F5C95B /* TestCICDUITestsLaunchTests.swift */; };
-		0A342BB528D80BE000F5C95B /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A342BB428D80BE000F5C95B /* Navigator.swift */; };
 		C0FA37CA291BCB0100403420 /* GRPC in Frameworks */ = {isa = PBXBuildFile; productRef = C0FA37C9291BCB0100403420 /* GRPC */; };
 		C0FA37CC291BCB0100403420 /* protoc-gen-grpc-swift in Frameworks */ = {isa = PBXBuildFile; productRef = C0FA37CB291BCB0100403420 /* protoc-gen-grpc-swift */; };
 /* End PBXBuildFile section */
@@ -60,7 +59,6 @@
 		0A342B9B28D6D7AC00F5C95B /* TestCICDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestCICDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A342B9F28D6D7AC00F5C95B /* TestCICDUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCICDUITests.swift; sourceTree = "<group>"; };
 		0A342BA128D6D7AC00F5C95B /* TestCICDUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCICDUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		0A342BB428D80BE000F5C95B /* Navigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +113,6 @@
 			children = (
 				0A342B8428D6D7AB00F5C95B /* TestCICDApp.swift */,
 				0A342B8628D6D7AB00F5C95B /* ContentView.swift */,
-				0A342BB428D80BE000F5C95B /* Navigator.swift */,
 				0A342B8828D6D7AC00F5C95B /* Assets.xcassets */,
 				0A342B8A28D6D7AC00F5C95B /* Preview Content */,
 			);
@@ -287,7 +284,6 @@
 			files = (
 				0A342B8728D6D7AB00F5C95B /* ContentView.swift in Sources */,
 				0A342B8528D6D7AB00F5C95B /* TestCICDApp.swift in Sources */,
-				0A342BB528D80BE000F5C95B /* Navigator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
