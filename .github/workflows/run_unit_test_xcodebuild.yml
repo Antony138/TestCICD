@@ -17,6 +17,8 @@ jobs:
       - name: Setup for Mapbox
         run: |
           pwd
+          cd ~
+          pwd
           touch .netrc
           open .netrc
           echo "machine api.mapbox.com\nlogin mapbox\npassword '${{ secrets.APP_STORE_CONNECT_API_KEY_KEY }}'" > .netrc
@@ -26,5 +28,6 @@ jobs:
 
       - name: Run unit test (xcodebuild test)
         run: |
+          pwd
           xcodebuild -version
           xcodebuild test -project 'TestCICD.xcodeproj' -scheme 'TestCICD' -destination 'platform=iOS Simulator,name=iPhone 14'
