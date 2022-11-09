@@ -1,4 +1,4 @@
-name: Run unit test(xcodebuild test)
+name: Run unit test(xcodebuild single job)
 
 on:
   pull_request:
@@ -31,11 +31,10 @@ jobs:
           touch .netrc
           open .netrc
           echo -e 'machine api.mapbox.com\nlogin mapbox\npassword ${{ secrets.MAPBOX_PRIVATE_TOKEN }}' > .netrc
-      - name: Check out
-        uses: actions/checkout@v3
 
       - name: Run unit test (xcodebuild test)
         run: |
+          pwd
           xcodebuild -version
           xcodebuild test -project 'TestCICD.xcodeproj' -scheme 'TestCICD' -destination 'platform=iOS Simulator,name=iPhone 14'
 

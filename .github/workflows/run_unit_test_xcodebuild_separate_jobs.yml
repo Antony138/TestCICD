@@ -1,4 +1,4 @@
-name: Run unit test(xcodebuild test)
+name: Run unit test(xcodebuild separate jobs)
 
 on:
   # pull_request:
