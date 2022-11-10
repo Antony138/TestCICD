@@ -13,8 +13,9 @@ jobs:
     strategy:
       matrix:
         node_version: [16, 18, 19]
+        os: [macos-latest, ubuntu-latest, windows-latest]
       fail-fast: false # default value: true
-      max-parallel: 1
+      # max-parallel: 3 # 只限制同时运行的数量，不限制总的数量
     runs-on: [self-hosted, macOS, ARM64, M1, test, office]
 
     steps:
