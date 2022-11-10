@@ -2,8 +2,8 @@ name: Test GitHub Action
 
 on:
   pull_request:
-  types: [opened, synchronize]
-  branches: [main]
+    types: [opened, synchronize]
+    branches: [main]
 
   workflow_dispatch:
 
