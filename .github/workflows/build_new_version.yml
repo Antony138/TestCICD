@@ -1,9 +1,9 @@
 name: Build a new version
 
 on:
-  pull_request:
-    types: [opened, synchronize]
-    branches: [main]
+  # pull_request:
+  #   types: [opened, synchronize]
+  #   branches: [main]
     
   # 有输入branch的时候，就build输入的branch（要先检查有没有这个branch？还是直接checkout就知道有没有了）；
   # 没有输入的branch，就build main branch
