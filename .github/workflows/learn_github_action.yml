@@ -12,9 +12,9 @@ jobs:
 
     strategy:
       matrix:
-        node_version: [6, 8, 10]
+        node_version: [16, 18, 19]
       fail-fast: false
-      
+
     runs-on: [self-hosted, macOS, ARM64, M1, test, office]
 
     steps:
