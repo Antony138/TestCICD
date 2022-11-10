@@ -19,12 +19,18 @@ jobs:
             node_version: 16
           - os: macos-latest
             node_version: 18
+        include:
+          - os: ubuntu-latest
+            node_version: 18
+            is_ubuntu_18: "true" # 用is_ubuntu_18得到当前是否是ubuntu中的node 18 环境
 
       fail-fast: false # default value: true
       # max-parallel: 3 # 只限制同时运行的数量，不限制总的数量
     # runs-on: [self-hosted, macOS, ARM64, M1, test, office]
     runs-on: ${{ matrix.os }}
 
+    env:
+      IS_UBUNTU_18: $ {{ matrix.is_ubuntu_18 }}
     steps:
       - name: log node version
         run: node -v
@@ -35,4 +41,6 @@ jobs:
           node-version: ${{ matrix.node_version }}
 
       - name: log node version again
-        run: node -v
+        run: |
+          node -v
+          echo $IS_UBUNTU_18
