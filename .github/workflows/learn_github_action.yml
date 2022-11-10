@@ -9,9 +9,9 @@ on:
 
 jobs:
   test-matrix:
-  
+
     strategy:
-      martrix:
+      matrix:
         node_version: [6, 8, 10]
 
     runs-on: [self-hosted, macOS, ARM64, M1, test, office]
