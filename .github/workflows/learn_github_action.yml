@@ -13,8 +13,8 @@ jobs:
     strategy:
       matrix:
         node_version: [16, 18, 19]
-      fail-fast: false
-
+      fail-fast: false # default value: true
+      max-parallel: 2
     runs-on: [self-hosted, macOS, ARM64, M1, test, office]
 
     steps:
