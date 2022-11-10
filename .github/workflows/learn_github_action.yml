@@ -14,8 +14,14 @@ jobs:
       matrix:
         node_version: [16, 18, 19]
         os: [macos-latest, ubuntu-latest, windows-latest] # 只写这个，不用它，二维数组也会生效！
+        exclude: # 排除matrix中部分内容，本质是排除某些jobs
+          - os: ubuntu-latest
+            node_version: 16
+          - os: macos-latest
+            node_version: 18
+
       fail-fast: false # default value: true
-      # max-parallel: 3 # 只限制同时运行的数量，不限制总的数量 # 好像也没有很
+      # max-parallel: 3 # 只限制同时运行的数量，不限制总的数量
     # runs-on: [self-hosted, macOS, ARM64, M1, test, office]
     runs-on: ${{ matrix.os }}
 
