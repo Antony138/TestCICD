@@ -9,7 +9,9 @@ on:
 
 jobs:
   test-docker:
-    runs-on: [self-hosted, macOS, ARM64, M1, test, office]
+    # !!! Container operations are only supported on Linux runners !!!
+    # runs-on: [self-hosted, macOS, ARM64, M1, test, office]
+    runs-on: ubuntu-latest
     # container: node:16-buster-slim # 两种写法都可以
     container: 
       image: node:16-buster-slim
