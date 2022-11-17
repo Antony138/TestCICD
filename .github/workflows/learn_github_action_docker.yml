@@ -21,3 +21,9 @@ jobs:
         run: |
           node -v
           cat /etc/os-release
+
+      - name: run a script
+        uses: docker://node:16-buster-slim
+        with:
+          entrypoint: ./script.sh
+          args: "Some string"
