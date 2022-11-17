@@ -20,4 +20,4 @@ jobs:
       - name: log node version
         run: ｜
           node -v
-          cat /etc/os-release
+          # cat /etc/os-release
