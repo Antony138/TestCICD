@@ -1,0 +1,21 @@
+name: Test GitHub Action Docker
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    branches: [main]
+
+  workflow_dispatch:
+
+jobs:
+  test-docker:
+    runs-on: [self-hosted, macOS, ARM64, M1, test, office]
+    # container: node:16-buster-slim # 两种写法都可以
+    container: 
+      image: node:16-buster-slim
+
+    steps:
+      - name: log node version
+        run: ｜
+          node -v
+          cat /etc/os-release
