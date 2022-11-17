@@ -22,8 +22,15 @@ jobs:
           node -v
           cat /etc/os-release
 
-      - name: run a script
-        uses: docker://node:16-buster-slim
-        with:
-          entrypoint: /script.sh
-          args: "Some string"
+      # not work
+      # - name: run a script
+      #   uses: docker://node:16-buster-slim
+      #   with:
+      #     entrypoint: /script.sh
+      #     args: "Some string"
+
+      - name: send a slack message
+        uses: docker://technosophos/slack-notify
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_MESSAGE: "Hello Slack"
