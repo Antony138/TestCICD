@@ -25,5 +25,5 @@ jobs:
       - name: run a script
         uses: docker://node:16-buster-slim
         with:
-          entrypoint: ./script.sh
+          entrypoint: /script.sh
           args: "Some string"
