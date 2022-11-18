@@ -43,6 +43,7 @@ end
 
 private_lane :send_slack_message do
   slack(
+    icon_url: "https://i.ibb.co/RSXY7z8/Screenshot-2022-11-18-at-14-39-18.png",
     message: "App successfully released!",
     # slack_url: ENV["SLACK_WEBHOOK"],
     slack_url: "https://hooks.slack.com/services/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",
