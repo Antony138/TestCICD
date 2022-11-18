@@ -1,9 +1,9 @@
 name: Build a new version
 
 on:
-  # pull_request:
-  #   types: [opened, synchronize]
-  #   branches: [main]
+  pull_request:
+    types: [opened, synchronize]
+    branches: [main]
     
   # 有输入branch的时候，就build输入的branch（要先检查有没有这个branch？还是直接checkout就知道有没有了）；
   # 没有输入的branch，就build main branch
@@ -49,13 +49,13 @@ jobs:
           type -a ruby
           which ruby
 
-      - name: Setup private token for Mapbox
-        run: |
-          cd ~
-          pwd
-          touch .netrc
-          open .netrc
-          echo -e 'machine api.mapbox.com\nlogin mapbox\npassword ${{ secrets.MAPBOX_PRIVATE_TOKEN }}' > .netrc
+      # - name: Setup private token for Mapbox
+      #   run: |
+      #     cd ~
+      #     pwd
+      #     touch .netrc
+      #     open .netrc
+      #     echo -e 'machine api.mapbox.com\nlogin mapbox\npassword ${{ secrets.MAPBOX_PRIVATE_TOKEN }}' > .netrc
 
       # build main branch or build other branch
       - uses: actions/checkout@v3
@@ -79,9 +79,9 @@ jobs:
           source ~/.zshrc
           bundle exec fastlane build
 
-      - name: Delete confidential info from CI environment
-        if: always()
-        run: |
-          cd ~
-          pwd
-          rm .netrc
+      # - name: Delete confidential info from CI environment
+      #   if: always()
+      #   run: |
+      #     cd ~
+      #     pwd
+      #     rm .netrc

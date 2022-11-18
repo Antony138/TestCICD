@@ -12,16 +12,18 @@ platform :ios do
 
   desc "Building"
   lane :build do
-    xcode_select("/Applications/Xcode.app")
+    send_slack_message
+
+    # xcode_select("/Applications/Xcode.app")
     
     # run_unit_test
 
-    match_adhoc
+    # match_adhoc
     # match_development
 
-    archive
+    # archive
     
-    upload_deploygate
+    # upload_deploygate
 
   end
 
@@ -37,6 +39,29 @@ platform :ios do
     clean_build_artifacts
   end
 
+end
+
+private_lane: send_slack_message do
+  slack(
+    message: "App successfully released!",
+    slack_url: ENV["SLACK_WEBHOOK"],
+    # channel: "#channel",  # Optional, by default will post to the default channel configured for the POST URL.
+    success: true,        # Optional, defaults to true.
+    payload: {  # Optional, lets you specify any number of your own Slack attachments.
+      "Build Date" => Time.new.to_s,
+      "Built by" => "Antony",
+    },
+    default_payloads: [:git_branch, :git_author], # Optional, lets you specify default payloads to include. Pass an empty array to suppress all the default payloads.
+    attachment_properties: { # Optional, lets you specify any other properties available for attachments in the slack API (see https://api.slack.com/docs/attachments).
+         # This hash is deep merged with the existing properties set using the other properties above. This allows your own fields properties to be appended to the existing fields that were created using the `payload` property for instance.
+      thumb_url: "https://i.ibb.co/RSXY7z8/Screenshot-2022-11-18-at-14-39-18.png",
+      fields: [{
+        title: "My Field",
+        value: "My Value",
+        short: true
+      }]
+    }
+  )
 end
 
 private_lane :get_apple_api_key do
