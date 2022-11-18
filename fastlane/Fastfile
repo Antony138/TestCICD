@@ -44,7 +44,8 @@ end
 private_lane :send_slack_message do
   slack(
     message: "App successfully released!",
-    slack_url: ENV["SLACK_WEBHOOK"],
+    # slack_url: ENV["SLACK_WEBHOOK"],
+    slack_url: "https://hooks.slack.com/services/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",
     # channel: "#channel",  # Optional, by default will post to the default channel configured for the POST URL.
     success: true,        # Optional, defaults to true.
     payload: {  # Optional, lets you specify any number of your own Slack attachments.
