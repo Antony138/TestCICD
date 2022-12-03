@@ -49,7 +49,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0A342B8128D6D7AB00F5C95B /* TestCICD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestCICD.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A342B8128D6D7AB00F5C95B /* TestCICD(D).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TestCICD(D).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A342B8428D6D7AB00F5C95B /* TestCICDApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCICDApp.swift; sourceTree = "<group>"; };
 		0A342B8628D6D7AB00F5C95B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0A342B8828D6D7AC00F5C95B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,6 +61,7 @@
 		0A342BA128D6D7AC00F5C95B /* TestCICDUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCICDUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0A61E5EA293B169600C72894 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		0A61E5EB293B178F00C72894 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0A61E5EC293B194E00C72894 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +104,7 @@
 		0A342B8228D6D7AB00F5C95B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0A342B8128D6D7AB00F5C95B /* TestCICD.app */,
+				0A342B8128D6D7AB00F5C95B /* TestCICD(D).app */,
 				0A342B9128D6D7AC00F5C95B /* TestCICDTests.xctest */,
 				0A342B9B28D6D7AC00F5C95B /* TestCICDUITests.xctest */,
 			);
@@ -117,6 +118,7 @@
 				0A342B8428D6D7AB00F5C95B /* TestCICDApp.swift */,
 				0A342B8628D6D7AB00F5C95B /* ContentView.swift */,
 				0A342B8828D6D7AC00F5C95B /* Assets.xcassets */,
+				0A61E5EC293B194E00C72894 /* Debug.xcconfig */,
 				0A61E5EA293B169600C72894 /* Secrets.xcconfig */,
 				0A342B8A28D6D7AC00F5C95B /* Preview Content */,
 			);
@@ -170,7 +172,7 @@
 				C0FA37CB291BCB0100403420 /* protoc-gen-grpc-swift */,
 			);
 			productName = TestCICD;
-			productReference = 0A342B8128D6D7AB00F5C95B /* TestCICD.app */;
+			productReference = 0A342B8128D6D7AB00F5C95B /* TestCICD(D).app */;
 			productType = "com.apple.product-type.application";
 		};
 		0A342B9028D6D7AC00F5C95B /* TestCICDTests */ = {
@@ -379,6 +381,8 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.tokyo.TestCICD;
+				PRODUCT_NAME = TestCICD;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -433,6 +437,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.tokyo.TestCICD;
+				PRODUCT_NAME = TestCICD;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -442,6 +448,7 @@
 		};
 		0A342BA628D6D7AC00F5C95B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A61E5EC293B194E00C72894 /* Debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -467,10 +474,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = jp.tokyo.TestCICD;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
+				PRODUCT_NAME = "$(inherited)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development jp.tokyo.TestCICD";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development jp.tokyo.TestCICD.debug";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -504,8 +511,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = jp.tokyo.TestCICD;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
+				PRODUCT_NAME = "$(inherited)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AdHoc jp.tokyo.TestCICD";
 				SWIFT_EMIT_LOC_STRINGS = YES;

@@ -1,5 +1,5 @@
 //
-//  Secrets.xcconfig
+//  Debug.xcconfig
 //  TestCICD
 //
 //  Created by Antony on 2022/12/03.
@@ -8,8 +8,9 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
-MY_TEST_SECRT = 155bdf4d4f847e77aec11624ab9c17b4
+PRODUCT_BUNDLE_IDENTIFIER =  $(inherited).debug
 
-// 不一定大写
-my_lowercase_secrt = 123456789
+// 这个现在还用不上
+ASSETCATALOG_COMPILER_APPICON_NAME = $(inherited).debug
 
+PRODUCT_NAME = TestCICD(D)
