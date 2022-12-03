@@ -16,10 +16,6 @@
 		0A342BA228D6D7AC00F5C95B /* TestCICDUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A342BA128D6D7AC00F5C95B /* TestCICDUITestsLaunchTests.swift */; };
 		C0FA37CA291BCB0100403420 /* GRPC in Frameworks */ = {isa = PBXBuildFile; productRef = C0FA37C9291BCB0100403420 /* GRPC */; };
 		C0FA37CC291BCB0100403420 /* protoc-gen-grpc-swift in Frameworks */ = {isa = PBXBuildFile; productRef = C0FA37CB291BCB0100403420 /* protoc-gen-grpc-swift */; };
-		C0FA37D9291BE63A00403420 /* MapboxCoreNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = C0FA37D8291BE63A00403420 /* MapboxCoreNavigation */; };
-		C0FA37DB291BE63A00403420 /* MapboxNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = C0FA37DA291BE63A00403420 /* MapboxNavigation */; };
-		C0FA37DE291BE66B00403420 /* MapboxSearch in Frameworks */ = {isa = PBXBuildFile; productRef = C0FA37DD291BE66B00403420 /* MapboxSearch */; };
-		C0FA37E0291BE66B00403420 /* MapboxSearchUI in Frameworks */ = {isa = PBXBuildFile; productRef = C0FA37DF291BE66B00403420 /* MapboxSearchUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,12 +66,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0FA37DE291BE66B00403420 /* MapboxSearch in Frameworks */,
-				C0FA37E0291BE66B00403420 /* MapboxSearchUI in Frameworks */,
 				C0FA37CC291BCB0100403420 /* protoc-gen-grpc-swift in Frameworks */,
-				C0FA37D9291BE63A00403420 /* MapboxCoreNavigation in Frameworks */,
 				C0FA37CA291BCB0100403420 /* GRPC in Frameworks */,
-				C0FA37DB291BE63A00403420 /* MapboxNavigation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,10 +164,6 @@
 			packageProductDependencies = (
 				C0FA37C9291BCB0100403420 /* GRPC */,
 				C0FA37CB291BCB0100403420 /* protoc-gen-grpc-swift */,
-				C0FA37D8291BE63A00403420 /* MapboxCoreNavigation */,
-				C0FA37DA291BE63A00403420 /* MapboxNavigation */,
-				C0FA37DD291BE66B00403420 /* MapboxSearch */,
-				C0FA37DF291BE66B00403420 /* MapboxSearchUI */,
 			);
 			productName = TestCICD;
 			productReference = 0A342B8128D6D7AB00F5C95B /* TestCICD.app */;
@@ -251,8 +239,6 @@
 			mainGroup = 0A342B7828D6D7AB00F5C95B;
 			packageReferences = (
 				C0FA37C8291BCB0100403420 /* XCRemoteSwiftPackageReference "grpc-swift" */,
-				C0FA37D7291BE63A00403420 /* XCRemoteSwiftPackageReference "mapbox-navigation-ios" */,
-				C0FA37DC291BE66B00403420 /* XCRemoteSwiftPackageReference "search-ios" */,
 			);
 			productRefGroup = 0A342B8228D6D7AB00F5C95B /* Products */;
 			projectDirPath = "";
@@ -644,22 +630,6 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		C0FA37D7291BE63A00403420 /* XCRemoteSwiftPackageReference "mapbox-navigation-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/mapbox/mapbox-navigation-ios.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.7.0;
-			};
-		};
-		C0FA37DC291BE66B00403420 /* XCRemoteSwiftPackageReference "search-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/mapbox/search-ios.git";
-			requirement = {
-				kind = exactVersion;
-				version = "1.0.0-beta.33.1";
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -672,26 +642,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C0FA37C8291BCB0100403420 /* XCRemoteSwiftPackageReference "grpc-swift" */;
 			productName = "protoc-gen-grpc-swift";
-		};
-		C0FA37D8291BE63A00403420 /* MapboxCoreNavigation */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C0FA37D7291BE63A00403420 /* XCRemoteSwiftPackageReference "mapbox-navigation-ios" */;
-			productName = MapboxCoreNavigation;
-		};
-		C0FA37DA291BE63A00403420 /* MapboxNavigation */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C0FA37D7291BE63A00403420 /* XCRemoteSwiftPackageReference "mapbox-navigation-ios" */;
-			productName = MapboxNavigation;
-		};
-		C0FA37DD291BE66B00403420 /* MapboxSearch */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C0FA37DC291BE66B00403420 /* XCRemoteSwiftPackageReference "search-ios" */;
-			productName = MapboxSearch;
-		};
-		C0FA37DF291BE66B00403420 /* MapboxSearchUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C0FA37DC291BE66B00403420 /* XCRemoteSwiftPackageReference "search-ios" */;
-			productName = MapboxSearchUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
