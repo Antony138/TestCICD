@@ -20,6 +20,20 @@ struct ContentView: View {
             Text("Hello, \(myLowercaseSecrt)")
             Button("Check current Environment") {
                 print("Current configuration: \(BuildConfiguration.shared.environment)")
+
+#if DEBUG
+                print("Current is DEBUG")
+#else
+                print("Current is not DEBUG")
+#endif
+
+                // 注意，这个是利用了SWIFT_ACTIVE_COMPILATION_CONDITIONS
+#if ALPHA
+                print("Current is ALPHA")
+#else
+                print("Current is not ALPHA")
+#endif
+                
             }
         }
         .padding()
