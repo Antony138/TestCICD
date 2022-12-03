@@ -14,8 +14,12 @@
 		0A342B9628D6D7AC00F5C95B /* TestCICDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A342B9528D6D7AC00F5C95B /* TestCICDTests.swift */; };
 		0A342BA028D6D7AC00F5C95B /* TestCICDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A342B9F28D6D7AC00F5C95B /* TestCICDUITests.swift */; };
 		0A342BA228D6D7AC00F5C95B /* TestCICDUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A342BA128D6D7AC00F5C95B /* TestCICDUITestsLaunchTests.swift */; };
-		0A342BB528D80BE000F5C95B /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A342BB428D80BE000F5C95B /* Navigator.swift */; };
-		0A5E9F7F28DB8175008B27F5 /* heresdk in Frameworks */ = {isa = PBXBuildFile; productRef = 0A5E9F7E28DB8175008B27F5 /* heresdk */; };
+		C0FA37CA291BCB0100403420 /* GRPC in Frameworks */ = {isa = PBXBuildFile; productRef = C0FA37C9291BCB0100403420 /* GRPC */; };
+		C0FA37CC291BCB0100403420 /* protoc-gen-grpc-swift in Frameworks */ = {isa = PBXBuildFile; productRef = C0FA37CB291BCB0100403420 /* protoc-gen-grpc-swift */; };
+		C0FA37D9291BE63A00403420 /* MapboxCoreNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = C0FA37D8291BE63A00403420 /* MapboxCoreNavigation */; };
+		C0FA37DB291BE63A00403420 /* MapboxNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = C0FA37DA291BE63A00403420 /* MapboxNavigation */; };
+		C0FA37DE291BE66B00403420 /* MapboxSearch in Frameworks */ = {isa = PBXBuildFile; productRef = C0FA37DD291BE66B00403420 /* MapboxSearch */; };
+		C0FA37E0291BE66B00403420 /* MapboxSearchUI in Frameworks */ = {isa = PBXBuildFile; productRef = C0FA37DF291BE66B00403420 /* MapboxSearchUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +63,6 @@
 		0A342B9B28D6D7AC00F5C95B /* TestCICDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestCICDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A342B9F28D6D7AC00F5C95B /* TestCICDUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCICDUITests.swift; sourceTree = "<group>"; };
 		0A342BA128D6D7AC00F5C95B /* TestCICDUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCICDUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		0A342BB428D80BE000F5C95B /* Navigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +70,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A5E9F7F28DB8175008B27F5 /* heresdk in Frameworks */,
+				C0FA37DE291BE66B00403420 /* MapboxSearch in Frameworks */,
+				C0FA37E0291BE66B00403420 /* MapboxSearchUI in Frameworks */,
+				C0FA37CC291BCB0100403420 /* protoc-gen-grpc-swift in Frameworks */,
+				C0FA37D9291BE63A00403420 /* MapboxCoreNavigation in Frameworks */,
+				C0FA37CA291BCB0100403420 /* GRPC in Frameworks */,
+				C0FA37DB291BE63A00403420 /* MapboxNavigation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,7 +121,6 @@
 			children = (
 				0A342B8428D6D7AB00F5C95B /* TestCICDApp.swift */,
 				0A342B8628D6D7AB00F5C95B /* ContentView.swift */,
-				0A342BB428D80BE000F5C95B /* Navigator.swift */,
 				0A342B8828D6D7AC00F5C95B /* Assets.xcassets */,
 				0A342B8A28D6D7AC00F5C95B /* Preview Content */,
 			);
@@ -163,7 +170,12 @@
 			);
 			name = TestCICD;
 			packageProductDependencies = (
-				0A5E9F7E28DB8175008B27F5 /* heresdk */,
+				C0FA37C9291BCB0100403420 /* GRPC */,
+				C0FA37CB291BCB0100403420 /* protoc-gen-grpc-swift */,
+				C0FA37D8291BE63A00403420 /* MapboxCoreNavigation */,
+				C0FA37DA291BE63A00403420 /* MapboxNavigation */,
+				C0FA37DD291BE66B00403420 /* MapboxSearch */,
+				C0FA37DF291BE66B00403420 /* MapboxSearchUI */,
 			);
 			productName = TestCICD;
 			productReference = 0A342B8128D6D7AB00F5C95B /* TestCICD.app */;
@@ -238,7 +250,9 @@
 			);
 			mainGroup = 0A342B7828D6D7AB00F5C95B;
 			packageReferences = (
-				0A5E9F7D28DB8175008B27F5 /* XCRemoteSwiftPackageReference "heresdk" */,
+				C0FA37C8291BCB0100403420 /* XCRemoteSwiftPackageReference "grpc-swift" */,
+				C0FA37D7291BE63A00403420 /* XCRemoteSwiftPackageReference "mapbox-navigation-ios" */,
+				C0FA37DC291BE66B00403420 /* XCRemoteSwiftPackageReference "search-ios" */,
 			);
 			productRefGroup = 0A342B8228D6D7AB00F5C95B /* Products */;
 			projectDirPath = "";
@@ -284,7 +298,6 @@
 			files = (
 				0A342B8728D6D7AB00F5C95B /* ContentView.swift in Sources */,
 				0A342B8528D6D7AB00F5C95B /* TestCICDApp.swift in Sources */,
-				0A342BB528D80BE000F5C95B /* Navigator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,7 +454,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TestCICD/Preview Content\"";
@@ -454,6 +467,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -462,7 +476,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jp.tokyo.TestCICD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AdHoc jp.tokyo.TestCICD";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development jp.tokyo.TestCICD";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -488,6 +502,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -621,21 +636,62 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0A5E9F7D28DB8175008B27F5 /* XCRemoteSwiftPackageReference "heresdk" */ = {
+		C0FA37C8291BCB0100403420 /* XCRemoteSwiftPackageReference "grpc-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Antony138/heresdk";
+			repositoryURL = "https://github.com/grpc/grpc-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		C0FA37D7291BE63A00403420 /* XCRemoteSwiftPackageReference "mapbox-navigation-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mapbox/mapbox-navigation-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.0;
+			};
+		};
+		C0FA37DC291BE66B00403420 /* XCRemoteSwiftPackageReference "search-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mapbox/search-ios.git";
 			requirement = {
 				kind = exactVersion;
-				version = 1.0.1;
+				version = "1.0.0-beta.33.1";
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0A5E9F7E28DB8175008B27F5 /* heresdk */ = {
+		C0FA37C9291BCB0100403420 /* GRPC */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0A5E9F7D28DB8175008B27F5 /* XCRemoteSwiftPackageReference "heresdk" */;
-			productName = heresdk;
+			package = C0FA37C8291BCB0100403420 /* XCRemoteSwiftPackageReference "grpc-swift" */;
+			productName = GRPC;
+		};
+		C0FA37CB291BCB0100403420 /* protoc-gen-grpc-swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C0FA37C8291BCB0100403420 /* XCRemoteSwiftPackageReference "grpc-swift" */;
+			productName = "protoc-gen-grpc-swift";
+		};
+		C0FA37D8291BE63A00403420 /* MapboxCoreNavigation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C0FA37D7291BE63A00403420 /* XCRemoteSwiftPackageReference "mapbox-navigation-ios" */;
+			productName = MapboxCoreNavigation;
+		};
+		C0FA37DA291BE63A00403420 /* MapboxNavigation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C0FA37D7291BE63A00403420 /* XCRemoteSwiftPackageReference "mapbox-navigation-ios" */;
+			productName = MapboxNavigation;
+		};
+		C0FA37DD291BE66B00403420 /* MapboxSearch */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C0FA37DC291BE66B00403420 /* XCRemoteSwiftPackageReference "search-ios" */;
+			productName = MapboxSearch;
+		};
+		C0FA37DF291BE66B00403420 /* MapboxSearchUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C0FA37DC291BE66B00403420 /* XCRemoteSwiftPackageReference "search-ios" */;
+			productName = MapboxSearchUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

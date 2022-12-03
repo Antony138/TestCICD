@@ -1,0 +1,36 @@
+name: Test GitHub Action Docker
+
+on:
+  # pull_request:
+  #   types: [opened, synchronize]
+  #   branches: [main]
+
+  workflow_dispatch:
+
+jobs:
+  test-docker:
+    # !!! Container operations are only supported on Linux runners !!!
+    # runs-on: [self-hosted, macOS, ARM64, M1, test, office]
+    runs-on: ubuntu-latest
+    # container: node:16-buster-slim # 两种写法都可以
+    container: 
+      image: node:16-buster-slim
+
+    steps:
+      - name: log node version
+        run: |
+          node -v
+          cat /etc/os-release
+
+      # not work
+      # - name: run a script
+      #   uses: docker://node:16-buster-slim
+      #   with:
+      #     entrypoint: /script.sh
+      #     args: "Some string"
+
+      - name: send a slack message
+        uses: docker://technosophos/slack-notify
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_MESSAGE: "Hello Slack"

@@ -5,18 +5,21 @@ default_platform(:ios)
 
 platform :ios do  
   before_all do
-    delete_keychain(name: 'fastlane_tmp_keychain-db') if File.exist? File.expand_path("~/Library/Keychains/fastlane_tmp_keychain-db")
+    delete_keychain(name: 'fastlane_tmp_keychain-db')
     setup_ci # will creste the "fastlane_tmp_keychain-db" in CI
     check_env_var
   end
 
   desc "Building"
   lane :build do
+    # send_slack_message
+
     xcode_select("/Applications/Xcode.app")
     
     # run_unit_test
 
     match_adhoc
+    # match_development
 
     archive
     
@@ -26,13 +29,13 @@ platform :ios do
 
   rescue => exception
     # Error handle
-    delete_keychain(name: 'fastlane_tmp_keychain-db') if File.exist? File.expand_path("~/Library/Keychains/fastlane_tmp_keychain-db")
+    delete_keychain(name: 'fastlane_tmp_keychain-db')
     clean_build_artifacts
     # send error message to Slack
     raise exception
 
   after_all do
-    delete_keychain(name: 'fastlane_tmp_keychain-db') if File.exist? File.expand_path("~/Library/Keychains/fastlane_tmp_keychain-db")
+    delete_keychain(name: 'fastlane_tmp_keychain-db')
     clean_build_artifacts
   end
 
@@ -55,27 +58,47 @@ private_lane :match_adhoc do
 		type: 'adhoc',
 		app_identifier: "jp.tokyo.TestCICD",
 		api_key: lane_context[SharedValues::APP_STORE_CONNECT_API_KEY],
-		git_basic_authorization: ENV["MATCH_GIT_BASIC_AUTHORIZATION"],
-    keychain_name: 'fastlane_cicd_temp_keychain',
-    keychain_password: 'temppassword'
+		git_basic_authorization: ENV["MATCH_GIT_BASIC_AUTHORIZATION"]
+    # keychain_name: 'fastlane_tmp_keychain-db'
+	)
+end
+
+private_lane :match_development do
+	get_apple_api_key
+
+	match(
+    git_url: ENV["MATCH_GIT_URL"], # 因为是环境变量，不写也可以
+		type: 'development',
+		app_identifier: "jp.tokyo.TestCICD",
+		api_key: lane_context[SharedValues::APP_STORE_CONNECT_API_KEY],
+		git_basic_authorization: ENV["MATCH_GIT_BASIC_AUTHORIZATION"]
+    # keychain_name: 'fastlane_tmp_keychain-db',
+    # readonly: false,
+    # include_all_certificates: true,
+    # force_for_new_certificates: true
 	)
 end
 
 private_lane :archive do
 	# update_code_signing_settings(use_automatic_signing: false)
-
-	# settings_to_override = {
-	# 	:PRODUCT_BUNDLE_IDENTIFIER => "jp.tokyo.TestCICD",
-	# 	:PROVISIONING_PROFILE_SPECIFIER => "match AdHoc jp.tokyo.TestCICD"
-	# }
+	settings_to_override = {
+		:BUNDLE_IDENTIFIER => "jp.tokyo.TestCICD",
+		:PROVISIONING_PROFILE_SPECIFIER => "match AdHoc jp.tokyo.TestCICD"
+	}
   
 	gym(
-		# codesigning_identity: "iOS Distribution",
+		# codesigning_identity: "iPhone Distribution", # 不能设置，否则mapbox会报需要一个development team
+    # codesigning_identity: "Apple Distribution",
 		scheme: "TestCICD", # The project's scheme. Make sure it's marked as `Shared`
 		clean: true,
-		# xcargs: settings_to_override,
-		xcconfig: "../../../Config.xcconfig",
-		silent: true
+		xcargs: settings_to_override,
+		silent: true,
+    export_method: "ad-hoc",
+    export_options: {
+      provisioningProfiles: { 
+        "jp.tokyo.TestCICD" => "match AdHoc jp.tokyo.TestCICD"
+      }
+    }
 	)
 end
 
@@ -95,6 +118,8 @@ private_lane :upload_deploygate do
       ipa: "TestCICD.ipa",
       message: deploy_message
   )
+
+  send_slack_message
 end
 
 private_lane :check_env_var do
@@ -123,3 +148,26 @@ end
 #     timeout: 1800
 #   )
 # end
+
+private_lane :send_slack_message do
+  slack(
+    username: "EVP4-Bot",
+    message: "App successfully released!",
+    # slack_url: ENV["SLACK_WEBHOOK"],
+    slack_url: "https://hooks.slack.com/services/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",
+    # channel: "#channel",  # Optional, by default will post to the default channel configured for the POST URL.
+    success: true,        # Optional, defaults to true.
+    payload: {  # Optional, lets you specify any number of your own Slack attachments.
+      "Build Date" => Time.new.to_s,
+    },
+    default_payloads: [:last_git_commit], # Optional, lets you specify default payloads to include. Pass an empty array to suppress all the default payloads.
+    attachment_properties: { # Optional, lets you specify any other properties available for attachments in the slack API (see https://api.slack.com/docs/attachments).
+         # This hash is deep merged with the existing properties set using the other properties above. This allows your own fields properties to be appended to the existing fields that were created using the `payload` property for instance.
+      # image_url: "https://fastlane.tools/assets/img/fastlane_icon.png",
+      # image_url: "https://i.ibb.co/RSXY7z8/Screenshot-2022-11-18-at-14-39-18.png",
+      image_url: "https://i.ibb.co/mytvvJG/Test-CICD-qr.png",
+      # thumb_url: "https://i.ibb.co/RSXY7z8/Screenshot-2022-11-18-at-14-39-18.png",
+    },
+    fail_on_error: false
+  )
+end
