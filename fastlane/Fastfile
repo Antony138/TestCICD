@@ -102,6 +102,29 @@ lane :match_debug_development_adhoc do
 	)
 end
 
+lane :match_alpha_development_adhoc do
+	get_apple_api_key
+
+	match(
+    git_url: ENV["MATCH_GIT_URL"],
+		type: 'development',
+		app_identifier: "jp.tokyo.TestCICD.alpha",
+		api_key: lane_context[SharedValues::APP_STORE_CONNECT_API_KEY],
+		git_basic_authorization: ENV["MATCH_GIT_BASIC_AUTHORIZATION"],
+    readonly: false,
+    include_all_certificates: true,
+    force_for_new_certificates: true
+	)
+
+  match(
+    git_url: ENV["MATCH_GIT_URL"],
+		type: 'adhoc',
+		app_identifier: "jp.tokyo.TestCICD.alpha",
+		api_key: lane_context[SharedValues::APP_STORE_CONNECT_API_KEY],
+		git_basic_authorization: ENV["MATCH_GIT_BASIC_AUTHORIZATION"]
+	)
+end
+
 private_lane :archive do
 	# update_code_signing_settings(use_automatic_signing: false)
 	settings_to_override = {

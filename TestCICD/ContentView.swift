@@ -18,6 +18,9 @@ struct ContentView: View {
                 .foregroundColor(.accentColor)
             Text("Hello, \(myTestSecrt)")
             Text("Hello, \(myLowercaseSecrt)")
+            Button("Check current Environment") {
+                print("Current configuration: \(BuildConfiguration.shared.environment)")
+            }
         }
         .padding()
     }

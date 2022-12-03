@@ -29,6 +29,14 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 
 
+### match_alpha_development_adhoc
+
+```sh
+[bundle exec] fastlane match_alpha_development_adhoc
+```
+
+
+
 ----
 
 
