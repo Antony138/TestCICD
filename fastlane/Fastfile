@@ -153,9 +153,7 @@ private_lane :upload_deploygate do
 
   commit = last_git_commit
 
-  # deploy_message = "#{ENV["DEPLOYGATE_CUSTOM_MESSAGE"]}. #{commit[:abbreviated_commit_hash]} #{commit[:message]}"
-
-  deploy_message = "#{lane_context[SharedValues::DEPLOYGATE_URL]}; #{lane_context[SharedValues::DEPLOYGATE_REVISION]}; #{lane_context[SharedValues::DEPLOYGATE_APP_INFO]}"
+  deploy_message = "#{ENV["DEPLOYGATE_CUSTOM_MESSAGE"]}. #{commit[:abbreviated_commit_hash]} #{commit[:message]}"
 
   puts "deploy_message: #{deploy_message}"
 
@@ -166,11 +164,14 @@ private_lane :upload_deploygate do
       message: deploy_message
   )
 
+  deploygate_feedback_message = "#{lane_context[SharedValues::DEPLOYGATE_URL]}; #{lane_context[SharedValues::DEPLOYGATE_REVISION]}; #{lane_context[SharedValues::DEPLOYGATE_APP_INFO]}"
+  puts "deploygate_feedback_message: #{deploygate_feedback_message}"
+
   # send_slack_message
 
   slack(
     username: "EVP4-Bot",
-    message: deploy_message,
+    message: deploygate_feedback_message,
     # slack_url: ENV["SLACK_WEBHOOK"],
     slack_url: "https://hooks.slack.com/services/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",
     # channel: "#channel",  # Optional, by default will post to the default channel configured for the POST URL.
