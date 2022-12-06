@@ -2,7 +2,7 @@ name: Run unit test(xcodebuild single job)
 
 on:
   pull_request:
-    types: [opened, synchronize]
+    types: [opened, synchronize, ready_for_review]
     branches: [main]
 
   workflow_dispatch:
