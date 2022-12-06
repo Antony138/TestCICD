@@ -157,6 +157,8 @@ private_lane :upload_deploygate do
 
   puts "deploy_message: #{deploy_message}"
 
+  git_branch
+  
   deploygate(
       api_token: deploygate_api_token,
       user: deploygate_user,
