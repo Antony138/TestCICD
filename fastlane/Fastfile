@@ -161,7 +161,7 @@ private_lane :upload_deploygate do
       api_token: deploygate_api_token,
       user: deploygate_user,
       ipa: "TestCICD.ipa",
-      message: deploy_message
+      message: "#{lane_context[SharedValues::DEPLOYGATE_URL]}; #{lane_context[SharedValues::DEPLOYGATE_REVISION]}; #{lane_context[SharedValues::DEPLOYGATE_APP_INFO]}"
   )
 
   deploygate_feedback_message = "#{lane_context[SharedValues::DEPLOYGATE_URL]}; #{lane_context[SharedValues::DEPLOYGATE_REVISION]}; #{lane_context[SharedValues::DEPLOYGATE_APP_INFO]}"
