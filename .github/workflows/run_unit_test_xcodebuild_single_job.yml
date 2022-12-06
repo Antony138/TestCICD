@@ -4,9 +4,9 @@ run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
 
 
 on:
-  pull_request:
-    types: [opened, synchronize, ready_for_review]
-    branches: [main]
+  # pull_request:
+  #   types: [opened, synchronize, ready_for_review]
+  #   branches: [main]
 
   workflow_dispatch:
 

@@ -154,7 +154,9 @@ private_lane :upload_deploygate do
 
   commit = last_git_commit
 
-  deploy_message = "#{ENV["DEPLOYGATE_CUSTOM_MESSAGE"]}. #{commit[:abbreviated_commit_hash]} #{commit[:message]}"
+  # deploy_message = "#{ENV["DEPLOYGATE_CUSTOM_MESSAGE"]}. #{commit[:abbreviated_commit_hash]} #{commit[:message]}"
+
+  deploy_message = "#{lane_context[SharedValues::DEPLOYGATE_URL]}; #{lane_context[SharedValues::DEPLOYGATE_REVISION]}; #{lane_context[SharedValues::DEPLOYGATE_APP_INFO]}"
 
   puts "deploy_message: #{deploy_message}"
 
@@ -165,7 +167,29 @@ private_lane :upload_deploygate do
       message: deploy_message
   )
 
-  send_slack_message
+  # send_slack_message
+
+  slack(
+    username: "EVP4-Bot",
+    message: deploy_message,
+    # slack_url: ENV["SLACK_WEBHOOK"],
+    slack_url: "https://hooks.slack.com/services/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",
+    # channel: "#channel",  # Optional, by default will post to the default channel configured for the POST URL.
+    success: true,        # Optional, defaults to true.
+    payload: {  # Optional, lets you specify any number of your own Slack attachments.
+      "Build Date" => Time.new.to_s,
+    },
+    default_payloads: [:last_git_commit], # Optional, lets you specify default payloads to include. Pass an empty array to suppress all the default payloads.
+    attachment_properties: { # Optional, lets you specify any other properties available for attachments in the slack API (see https://api.slack.com/docs/attachments).
+         # This hash is deep merged with the existing properties set using the other properties above. This allows your own fields properties to be appended to the existing fields that were created using the `payload` property for instance.
+      # image_url: "https://fastlane.tools/assets/img/fastlane_icon.png",
+      # image_url: "https://i.ibb.co/RSXY7z8/Screenshot-2022-11-18-at-14-39-18.png",
+      image_url: "https://i.ibb.co/mytvvJG/Test-CICD-qr.png",
+      # thumb_url: "https://i.ibb.co/RSXY7z8/Screenshot-2022-11-18-at-14-39-18.png",
+    },
+    fail_on_error: false
+  )
+
 end
 
 private_lane :check_env_var do
