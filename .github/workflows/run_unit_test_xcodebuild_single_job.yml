@@ -1,4 +1,7 @@
 name: Run unit test(xcodebuild single job)
+# run-name: echo by @${{ github.actor }}
+run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
+
 
 on:
   pull_request:
