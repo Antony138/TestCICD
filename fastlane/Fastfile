@@ -11,6 +11,10 @@ platform :ios do
 
   desc "Building"
   lane :build do
+    branch_name = git_branch
+
+    puts "branch_name: #{branch_name}"
+    
     # send_slack_message
 
     xcode_select("/Applications/Xcode.app")
@@ -202,7 +206,7 @@ end
 # end
 
 private_lane :send_slack_message do |options|
-  message = "App successfully released! #{options[:build_number]}"
+  message = "App successfully released! ##{options[:build_number]}"
   puts "message: #{message}"
 
   slack(
