@@ -156,6 +156,8 @@ private_lane :upload_deploygate do
   
   branch_name = git_branch
   puts "branch_name: #{branch_name}"
+  puts "BRANCH_NAME_HEAD_REF(from github action): #{ENV["BRANCH_NAME_HEAD_REF"]}"
+  puts "BRANCH_NAME_REF_NAME(from github action): #{ENV["BRANCH_NAME_REF_NAME"]}"
   
   deploygate_api_token = branch_name == 'main' ? rc4_main_api_token : rc4_branchs_api_token
   deploygate_user = branch_name == 'main' ? 'RC4-main' : 'RC4-branchs'
