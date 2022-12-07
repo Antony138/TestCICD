@@ -167,10 +167,10 @@ private_lane :upload_deploygate do
   puts "deploy_message: #{deploy_message}"
 
   deploygate(
-      api_token: deploygate_api_token,
-      user: deploygate_user,
+      api_token: 'f0e6b9c8-083d-4d2d-9771-640f2a580018',
+      user: 'antony1380',
       ipa: "TestCICD.ipa",
-      message: branch_name
+      message: "#{ENV["BRANCH_NAME_HEAD_REF"]}"
   )
 
   deploygate_feedback_message = "#{lane_context[SharedValues::DEPLOYGATE_URL]}; #{lane_context[SharedValues::DEPLOYGATE_REVISION]}; #{lane_context[SharedValues::DEPLOYGATE_APP_INFO]}"
