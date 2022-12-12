@@ -1,0 +1,19 @@
+//
+//  Debug.xcconfig
+//  TestCICD
+//
+//  Created by Antony on 2022/12/03.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+PRODUCT_BUNDLE_IDENTIFIER =  $(inherited).debug
+
+// 这个现在还用不上
+ASSETCATALOG_COMPILER_APPICON_NAME = $(inherited).debug
+
+PRODUCT_NAME = TestCICD(D)
+
+// 这个创建项目的时候，在Target level就有值「DEBUG」了，不写也可以
+SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG

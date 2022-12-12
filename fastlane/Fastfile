@@ -5,7 +5,6 @@ default_platform(:ios)
 
 platform :ios do  
   before_all do
-    delete_keychain(name: 'fastlane_tmp_keychain-db')
     setup_ci # will creste the "fastlane_tmp_keychain-db" in CI
     check_env_var
   end
@@ -29,13 +28,13 @@ platform :ios do
 
   rescue => exception
     # Error handle
-    delete_keychain(name: 'fastlane_tmp_keychain-db')
+    delete_keychain(name: 'fastlane_tmp_keychain-db') if File.exist? File.expand_path("~/Library/Keychains/fastlane_tmp_keychain-db")
     clean_build_artifacts
     # send error message to Slack
     raise exception
 
   after_all do
-    delete_keychain(name: 'fastlane_tmp_keychain-db')
+    delete_keychain(name: 'fastlane_tmp_keychain-db') if File.exist? File.expand_path("~/Library/Keychains/fastlane_tmp_keychain-db")
     clean_build_artifacts
   end
 
@@ -79,6 +78,52 @@ private_lane :match_development do
 	)
 end
 
+lane :match_debug_development_adhoc do
+	get_apple_api_key
+
+	match(
+    git_url: ENV["MATCH_GIT_URL"],
+		type: 'development',
+		app_identifier: "jp.tokyo.TestCICD.debug",
+		api_key: lane_context[SharedValues::APP_STORE_CONNECT_API_KEY],
+		git_basic_authorization: ENV["MATCH_GIT_BASIC_AUTHORIZATION"],
+    readonly: false,
+    include_all_certificates: true,
+    force_for_new_certificates: true
+	)
+
+  match(
+    git_url: ENV["MATCH_GIT_URL"],
+		type: 'adhoc',
+		app_identifier: "jp.tokyo.TestCICD.debug",
+		api_key: lane_context[SharedValues::APP_STORE_CONNECT_API_KEY],
+		git_basic_authorization: ENV["MATCH_GIT_BASIC_AUTHORIZATION"]
+	)
+end
+
+lane :match_alpha_development_adhoc do
+	get_apple_api_key
+
+	match(
+    git_url: ENV["MATCH_GIT_URL"],
+		type: 'development',
+		app_identifier: "jp.tokyo.TestCICD.alpha",
+		api_key: lane_context[SharedValues::APP_STORE_CONNECT_API_KEY],
+		git_basic_authorization: ENV["MATCH_GIT_BASIC_AUTHORIZATION"],
+    readonly: false,
+    include_all_certificates: true,
+    force_for_new_certificates: true
+	)
+
+  match(
+    git_url: ENV["MATCH_GIT_URL"],
+		type: 'adhoc',
+		app_identifier: "jp.tokyo.TestCICD.alpha",
+		api_key: lane_context[SharedValues::APP_STORE_CONNECT_API_KEY],
+		git_basic_authorization: ENV["MATCH_GIT_BASIC_AUTHORIZATION"]
+	)
+end
+
 private_lane :archive do
 	# update_code_signing_settings(use_automatic_signing: false)
 	settings_to_override = {
@@ -103,23 +148,35 @@ private_lane :archive do
 end
 
 private_lane :upload_deploygate do
-  deploygate_api_token = 'f0e6b9c8-083d-4d2d-9771-640f2a580018'
-  deploygate_user = 'antony1380'
+  rc4_main_api_token = '575fda81-3ffb-493a-adca-7d342f6f7267'
+  rc4_branchs_api_token = 'e47360ba-3434-4650-af4f-f6a3352a16d7'
 
   commit = last_git_commit
+  puts "last_git_commit: #{commit}"
+  
+  branch_name = git_branch
+  puts "branch_name: #{branch_name}"
+  puts "BRANCH_NAME_HEAD_REF(from github action): #{ENV["BRANCH_NAME_HEAD_REF"]}"
+  puts "BRANCH_NAME_REF_NAME(from github action): #{ENV["BRANCH_NAME_REF_NAME"]}"
+  
+  deploygate_api_token = branch_name == 'main' ? rc4_main_api_token : rc4_branchs_api_token
+  deploygate_user = branch_name == 'main' ? 'RC4-main' : 'RC4-branchs'
+  puts "deploygate_api_token: #{deploygate_api_token}; deploygate_user: #{deploygate_user}"
 
   deploy_message = "#{ENV["DEPLOYGATE_CUSTOM_MESSAGE"]}. #{commit[:abbreviated_commit_hash]} #{commit[:message]}"
-
   puts "deploy_message: #{deploy_message}"
 
   deploygate(
-      api_token: deploygate_api_token,
-      user: deploygate_user,
+      api_token: 'f0e6b9c8-083d-4d2d-9771-640f2a580018',
+      user: 'antony1380',
       ipa: "TestCICD.ipa",
-      message: deploy_message
+      message: "#{ENV["BRANCH_NAME_HEAD_REF"]}"
   )
 
-  send_slack_message
+  deploygate_feedback_message = "#{lane_context[SharedValues::DEPLOYGATE_URL]}; #{lane_context[SharedValues::DEPLOYGATE_REVISION]}; #{lane_context[SharedValues::DEPLOYGATE_APP_INFO]}"
+  puts "deploygate_feedback_message: #{deploygate_feedback_message}"
+
+  send_slack_message(build_number: "#{lane_context[SharedValues::DEPLOYGATE_REVISION]}")
 end
 
 private_lane :check_env_var do
@@ -149,10 +206,19 @@ end
 #   )
 # end
 
-private_lane :send_slack_message do
+private_lane :send_slack_message do |options|
+  message = "App successfully released! ##{options[:build_number]}"
+  puts "message: #{message}"
+
+  branch_name = git_branch
+  puts "branch_name: #{branch_name}"
+
+  deploygate_api_token = branch_name == 'main' ? "IS MAIN TOKEN" : "IS NOT MAIN TOKEN"
+  puts "deploygate_api_token: #{deploygate_api_token}"
+
   slack(
     username: "EVP4-Bot",
-    message: "App successfully released!",
+    message: message,
     # slack_url: ENV["SLACK_WEBHOOK"],
     slack_url: "https://hooks.slack.com/services/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",
     # channel: "#channel",  # Optional, by default will post to the default channel configured for the POST URL.

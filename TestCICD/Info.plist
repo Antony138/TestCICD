@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CONFIGURATION</key>
+	<string>$(CONFIGURATION)</string>
+	<key>MY_TEST_SECRT</key>
+	<string>$(MY_TEST_SECRT)</string>
+	<key>my_lowercase_secrt</key>
+	<string>$(my_lowercase_secrt)</string>
+</dict>
+</plist>

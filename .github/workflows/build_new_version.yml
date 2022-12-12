@@ -13,6 +13,9 @@ on:
     - cron: 00 20 * * THU # Every Thursday 8 PM, release a new build
     # - cron: '*/5 * * * *' # Runs at every 5th minute.. (Must have single quotes: '')
 
+  push:
+    branches: [main]
+
 env:
   LC_ALL: en_US.UTF-8
   LANG: en_US.UTF-8
@@ -23,6 +26,8 @@ env:
   MATCH_GIT_URL: '${{ secrets.MATCH_GIT_URL }}'
   MATCH_PASSWORD: '${{ secrets.MATCH_PASSWORD }}'
   DEPLOYGATE_CUSTOM_MESSAGE: '${{ secrets.DEPLOYGATE_CUSTOM_MESSAGE }}'
+  BRANCH_NAME_HEAD_REF: ${{ github.head_ref }} 
+  BRANCH_NAME_REF_NAME: ${{ github.ref_name }}
 
   # MATCH_KEYCHAIN_PASSWORD: '${{ secrets.MATCH_KEYCHAIN_PASSWORD }}'
   # SLACK_CDCI_CHANNEL_URL: '${{ secrets.SLACK_CDCI_CHANNEL_URL }}'
