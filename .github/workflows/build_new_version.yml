@@ -13,6 +13,9 @@ on:
     - cron: 00 20 * * THU # Every Thursday 8 PM, release a new build
     # - cron: '*/5 * * * *' # Runs at every 5th minute.. (Must have single quotes: '')
 
+  push:
+    branches: [main]
+
 env:
   LC_ALL: en_US.UTF-8
   LANG: en_US.UTF-8
