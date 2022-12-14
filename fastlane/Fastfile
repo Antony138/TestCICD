@@ -177,6 +177,7 @@ private_lane :upload_deploygate do
   deploygate_feedback_message = "#{lane_context[SharedValues::DEPLOYGATE_URL]}; #{lane_context[SharedValues::DEPLOYGATE_REVISION]}; #{lane_context[SharedValues::DEPLOYGATE_APP_INFO]}"
   puts "deploygate_feedback_message: #{deploygate_feedback_message}"
   app_info = lane_context[SharedValues::DEPLOYGATE_APP_INFO]
+  puts "app_info: #{app_info}"
   info_description = app_info[:description]
   info_organization_name = app_info[:name]
 
