@@ -155,6 +155,7 @@ private_lane :upload_deploygate do
   puts "last_git_commit: #{commit}"
   
   branch_name = git_branch
+  branch_name_head_ref = "#{ENV["BRANCH_NAME_HEAD_REF"]}"
   puts "branch_name: #{branch_name}"
   puts "BRANCH_NAME_HEAD_REF(from github action): #{ENV["BRANCH_NAME_HEAD_REF"]}"
   puts "BRANCH_NAME_REF_NAME(from github action): #{ENV["BRANCH_NAME_REF_NAME"]}"
@@ -175,8 +176,16 @@ private_lane :upload_deploygate do
 
   deploygate_feedback_message = "#{lane_context[SharedValues::DEPLOYGATE_URL]}; #{lane_context[SharedValues::DEPLOYGATE_REVISION]}; #{lane_context[SharedValues::DEPLOYGATE_APP_INFO]}"
   puts "deploygate_feedback_message: #{deploygate_feedback_message}"
+  app_info = lane_context[SharedValues::DEPLOYGATE_APP_INFO]
+  info_description = app_info[:description]
+  info_organization_name = app_info[:name]
 
-  send_slack_message(build_number: "#{lane_context[SharedValues::DEPLOYGATE_REVISION]}")
+  send_slack_message(
+    info_description: info_description,
+    build_number: "#{lane_context[SharedValues::DEPLOYGATE_REVISION]}",
+    branch_name: branch_name_head_ref,
+    info_organization_name: info_organization_name
+  )
 end
 
 private_lane :check_env_var do
@@ -207,7 +216,7 @@ end
 # end
 
 private_lane :send_slack_message do |options|
-  message = "App successfully released! ##{options[:build_number]}"
+  message = "info_description: #{options[:info_description]}; info_organization_name: #{options[:info_organization_name]}; build_number: ##{options[:build_number]}; branch_name: #{options[:branch_name]}"
   puts "message: #{message}"
 
   branch_name = git_branch
