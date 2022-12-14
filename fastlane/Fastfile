@@ -178,9 +178,9 @@ private_lane :upload_deploygate do
   puts "deploygate_feedback_message: #{deploygate_feedback_message}"
   app_info = lane_context[SharedValues::DEPLOYGATE_APP_INFO]
   puts "app_info: #{app_info}"
-  info_description = app_info["description"]
   app_info_user = app_info["user"]
   info_organization_name = app_info_user["name"]
+  info_description = app_info_user["description"]
 
   send_slack_message(
     info_description: info_description,
