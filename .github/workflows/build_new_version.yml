@@ -1,5 +1,7 @@
+# 这个name，会显示在网站Action tab下的每一个workflow
 name: Build a new version
-
+run-name: "MY CUSTOM WORKFLOW RUN NAME"
+# 这里利用返回值，用run name来设置名称?
 on:
   pull_request:
     types: [opened, synchronize]
@@ -28,6 +30,7 @@ env:
   DEPLOYGATE_CUSTOM_MESSAGE: '${{ secrets.DEPLOYGATE_CUSTOM_MESSAGE }}'
   BRANCH_NAME_HEAD_REF: ${{ github.head_ref }} 
   BRANCH_NAME_REF_NAME: ${{ github.ref_name }}
+  PERSONAL_ACCESS_TOKEN_GITHUB_API: '${{ secrets.PERSONAL_ACCESS_TOKEN_GITHUB_API }}'
 
   # MATCH_KEYCHAIN_PASSWORD: '${{ secrets.MATCH_KEYCHAIN_PASSWORD }}'
   # SLACK_CDCI_CHANNEL_URL: '${{ secrets.SLACK_CDCI_CHANNEL_URL }}'
@@ -37,6 +40,7 @@ jobs:
     # runs-on: [self-hosted, macOS, ARM64, antony, m1pro]
     # runs-on: [self-hosted, macOS, ARM64, M1, Air]
     # runs-on: [self-hosted, macOS, X64, test, office]
+    name: "MY CUSTOM jobs NAME ${{ github.env.VERSION_CODE }}"
     runs-on: [self-hosted, macOS, ARM64, M1, test, office]
     # runs-on: [self-hosted, macOS, ARM64, CompanyMac]
     # env:
@@ -78,11 +82,16 @@ jobs:
           bundle install
         # run: bundle install --path vendor/bundle
 
+      # 这里可以利用返回值，把build number返回后，run name应该可以用
+      # 好像是用id来标识（获取）这里的返回值
       - name: Buiding!
         run: |
           source ~/.zprofile
           source ~/.zshrc
           bundle exec fastlane build
+
+      - name: Output returned value
+        run: echo "Build for ${{ env.VERSION_CODE }} is ready for testing."
 
       # - name: Delete confidential info from CI environment
       #   if: always()

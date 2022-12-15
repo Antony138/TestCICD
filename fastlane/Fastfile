@@ -23,7 +23,6 @@ platform :ios do
     archive
     
     upload_deploygate
-
   end
 
   rescue => exception
@@ -153,8 +152,10 @@ private_lane :upload_deploygate do
 
   commit = last_git_commit
   puts "last_git_commit: #{commit}"
+  puts "commit[:commit_hash]: #{commit[:commit_hash]}" 
   
   branch_name = git_branch
+  branch_name_head_ref = "#{ENV["BRANCH_NAME_HEAD_REF"]}"
   puts "branch_name: #{branch_name}"
   puts "BRANCH_NAME_HEAD_REF(from github action): #{ENV["BRANCH_NAME_HEAD_REF"]}"
   puts "BRANCH_NAME_REF_NAME(from github action): #{ENV["BRANCH_NAME_REF_NAME"]}"
@@ -173,10 +174,46 @@ private_lane :upload_deploygate do
       message: "#{ENV["BRANCH_NAME_HEAD_REF"]}"
   )
 
+  # 在这里拿到build number，如何传出去？
   deploygate_feedback_message = "#{lane_context[SharedValues::DEPLOYGATE_URL]}; #{lane_context[SharedValues::DEPLOYGATE_REVISION]}; #{lane_context[SharedValues::DEPLOYGATE_APP_INFO]}"
   puts "deploygate_feedback_message: #{deploygate_feedback_message}"
+  app_info = lane_context[SharedValues::DEPLOYGATE_APP_INFO]
+  puts "app_info: #{app_info}"
+  app_info_user = app_info["user"]
+  info_organization_name = app_info_user["name"]
+  info_description = app_info_user["description"]
 
-  send_slack_message(build_number: "#{lane_context[SharedValues::DEPLOYGATE_REVISION]}")
+  # 把参数传到GitHub Action中
+  sh("echo VERSION_CODE=##{lane_context[SharedValues::DEPLOYGATE_REVISION]} >> $GITHUB_ENV")
+
+  # update github build status with DeployGate's  build number
+  # 难道这样就可以了？？？
+  puts "Updating status on GitHub..."
+  github_api(
+    server_url: "https://api.github.com",
+    api_token: ENV["PERSONAL_ACCESS_TOKEN_GITHUB_API"],
+    http_method: "POST",
+    # path: "/repos/Drivemode/drivemode/statuses/#{commit[:commit_hash]}",
+    path: "/repos/Antony138/TestCICD/statuses/#{commit[:commit_hash]}",
+    # url: "https://github.com/Antony138/TestCICD",
+    body: {
+      "state":"success",
+      "target_url": "#{lane_context[SharedValues::DEPLOYGATE_URL]}",
+      "description":"revision no: #{lane_context[SharedValues::DEPLOYGATE_REVISION]}",
+      "context": "deploygate"
+    },
+  )
+
+  github_api_feedback = "#{lane_context[SharedValues::GITHUB_API_STATUS_CODE]}; #{lane_context[SharedValues::GITHUB_API_RESPONSE]}; #{lane_context[SharedValues::GITHUB_API_JSON]}"
+  puts "github_api_feedback: #{github_api_feedback}"
+
+  send_slack_message(
+    info_description: info_description,
+    build_number: "#{lane_context[SharedValues::DEPLOYGATE_REVISION]}",
+    branch_name: branch_name_head_ref,
+    info_organization_name: info_organization_name,
+    build_url: lane_context[SharedValues::DEPLOYGATE_URL]
+  )
 end
 
 private_lane :check_env_var do
@@ -207,7 +244,7 @@ end
 # end
 
 private_lane :send_slack_message do |options|
-  message = "App successfully released! ##{options[:build_number]}"
+  message = "info_description: #{options[:info_description]}; info_organization_name: #{options[:info_organization_name]}; build_number: ##{options[:build_number]}; branch_name: #{options[:branch_name]}; build_url: #{options[:build_url]}"
   puts "message: #{message}"
 
   branch_name = git_branch
