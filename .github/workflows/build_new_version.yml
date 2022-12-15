@@ -1,5 +1,5 @@
 name: Build a new version
-
+# 这里利用返回值，用run name来设置名称?
 on:
   pull_request:
     types: [opened, synchronize]
@@ -37,6 +37,7 @@ jobs:
     # runs-on: [self-hosted, macOS, ARM64, antony, m1pro]
     # runs-on: [self-hosted, macOS, ARM64, M1, Air]
     # runs-on: [self-hosted, macOS, X64, test, office]
+    name: "MY CUSTOM NAME"
     runs-on: [self-hosted, macOS, ARM64, M1, test, office]
     # runs-on: [self-hosted, macOS, ARM64, CompanyMac]
     # env:
@@ -78,6 +79,8 @@ jobs:
           bundle install
         # run: bundle install --path vendor/bundle
 
+      # 这里可以利用返回值，把build number返回后，run name应该可以用
+      # 好像是用id来标识（获取）这里的返回值
       - name: Buiding!
         run: |
           source ~/.zprofile
