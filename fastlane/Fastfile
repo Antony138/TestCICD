@@ -23,9 +23,6 @@ platform :ios do
     archive
     
     upload_deploygate
-
-    code = "123"
-    sh("echo VERSION_CODE=#{code} >> $GITHUB_ENV")
   end
 
   rescue => exception
@@ -184,6 +181,9 @@ private_lane :upload_deploygate do
   app_info_user = app_info["user"]
   info_organization_name = app_info_user["name"]
   info_description = app_info_user["description"]
+
+  # 把参数传到GitHub Action中
+  sh("echo VERSION_CODE=#{lane_context[SharedValues::DEPLOYGATE_REVISION]} >> $GITHUB_ENV")
 
   send_slack_message(
     info_description: info_description,
