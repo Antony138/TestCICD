@@ -183,7 +183,7 @@ private_lane :upload_deploygate do
   info_description = app_info_user["description"]
 
   # 把参数传到GitHub Action中
-  sh("echo VERSION_CODE=#{lane_context[SharedValues::DEPLOYGATE_REVISION]} >> $GITHUB_ENV")
+  sh("echo VERSION_CODE=##{lane_context[SharedValues::DEPLOYGATE_REVISION]} >> $GITHUB_ENV")
 
   send_slack_message(
     info_description: info_description,

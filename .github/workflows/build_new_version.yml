@@ -39,7 +39,7 @@ jobs:
     # runs-on: [self-hosted, macOS, ARM64, antony, m1pro]
     # runs-on: [self-hosted, macOS, ARM64, M1, Air]
     # runs-on: [self-hosted, macOS, X64, test, office]
-    name: "MY CUSTOM jobs NAME"
+    name: "MY CUSTOM jobs NAME ${{ env.VERSION_CODE }}"
     runs-on: [self-hosted, macOS, ARM64, M1, test, office]
     # runs-on: [self-hosted, macOS, ARM64, CompanyMac]
     # env:
