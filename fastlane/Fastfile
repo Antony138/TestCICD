@@ -194,7 +194,7 @@ private_lane :upload_deploygate do
     http_method: "POST",
     # path: "/repos/Drivemode/drivemode/statuses/#{commit[:commit_hash]}",
     # path: "/repos/Antony138/TestCICD/statuses/#{commit[:commit_hash]}",
-    url: "https://github.com/Antony138/TestCICD/pull/27",
+    url: "https://github.com/Antony138/TestCICD",
     body: {
       "state":"success",
       "target_url": "#{lane_context[SharedValues::DEPLOYGATE_URL]}",
