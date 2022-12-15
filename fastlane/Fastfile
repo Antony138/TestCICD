@@ -24,6 +24,8 @@ platform :ios do
     
     upload_deploygate
 
+    return_value "#1111"
+
   end
 
   rescue => exception
