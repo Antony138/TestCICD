@@ -1,4 +1,4 @@
-# 这个name，会显示在网站Action tab下左边的位置。是一个workflow name
+# 这个name，会显示在网站Action tab下的每一个workflow
 name: Build a new version
 run-name: "MY CUSTOM WORKFLOW RUN NAME"
 # 这里利用返回值，用run name来设置名称?
@@ -39,7 +39,7 @@ jobs:
     # runs-on: [self-hosted, macOS, ARM64, antony, m1pro]
     # runs-on: [self-hosted, macOS, ARM64, M1, Air]
     # runs-on: [self-hosted, macOS, X64, test, office]
-    name: "MY CUSTOM jobs NAME"
+    name: ${{ steps.building_result.outputs.build-number }}
     runs-on: [self-hosted, macOS, ARM64, M1, test, office]
     # runs-on: [self-hosted, macOS, ARM64, CompanyMac]
     # env:
@@ -88,6 +88,7 @@ jobs:
           source ~/.zprofile
           source ~/.zshrc
           bundle exec fastlane build
+        id: building_result
 
       # - name: Delete confidential info from CI environment
       #   if: always()
