@@ -30,6 +30,7 @@ env:
   DEPLOYGATE_CUSTOM_MESSAGE: '${{ secrets.DEPLOYGATE_CUSTOM_MESSAGE }}'
   BRANCH_NAME_HEAD_REF: ${{ github.head_ref }} 
   BRANCH_NAME_REF_NAME: ${{ github.ref_name }}
+  PERSONAL_ACCESS_TOKEN_GITHUB_API: '${{ secrets.PERSONAL_ACCESS_TOKEN_GITHUB_API }}'
 
   # MATCH_KEYCHAIN_PASSWORD: '${{ secrets.MATCH_KEYCHAIN_PASSWORD }}'
   # SLACK_CDCI_CHANNEL_URL: '${{ secrets.SLACK_CDCI_CHANNEL_URL }}'
@@ -88,7 +89,6 @@ jobs:
           source ~/.zprofile
           source ~/.zshrc
           bundle exec fastlane build
-        id: building_result
 
       - name: Output returned value
         run: echo "Build for ${{ env.VERSION_CODE }} is ready for testing."

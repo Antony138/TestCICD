@@ -185,6 +185,22 @@ private_lane :upload_deploygate do
   # 把参数传到GitHub Action中
   sh("echo VERSION_CODE=##{lane_context[SharedValues::DEPLOYGATE_REVISION]} >> $GITHUB_ENV")
 
+  # 难道这样就可以了？？？
+  puts "Updating status on GitHub..."
+  github_api(
+    server_url: "https://api.github.com",
+    api_token: ENV["PERSONAL_ACCESS_TOKEN_GITHUB_API"],
+    http_method: "POST",
+    # path: "/repos/Drivemode/drivemode/statuses/#{commit[:commit_hash]}",
+    path: "/repos/Antony138/TestCICD/statuses/#{commit[:commit_hash]}",
+    body: {
+      "state":"success",
+      "target_url": "#{lane_context[SharedValues::DEPLOYGATE_URL]}",
+      "description":"revision no: #{lane_context[SharedValues::DEPLOYGATE_REVISION]}",
+      "context": "deploygate"
+    },
+  )
+
   send_slack_message(
     info_description: info_description,
     build_number: "#{lane_context[SharedValues::DEPLOYGATE_REVISION]}",
