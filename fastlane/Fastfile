@@ -185,6 +185,7 @@ private_lane :upload_deploygate do
   # 把参数传到GitHub Action中
   sh("echo VERSION_CODE=##{lane_context[SharedValues::DEPLOYGATE_REVISION]} >> $GITHUB_ENV")
 
+  # update github build status with DeployGate's  build number
   # 难道这样就可以了？？？
   puts "Updating status on GitHub..."
   github_api(
@@ -192,7 +193,8 @@ private_lane :upload_deploygate do
     api_token: ENV["PERSONAL_ACCESS_TOKEN_GITHUB_API"],
     http_method: "POST",
     # path: "/repos/Drivemode/drivemode/statuses/#{commit[:commit_hash]}",
-    path: "/repos/Antony138/TestCICD/statuses/#{commit[:commit_hash]}",
+    # path: "/repos/Antony138/TestCICD/statuses/#{commit[:commit_hash]}",
+    url: "https://github.com/Antony138/TestCICD/pull/27",
     body: {
       "state":"success",
       "target_url": "#{lane_context[SharedValues::DEPLOYGATE_URL]}",
