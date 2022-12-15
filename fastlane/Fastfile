@@ -208,7 +208,7 @@ private_lane :upload_deploygate do
   # github_api_feedback = "#{lane_context[SharedValues::GITHUB_API_STATUS_CODE]}; #{lane_context[SharedValues::GITHUB_API_RESPONSE]}; #{lane_context[SharedValues::GITHUB_API_JSON]}"
   # puts "github_api_feedback: #{github_api_feedback}"
 
-  sh("echo TARGET_URL=##{lane_context[SharedValues::DEPLOYGATE_URL]} >> $GITHUB_ENV")
+  sh("echo TARGET_URL=#{lane_context[SharedValues::DEPLOYGATE_URL]} >> $GITHUB_ENV")
 
   send_slack_message(
     info_description: info_description,
