@@ -152,6 +152,7 @@ private_lane :upload_deploygate do
 
   commit = last_git_commit
   puts "last_git_commit: #{commit}"
+  puts "commit[:commit_hash]: #{commit[:commit_hash]}" 
   
   branch_name = git_branch
   branch_name_head_ref = "#{ENV["BRANCH_NAME_HEAD_REF"]}"
@@ -193,8 +194,8 @@ private_lane :upload_deploygate do
     api_token: ENV["PERSONAL_ACCESS_TOKEN_GITHUB_API"],
     http_method: "POST",
     # path: "/repos/Drivemode/drivemode/statuses/#{commit[:commit_hash]}",
-    # path: "/repos/Antony138/TestCICD/statuses/#{commit[:commit_hash]}",
-    url: "https://github.com/Antony138/TestCICD",
+    path: "/repos/Antony138/TestCICD/statuses/#{commit[:commit_hash]}",
+    # url: "https://github.com/Antony138/TestCICD",
     body: {
       "state":"success",
       "target_url": "#{lane_context[SharedValues::DEPLOYGATE_URL]}",
