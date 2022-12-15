@@ -91,8 +91,8 @@ jobs:
         id: building_result
 
       - name: Output returned value
-        run: echo "The returned value is ${{ steps.return_value }}"
-        
+        run: echo "Build for ${{ env.VERSION_CODE }} is ready for testing."
+
       # - name: Delete confidential info from CI environment
       #   if: always()
       #   run: |

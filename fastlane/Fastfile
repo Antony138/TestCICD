@@ -24,8 +24,8 @@ platform :ios do
     
     upload_deploygate
 
-    return_value "#1111"
-
+    code = "123"
+    sh("echo VERSION_CODE=#{code} >> $GITHUB_ENV")
   end
 
   rescue => exception
