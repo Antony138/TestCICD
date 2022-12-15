@@ -30,7 +30,6 @@ env:
   DEPLOYGATE_CUSTOM_MESSAGE: '${{ secrets.DEPLOYGATE_CUSTOM_MESSAGE }}'
   BRANCH_NAME_HEAD_REF: ${{ github.head_ref }} 
   BRANCH_NAME_REF_NAME: ${{ github.ref_name }}
-  VERSION_CODE: ${{ env.VERSION_CODE }}
 
   # MATCH_KEYCHAIN_PASSWORD: '${{ secrets.MATCH_KEYCHAIN_PASSWORD }}'
   # SLACK_CDCI_CHANNEL_URL: '${{ secrets.SLACK_CDCI_CHANNEL_URL }}'
@@ -40,7 +39,7 @@ jobs:
     # runs-on: [self-hosted, macOS, ARM64, antony, m1pro]
     # runs-on: [self-hosted, macOS, ARM64, M1, Air]
     # runs-on: [self-hosted, macOS, X64, test, office]
-    name: "MY CUSTOM jobs NAME ${{ env.VERSION_CODE }}"
+    name: "MY CUSTOM jobs NAME ${{ github.env.VERSION_CODE }}"
     runs-on: [self-hosted, macOS, ARM64, M1, test, office]
     # runs-on: [self-hosted, macOS, ARM64, CompanyMac]
     # env:
