@@ -1,4 +1,6 @@
+# 这个name，会显示在网站Action tab下左边的位置。是一个workflow name
 name: Build a new version
+run-name: "MY CUSTOM WORKFLOW RUN NAME"
 # 这里利用返回值，用run name来设置名称?
 on:
   pull_request:
@@ -37,7 +39,7 @@ jobs:
     # runs-on: [self-hosted, macOS, ARM64, antony, m1pro]
     # runs-on: [self-hosted, macOS, ARM64, M1, Air]
     # runs-on: [self-hosted, macOS, X64, test, office]
-    name: "MY CUSTOM NAME"
+    name: "MY CUSTOM jobs NAME"
     runs-on: [self-hosted, macOS, ARM64, M1, test, office]
     # runs-on: [self-hosted, macOS, ARM64, CompanyMac]
     # env:
