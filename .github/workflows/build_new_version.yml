@@ -30,6 +30,7 @@ env:
   DEPLOYGATE_CUSTOM_MESSAGE: '${{ secrets.DEPLOYGATE_CUSTOM_MESSAGE }}'
   BRANCH_NAME_HEAD_REF: ${{ github.head_ref }} 
   BRANCH_NAME_REF_NAME: ${{ github.ref_name }}
+  VERSION_CODE: ${{ env.VERSION_CODE }}
 
   # MATCH_KEYCHAIN_PASSWORD: '${{ secrets.MATCH_KEYCHAIN_PASSWORD }}'
   # SLACK_CDCI_CHANNEL_URL: '${{ secrets.SLACK_CDCI_CHANNEL_URL }}'
