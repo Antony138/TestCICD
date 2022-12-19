@@ -188,7 +188,7 @@ private_lane :upload_deploygate do
   sh("echo VERSION_CODE=##{lane_context[SharedValues::DEPLOYGATE_REVISION]} >> $GITHUB_ENV")
 
   # update github build status with DeployGate's  build number
-  # 难道这样就可以了？？？？
+  # 难道这样就可以了？？？？？
   puts "Updating status on GitHub..."
   github_api(
     server_url: "https://api.github.com",
