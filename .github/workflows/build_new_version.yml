@@ -93,17 +93,6 @@ jobs:
       - name: Output returned value
         run: echo "Build for ${{ env.VERSION_CODE }} is ready for testing."
 
-      # - name: Send build state to GitHub
-      #   run: |
-      #     curl -X POST -H "Authorization: token ${{ secrets.PERSONAL_ACCESS_TOKEN_GITHUB_API }}" \
-      #       -d '{"state":"success", "target_url":"${{ env.TARGET_URL }}", "description":"111", "context": "deploygate"}' \
-      #       "https://api.github.com/repos/Antony138/TestCICD/statuses/${{ env.LAST_COMMIT }}"
-
-      # curl "https://api.GitHub.com/repos/Antony138/TestCICD/statuses/${{ env.LAST_COMMIT }}?access_token=${{ secrets.PERSONAL_ACCESS_TOKEN_GITHUB_API }}" \
-      #   -H "Authorization: ${{ secrets.PERSONAL_ACCESS_TOKEN_GITHUB_API }}" \
-      #   -X POST \
-      #   -d "{\"state\": \"success\",\"context\": \"continuous-integration/deploygate\", \"description\": \"111\", \"target_url\": \${{ env.TARGET_URL }}}"
-
       - name: Delete confidential info from CI environment
         if: always()
         run: |
