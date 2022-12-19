@@ -189,24 +189,24 @@ private_lane :upload_deploygate do
 
   # update github build status with DeployGate's  build number
   # 难道这样就可以了？？？？
-  # puts "Updating status on GitHub..."
-  # github_api(
-  #   server_url: "https://api.github.com",
-  #   api_token: ENV["PERSONAL_ACCESS_TOKEN_GITHUB_API"],
-  #   http_method: "POST",
-  #   # path: "/repos/Drivemode/drivemode/statuses/#{commit[:commit_hash]}",
-  #   path: "/repos/Antony138/TestCICD/statuses/#{commit[:commit_hash]}",
-  #   # url: "https://github.com/Antony138/TestCICD",
-  #   body: {
-  #     "state":"success",
-  #     "target_url": "#{lane_context[SharedValues::DEPLOYGATE_URL]}",
-  #     "description":"revision no: #{lane_context[SharedValues::DEPLOYGATE_REVISION]}",
-  #     "context": "deploygate"
-  #   },
-  # )
+  puts "Updating status on GitHub..."
+  github_api(
+    server_url: "https://api.github.com",
+    api_token: ENV["PERSONAL_ACCESS_TOKEN_GITHUB_API"],
+    http_method: "POST",
+    # path: "/repos/Drivemode/drivemode/statuses/#{commit[:commit_hash]}",
+    path: "/repos/Antony138/TestCICD/statuses/#{commit[:commit_hash]}",
+    # url: "https://github.com/Antony138/TestCICD",
+    body: {
+      "state":"success",
+      "target_url": "#{lane_context[SharedValues::DEPLOYGATE_URL]}",
+      "description":"revision no: #{lane_context[SharedValues::DEPLOYGATE_REVISION]}",
+      "context": "deploygate"
+    },
+  )
 
-  # github_api_feedback = "#{lane_context[SharedValues::GITHUB_API_STATUS_CODE]}; #{lane_context[SharedValues::GITHUB_API_RESPONSE]}; #{lane_context[SharedValues::GITHUB_API_JSON]}"
-  # puts "github_api_feedback: #{github_api_feedback}"
+  github_api_feedback = "#{lane_context[SharedValues::GITHUB_API_STATUS_CODE]}; #{lane_context[SharedValues::GITHUB_API_RESPONSE]}; #{lane_context[SharedValues::GITHUB_API_JSON]}"
+  puts "github_api_feedback: #{github_api_feedback}"
 
   sh("echo TARGET_URL=#{lane_context[SharedValues::DEPLOYGATE_URL]} >> $GITHUB_ENV")
 
