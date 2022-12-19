@@ -93,9 +93,9 @@ jobs:
       - name: Output returned value
         run: echo "Build for ${{ env.VERSION_CODE }} is ready for testing."
 
-      # - name: Delete confidential info from CI environment
-      #   if: always()
-      #   run: |
-      #     cd ~
-      #     pwd
-      #     rm .netrc
+      - name: Delete confidential info from CI environment
+        if: always()
+        run: |
+          cd ~
+          pwd
+          rm .netrc
